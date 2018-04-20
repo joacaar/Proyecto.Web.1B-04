@@ -1,0 +1,41 @@
+1- Como enviar la información desde la pagina web hasta el servidor?
+		- Enviamos la información con fetch desde el lado cliente, que introduce la información a la URL.
+
+	2- Como recibir la información enviada, por URL, desde el cliente en el lado del servidor?
+
+	3- Como comprobar la información recibida en la base de datos?
+
+	4- Que hacer si la información no es correcta?
+		- Enviar código de error
+
+	5- Que hacer si la información es correcta?
+		- Enviar un Json con los datos necesarios.
+
+		5.1- Como hacer un Json de los datos de la base de datos?
+			-
+
+		5.2- Como enviar el archivo Json al frontEnd?
+			- No hace falta enviar los datos, solo enviar la siguiente pagina web.
+
+			5.2.1- Como saber en las siguientes paginas que el usuario esta logeado si no es con tokens?
+				-
+
+	6- Que hacer si se intenta acceder a una pagina que necesita haberse logeado?
+		- Mostrar error o redirigir a la pagina del login
+
+		6.1- Y si se intenta acceder a una pagina que necesita login y el usuario se ha logeado
+			- Redirigir a esa pagina
+
+			6.1.1- Como saber en una petición si el usuario esta logeado?
+				-
+				
+	7- Como recibir el Json en la parte del cliente?
+		- Con la promesa del Fetch.then y para utilizarlo en la parte del cliente se convierte el Json en un objeto de JS.
+
+	
+	
+	
+
+
+
+

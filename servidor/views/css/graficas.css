@@ -1,0 +1,30 @@
+/*
+Colores usados:
+    Primario:   #ffab00
+    Light:      #ffdd4b
+    Dark:       #c67c00
+    Muy Darks:  
+
+    Secudario:  #ffecb3  
+    Light:      #ffffe5
+    Dark:       #cbba83
+
+    Letra párrafos: #333
+    Letra párrafos sobre imagen: #222;
+*/
+
+body {
+    margin: 0;
+    font-family: sans-serif;
+}
+
+div.seleccion {
+    background-color: #ffffe5;
+    padding-bottom: 1rem;
+    padding-left: 2rem;
+    padding-right: 1rem;
+}
+
+canvas#grafica {
+    padding: 1rem;
+}

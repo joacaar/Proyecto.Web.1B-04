@@ -1,0 +1,182 @@
+/*
+Colores usados:
+    Primario:   #ffab00
+    Light:      #ffdd4b
+    Dark:       #c67c00
+    Muy Darks:  
+
+    Secudario:  #ffecb3
+    Light:      #ffffe5
+    Dark:       #cbba83
+*/
+
+/*Parte del header de la pagina principal*/
+
+header {
+    background-color: #ffab00;
+    /*border-bottom-left-radius: 1em;
+    border-bottom-right-radius: 1em;*/
+    margin: 0px;
+}
+
+div.cabezal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 1em;
+    margin-right: 0.5em;
+    margin-bottom: 0px
+}
+
+.logo {
+    height: 2.5em;
+    width: 2.5em;
+}
+
+div.menu img.menu {
+    height: 2.5em;
+    width: 2.5em;
+}
+
+div.menu {
+    display: flex;
+    justify-content: flex-end;
+}
+
+#menu_principal {
+    display: flex;
+    justify-content: flex-end;
+}
+
+nav#menu_principal ul {
+    list-style-type: none;
+    border: 3px solid #c67c00;
+    padding: 0px;
+    margin: 0px;
+}
+
+nav#menu_principal ul li {
+    border: 3px solid #c67c00;
+    text-align: center;
+}
+
+/*Parte central de la página*/
+
+div.central {
+    background-color: white;
+    background-size: cover;
+    background-position: center;
+    margin: auto;
+    padding: 0px;
+    height: 100%;
+    width: 60%;
+    display: block;
+}
+
+div.central h1 {
+    text-align: center;
+    margin-top: 0px;
+}
+div.central h4{
+    background: rgba(255, 0, 0, 0.5);
+    color: black;
+    max-width: 300px;
+    text-align: center;
+    margin: 30px auto 30px auto;
+}
+
+p#label_user {
+    text-align: center;
+    margin-top: 0px;
+    margin-bottom: auto;
+    margin-left: -7rem;
+}
+
+p#label_cont {
+    text-align: center;
+    margin-bottom: auto;
+    margin-left: -6rem;
+}
+
+div.user_login {
+    text-align: center;
+    margin-top: 0px;
+}
+
+div.cont_login {
+    text-align: center;
+    margin-top: 0px;
+}
+
+p#label_olvidada {
+    text-align: center;
+    text-decoration-line: underline;
+    margin-right: -5rem;
+}
+
+button.botonAceptarLogin {
+    display: block;
+    background-color: #ffab00;
+    border: 3px solid #c67c00;
+    margin: 1em auto;
+    height: 3em;
+    width: 12em;
+    border-radius: 3em;
+}
+
+button.botonAceptarLogin:hover {
+    background-color: #c67c00;
+    border: 3px solid #c67c00;
+    color: white;
+}
+
+/*Parte del footer de la pagina principal*/
+
+footer {
+    background-color: #ffab00;
+    /*border-top-left-radius: 0.5em;
+    border-top-right-radius: 0.5em;*/
+}
+
+div.copy {
+    text-align: center;
+}
+
+div.redesSociales {
+    text-align: center;
+}
+
+div.redesSociales img.Twitter {
+    height: 2em;
+    width: 2em;
+}
+
+div.redesSociales img.Facebook {
+    height: 2em;
+    width: 2em;
+}
+
+div.redesSociales img.Linkedin {
+    height: 2em;
+    width: 2em;
+}
+div.footer {
+    display: flex;
+    justify-content: space-around;
+}
+
+div.izquierda {
+    text-align: left;
+}
+
+div.derecha {
+    text-align: right;
+}
+
+hr.footer {
+    border-color: black;
+}
+
+div.CreativeCommons {
+    text-align: center;
+}

@@ -1,0 +1,179 @@
+/*
+Colores usados:
+    Primario:   #ffab00
+    Light:      #ffdd4b
+    Dark:       #c67c00
+    Muy Darks:  
+
+    Secudario:  #ffecb3
+    Light:      #ffffe5
+    Dark:       #cbba83
+*/
+
+body {
+    margin: 0;
+    font-family: sans-serif;
+}
+
+.alert-danger {
+    text-align: center;
+}
+
+div.central {
+    background-color: white;
+    background-size: cover;
+    background-position: center;
+    margin: 3rem auto;
+    padding: 0px;
+    height: 20rem;
+    width: 17rem;
+    display: block;
+    border: solid 1px black;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+div.central h1 {
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 0px;
+}
+
+
+/*Formulario*/
+
+form.login {
+    margin-top: 0.25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+div.user_login {
+    width: 177px;
+    margin-top: 0px;
+    margin-bottom: 0.7rem;
+}
+
+p#label_user {
+    margin-bottom: 0.3rem;
+}
+
+div.cont_login {
+    width: 177px;
+    margin-top: 0px;
+}
+
+p#label_cont {
+    margin-bottom: 0.3rem;
+}
+
+
+
+/*
+p#label_user {
+    text-align: center;
+    margin-top: 0px;
+    margin-bottom: auto;
+    margin-left: 0rem;
+    margin-right: 7.6rem;
+}
+
+p#label_cont {
+    text-align: center;
+    margin-bottom: auto;
+    margin-left: 0rem;
+    margin-right: 5.5rem;
+}
+
+p#label_olvidada {
+    text-align: center;
+    text-decoration-line: underline;
+    margin-right: -5rem;
+}
+*/
+
+/*
+button.botonAceptarLogin {
+    display: block;
+    background-color: #ffab00;
+    border: 3px solid #c67c00;
+    margin: 1em auto;
+    height: 3em;
+    width: 12em;
+    border-radius: 3em;
+}
+
+button.botonAceptarLogin:hover {
+    background-color: #c67c00;
+    border: 3px solid #c67c00;
+    color: white;
+}
+*/
+
+button.botonAceptarLogin {
+    display: block;
+    background-color: #ffab00;
+    border: 3px solid #c67c00;
+    margin: 1rem auto;
+    height: 2.5rem;
+    width: 10rem;
+    border-radius: 3rem;
+    font-weight: bolder;
+}
+
+button.botonAceptarLogin:hover {
+    background-color: #d89100;
+    border: 3px solid #a36600;
+}
+
+button.botonAceptarLogin:active {
+    background-color: #c67c00;
+    border: 3px solid #c67c00;
+    color: white;
+}
+
+/*Media Querys*/
+
+@media(min-width:450px) {
+    div.central {
+        width: 20rem;
+        height: 100%;
+    }
+}
+
+@media(min-width:550px) {
+    div.central {
+        width: 30rem;
+        height: 100%;
+    }
+}
+
+@media(min-width:991px) {
+    div.central {
+        width: 30rem;
+        height: 25rem;
+    }
+    a#atras {
+        visibility: hidden;
+    }
+}
+
+@media(min-height:710px){
+    footer {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+}
+
+@media(min-height:700px, min-width:991px){
+    footer {
+        position: relative;
+    }
+}

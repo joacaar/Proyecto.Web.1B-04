@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>GTI | Grado en tecnologias interactivas</title>
+    <!--Falta un favicon de GTI-->
+    <meta name="viewport" content="width-device-width, initial-scale=1, shrink-tofit=no">
+    <meta http-equiv="x-ua-compatible" content="ie-edge">
+    <link rel="stylesheet" type="text/css" href="css/principal.css">
+    <script>
+        function pagLogin (){
+            location.href='./login';
+        }
+        function pagTarifas(){
+            location.href='./tarifas';
+        }
+    </script>
+</head>
+
+<body>
+    <section class="pagina_principal" id="Subir">
+        <!--Cabecera-->
+        <header>
+            <div class="cabezal">
+                <div class="logo"><a href="/"><img src="images/logo_gtinegro2.svg" alt="Logo GTI" class="logo"></a></div>
+                <button type="button" id="Login" class="botonEnlace" onclick='pagLogin();'>Iniciar sesión</button>
+                <!--Lista de menú-->
+                <div class="menu"><img src="images/menu.svg" alt="Boton menú" class="menu"></div>
+            </div>
+           <!-- <nav id="menu_principal">
+                <ul>
+                    <li><a href="/">Inicio</a></li>
+                    <li><a href="./login/">Login</a></li>
+                    <li><a href="./tarifas/">Tarifas</a></li>
+                    <li><a href="#">Documentacion</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Privacidad</a></li>
+                </ul>
+            </nav> -->
+        </header>
+        <!--Parte central-->
+        <div class="central">
+            <h2>Controla tu campo desde cualquier lado</h2>
+            <p>Un servicio web que permite realizar un control diario de los productos de la tierra, para mejorar la producción.</p>
+            <!--Botones-->
+            <button type="button" id="Tarifas" class="botonEnlace" onclick="pagTarifas()">¡Contratalo Ya!</button>
+        </div>
+    </section>
+    <!--Parte final-->
+    <section class="finalDePagina">
+        <footer>
+            <div class="footer">
+                <div class="izquierda">
+                    <a href="#"><label for="documentacion">Terminos y condiciones</label></a><br/>
+                    <a href="#"><label for="FAQ">FAQs</label></a><br/>
+                </div>
+                <div class="derecha">
+                    <a href="#"><label for="privacidad">Politica de privacidad</label></a><br/>
+                    <a href="#"><label for="AvisoLegal">Aviso Legal</label></a><br/>
+                </div>
+            </div>
+            <div class="copy">
+                <label for="copyright">2018 &copy; | GTI Todos los derechos reservados</label>
+            </div>
+            <div class="redesSociales">
+                <a href="http://www.twitter.com"> <img src="images/Twitter.svg" alt="Twitter" class="Twitter"></a>
+                <a href="http://www.facebook.com"><img src="images/facebook2.svg" alt="Facebook" class="Facebook"></a>
+                <a href="http://www.linkedin.com"><img src="images/linkedin.svg" alt="Linkedin" class="Linkedin"></a>
+            </div>
+        </footer>
+    </section>
+
+</body>
+
+</html>

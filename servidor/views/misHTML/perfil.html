@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie-edge">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+<!--    <link rel="stylesheet" href="css/perfil.css">
+    <link rel="stylesheet" href="css/"> -->
+<!--    <script src="./js/perfil.js" language="javascript" type="text/javascript"></script>-->
+    <title>Perfil</title>
+    <style>
+        body{
+            margin: 0 0;
+        }
+        
+/*        -------------------------------------------------*/
+        .contenedor{
+            max-width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+/*        -------------------------------------------------*/
+        .cabezera {
+            display:flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            background: #FFAB00;
+            padding: 0.5rem;
+            flex: 0 1 60px;
+            max-height: 60px;
+        }
+        .cabezera img{
+            margin-right: 1rem;
+            max-width: 50px;
+        }
+        
+/*        -------------------------------------------------*/
+        .datosUsuario {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0.5rem;
+        }
+        .datosUsuario .tituloh3 {
+            display:flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        h3{
+            text-align: center;
+            font-size: 2rem;
+            margin: 1rem;
+        }
+        .datosUsuario img{
+            max-width:  100px;
+            margin-bottom: 15px;
+        }
+        .datosUsuario input{
+            color: transparent;
+            max-width: 155px;
+        }
+        .datosUsuario ul li{
+            display: flex;
+            align-items: baseline;
+            flex-wrap: wrap;
+            list-style: none;
+            text-decoration: none;
+            font-size: 1.25rem;
+            font-weight: normal;
+            margin: 1rem;
+        }
+        .datosUsuario ul li p{
+            margin: 0.5rem 0.5rem;
+        }
+        
+/*        -------------------------------------------------*/
+        .modfContra{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex-wrap: wrap;
+            margin: auto 0;
+            flex: 0 1 auto;
+        }
+        .modfContra p{
+            font-size: 1.25rem;
+            font-weight: normal;
+            padding: 0.5rem 0;
+            margin-top: 1rem;
+            margin-bottom: 0;
+        }
+        .modfContra input{
+            margin: -0.2rem 0;
+        }
+/*        -------------------------------------------------*/
+        .alertas{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 1rem auto;
+        }
+        .alert{
+            max-width: 500px;
+        }
+        .alert p {
+            text-align: center;
+        }
+/*        -------------------------------------------------*/
+        .botones{
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+            margin-top: 2rem;
+        }
+        .botones button{
+            background: #FFAB00;
+            color: black;
+            border: 1px solid #fff;
+            width: 200px;
+            min-height: 40px;
+        }
+        .botones button:active{
+            background: #FFF;
+            border: 1px solid #fff;
+            color: black;
+        }
+        
+/*        -------------------------------------------------*/
+        footer{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            background: #979797;
+            flex: 0 1 30px;
+            margin-top: 1.25rem;
+        }
+    </style>
+</head>
+<body onload="mostrarDatos();">
+    <div class="contenedor" >
+        <header class="cabezera">
+            <img src="images/usuario.svg" alt="Icono Perfil">
+            <h1>Perfil</h1>
+        </header>
+        
+        <section class="datosUsuario">
+            <div class="tituloh3">
+                <h3>Datos de usuario</h3>
+            </div>
+            <img src="images/foto.svg" alt="Foto o Logo de la empresa" class="fotoPerfil" >
+            <input type="file" name="Imagen Perfil">
+            <ul >
+                <li>Nombre: <p id="nombre">Dato no disponible</p> </li>
+                <li>Apellidos: <p id="apellidos">Dato no disponible</p> </li>
+                <li>Correo: <p id="correo">Dato no disponible</p></li>
+                <li>Teléfono: <p id="telefono">Dato no disponible</p></li>
+            </ul>
+        </section>
+        
+        <section class="modfContra">
+            <h3>Modificar Contraseña</h3>
+            <form action="">
+                <p>Contraseña actual</p>
+                <input type="password" id="contraActual">
+                <p>Nueva Contraseña</p>
+                <input type="password" id="nuevaContra" >
+                <p>Repetir Contraseña</p>
+                <input type="password" id="repetirContra">
+            </form>                
+        </section>
+        <div class="alertas">
+            <!--Alerta de cambio de contraseña correcto-->
+            <div class="alert alert-success" role="alert" id="cuadroAlertaVerde">
+                <p id="correcto"></p>
+            </div>
+
+            <!--Alerta de contraseña erronea-->
+            <div class="alert alert-danger" role="alert" id="cuadroAlerta" >
+                <p id="alerta"></p>
+            </div>
+        </div>
+        <section class="botones">
+            <button type="button" onclick="modificarContrasena()">Guardar</button>
+            <button type="button" onclick="continuar()">Continuar</button>
+        </section>
+        
+        <footer>
+            <p>© 2018 Interactive Technologies, Inc.</p>
+        </footer>
+    </div>
+   
+    <script>
+//        var datosUsuario = {
+//            correo: "amarti@.com",
+//            contrasena: 1234,
+//            nombre: "Adrian",
+//            apellidos:"Marti",
+//            telefono: 123456789,
+//            primerInicio: true,
+//        }
+//        //------------Ponemos los datos en pantalla-------------------//
+//        // Nombre
+//        var nombre = document.getElementById("nombre")
+//        nombre.innerHTML = datosUsuario.nombre;
+//        
+//        // apellido
+//        var apellido = document.getElementById("apellidos")
+//        apellido.innerHTML = datosUsuario.apellidos;
+//        
+//                // correo
+//        var correo = document.getElementById("correo")
+//        correo.innerHTML = datosUsuario.correo;
+//        
+//                // telefono
+//        var telefono = document.getElementById("telefono")
+//        telefono.innerHTML = datosUsuario.telefono;
+//        
+        
+        //------------configuración del cambio de contraseña-------------------//
+        // cuadro de alerta de cambio correcto
+        var cuadroVerde = document.getElementById("cuadroAlertaVerde");
+        cuadroVerde.style.display = 'none';
+        
+        // cuadro de alerta de error de datos
+        var cuadro = document.getElementById("cuadroAlerta");
+        cuadro.style.display = 'none';
+        
+        var aviso = document.getElementById("alerta");
+        
+//        var cNewPass = document.getElementById("nuevaContra");
+//        var cRepPass = document.getElementById("repetirContra");
+        
+        // funcion para cambiar la contraseña inicial
+//        function cambiarContra (){
+//            var contraActual = document.getElementById("contraActual").value;
+//            
+//            if(contraActual == datosUsuario.contrasena){
+//                var newPass = document.getElementById("nuevaContra").value;
+//                var repPass = document.getElementById("repetirContra").value;
+//                
+//                if(newPass != "" && newPass == repPass){
+//                    
+//                    cuadro.style.display = "none";
+//                    
+//                    datosUsuario.contrasena = newPass;
+//                    
+//                    if(datosUsuario.primerInicio == true){
+//                        datosUsuario.primerInicio = false;
+//                    }
+//                    
+//                    cuadroVerde.style.display = "block";
+//                    document.getElementById("correcto").innerHTML = "La contraseña se modifico correctamente";
+//                    
+//                }else{
+//                    cuadro.style.display = "block";
+//                    aviso.innerHTML = "La nueva contraseña no coincide";
+//                }
+//            }else{
+//                cuadro.style.display = "block";
+//                aviso.innerHTML = "La contraseña actual no es correcta";
+//            }
+//        }
+        
+//        function continuar(){
+//            if(datosUsuario.primerInicio == false){
+//                location.href="campo.html";
+//            }else{
+//                
+//            }
+//        }
+        
+
+    </script>
+    <script src="js/perfil.js"></script>
+
+</body>
+</html>

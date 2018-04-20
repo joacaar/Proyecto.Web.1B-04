@@ -1,0 +1,9 @@
+Como soporte tecnico quiero poder tener acceso a las cuentas de usuario para la resolucicion de sus problemas
+	- Tiene acceso remoto a una cuenta de soporte tecnico para poder visualizar todos los usuarios
+
+
+Como trabajador quiero visualizar los datos para controlar el campo en todo momento
+	- Cuando inicie sesion los datos se envian al servidor y este devuelve los datos de los sensores.
+
+como trabajador quiero poder personalizar la web a mi gusto para seleccionar los datos que suiero visualizar.
+	- En la personalizacion podra elegir que datos mostrar mediante un filtro de opciones.

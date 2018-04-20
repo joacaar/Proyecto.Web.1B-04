@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width-device-width, initial-scale=1, shrink-tofit=no">
+    <meta http-equiv="x-ua-compatible" content="ie-edge">
+    <link rel="stylesheet" type="text/css" href="../css/login.css">
+    <title>Inicio Sesión</title>
+
+    <script>
+
+        function activarBoton (user, pass){
+            if(user != '' && pass != ''){
+                console.log('Usuario: ' + user);
+                console.log('Contraseña: ' + pass);
+                enviarDatos(user, pass);
+
+            }else{
+                var formaMostrar = document.getElementById('errorInicio');
+                formaMostrar.innerHTML = 'Faltan datos en los campos';
+            }
+        }
+        
+        function comprobarDatos (funcion){
+            var user = '';
+            var pass = '';
+            
+            user = document.getElementById('user').value;
+            pass = document.getElementById('password').value;
+            
+            funcion(user, pass);
+
+            
+        }
+        
+        function enviarDatos(usuario, contra){
+            /*fetch("localhsot:3000/inicio?user=" + usuario + "pass=" + contra).then(function(respuesta){        
+            console.log(respuesta); 
+            });*/
+            
+            activarBoton(usuario, contra);
+        }
+        function recuperarContra(){
+            location.href = '../recuperar';
+        }
+
+    </script>
+</head>
+
+<body>
+    <section class="Pagina_login" id="nosequePoner">
+        <!-- Cabecera-->
+        <header>
+            <div class="cabezal">
+                <div class="logo"><a href="../"><img src="../images/logo_gtinegro2.svg" alt="Logo GTI" class="logo"></a></div>
+                <!--Lista de menú-->
+                <div class="menu"><img src="../images/menu.svg" alt="Boton menú" class="menu"></div>
+            </div>
+           <!-- <nav id="menu_principal">
+                <ul>
+                    <li><a href="../">Inicio</a></li>
+                    <li><a href="#">Login</a></li>
+                    <li><a href="#">Tarifas</a></li>
+                    <li><a href="#">Documentacion</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Privacidad</a></li>
+                </ul>
+            </nav> -->
+        </header>
+        <!-- Parte central-->
+        <div class="central">
+            <h1>Inicio de Sesión</h1>
+            <h4 id="errorInicio"></h4>
+            <!-- marcos de texto -->
+            <form action="#" id="login" class="login">
+                <div class="user_login">
+                    <p id="label_user">Usuario</p>
+                    <input id="user" type="text" placeholder="Escriba su usuario">
+                    <br/>
+                </div>
+                <div class="cont_login">
+                    <p id="label_cont">Contraseña</p>
+                    <input id="password" type="password" placeholder="Escriba su contraseña">
+                </div>
+                <div class="olvidada-login">
+                    <a href="../recuperar/"><p id="label_olvidada"><em>¿Contraseña olvidada?</em></p></a>
+                </div>
+            </form>
+            <!-- Botones -->
+            <button type="button" class="botonAceptarLogin" onclick="comprobarDatos(enviarDatos);"> Aceptar </button>
+        </div>
+    </section>
+    <!--Parte final-->
+    <section class="finalDePagina">
+        <footer>
+            <div class="footer">
+                <div class="izquierda">
+                    <a href="#"><label for="documentacion">Terminos y condiciones</label></a><br/>
+                    <a href="#"><label for="FAQ">FAQs</label></a><br/>
+                </div>
+                <div class="derecha">
+                    <a href="#"><label for="privacidad">Politica de privacidad</label></a><br/>
+                    <a href="#"><label for="AvisoLegal">Aviso Legal</label></a><br/>
+                </div>
+            </div>
+            <div class="copy">
+                <label for="copyright">2018 &copy; | GTI Todos los derechos reservados</label>
+            </div>
+            <div class="redesSociales">
+                <a href="http://www.twitter.com"> <img src="../images/Twitter.svg" alt="Twitter" class="Twitter"></a>
+                <a href="http://www.facebook.com"><img src="../images/facebook2.svg" alt="Facebook" class="Facebook"></a>
+                <a href="http://www.linkedin.com"><img src="../images/linkedin.svg" alt="Linkedin" class="Linkedin"></a>
+            </div>
+            <hr class="footer" />
+        </footer>
+    </section>
+</body>
+
+</html>

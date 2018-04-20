@@ -1,0 +1,37 @@
+button.navbar-toggler {
+    margin-left: 0rem;
+}
+
+nav.navbar {
+    background-color: #ffffe5;
+    padding: 0;
+    margin: 0;
+}
+
+ul.mt-md-0 {
+    margin-top: 0!important;
+}
+
+li.nav-item {
+    padding-left: 1rem;
+}
+
+li.nav-item:hover {
+    background-color: #ffecb3;
+}
+
+li.active {
+    background-color: #cbba83;
+}
+
+
+
+@media(min-width:991px) {
+    nav.navbar {
+        padding-left: 1rem;
+
+    }
+    li.nav-item {
+        padding: 0;
+    }
+}
