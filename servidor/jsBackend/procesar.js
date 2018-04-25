@@ -1,6 +1,20 @@
-
 // Definimos en __dirname la direccion del directorio de views
-__dirname = 'C:/Users/Joan Calabuig Artes/desktop/Grado-Tecnologias/aProject/servidor/views'
+// __dirname = 'C:/Users/Joan Calabuig Artes/desktop/Grado-Tecnologias/aProject/servidor/views'
+
+
+// ----------------------------------------------------------------------------
+// Funciones peticiones index.html
+// ----------------------------------------------------------------------------
+
+// ----------------------------------------------------------------------------
+// Funciones peticiones login.html
+// ----------------------------------------------------------------------------
+
+//funcion de respuesta a la peticion de la pagina de login
+function getPaginaLogin (peticion, respuesta){
+   respuesta.sendFile(__dirname + '/views/login.html');
+   // respuesta.render('login.html');
+}
 
 //funcion para buscar el usuario que se pasa por query y devolver un objeto con
 // los datos de ese usuario que haya en la BD.
@@ -28,9 +42,12 @@ module.exports.login = function (peticion, respuesta) {
    [peticion.query.user, peticion.query.pass], procesar_login2);
 }
 
+// ----------------------------------------------------------------------------
+// Funciones peticiones perfil.html
+// ----------------------------------------------------------------------------
 
-// DEvuelve los datos del usuario
-
+// Devuelve los datos del usuario
+// En la pagina de perfil, muestra los datos basicos de los clientes.
 module.exports.getDatosCliente = function(peticion, respuesta){
   console.log(typeof(peticion.query.id_usuario));
   var idUsuario = parseInt(peticion.query.id_usuario);
@@ -51,6 +68,64 @@ module.exports.getDatosCliente = function(peticion, respuesta){
         }
       }
 }
+// ----------------------------------------------------------------------------
+// Funciones peticiones campos.html
+// ----------------------------------------------------------------------------
+
+// Devuelve un objeto con los datos de la zona donde hay otro objeto con
+// los vertices
+module.exports.campos = function (peticion, respuesta){
+  var idUsuario = parseInt(peticion.query.id_usuario);
+  // console.log(idUsuario);
+  // console.log(typeof(idUsuario));
+  baseDeDatos.all('SELECT * FROM datosZona WHERE id_usuario = ?',
+  [idUsuario],
+  function(err, fila){
+    if(err != null){
+      respuesta.sendStatus(500);
+    }else{
+      if(fila === undefined){
+        respuesta.sendStatus(401);
+      }else{
+        // respuesta.send(fila);
+        console.log(fila);
+        // console.log(fila[0].id_zona);
+        idZona = fila[0].id_zona;
+        baseDeDatos.all('SELECT * FROM datosVertices WHERE id_zona = ?',[idZona],
+        function(error, fila2){
+          if(error != null){
+            respuesta.sendStatus(500);
+          }else{
+            if(fila2 === undefined){
+              respuesta.sendStatus(401);
+            }else{
+              console.log(fila2);
+            }
+          }
+        });
+      }
+    }
+  });
+}
+
+// devuelve un objeto con los datos de la tabla vertices
+// No esta en uso
+module.exports.vertices = function (peticion, respuesta){
+  baseDeDatos.all('SELECT * FROM datosVertices WHERE id_zona = 1',
+  function(err, fila) {
+    console.log('Holaaaa')
+    console.log(err);
+    console.log(fila);
+    respuesta.send(fila);
+  })
+}
+// ----------------------------------------------------------------------------
+// Funciones peticiones sonda.html
+// ----------------------------------------------------------------------------
+
+// ----------------------------------------------------------------------------
+// Funciones peticiones grafica.html
+// ----------------------------------------------------------------------------
 
 // comprueba si el usuario ha entrado por primera vez a la aplicación
 
@@ -68,24 +143,9 @@ module.exports.getDatosCliente = function(peticion, respuesta){
 //     [peticion.cookies.email], comprobar);
 // }
 
-module.exports.campos = function (peticion, respuesta){
-  var idUsuario = parseInt(peticion.query.id_usuario);
-  console.log(idUsuario);
-  console.log(typeof(idUsuario));
-  baseDeDatos.all('SELECT * FROM datosZona WHERE id_usuario = ?',
-  [idUsuario],
-  function(err, fila){
-    if(err != null){
-      respuesta.sendStatus(500);
-    }else{
-      if(fila === undefined){
-        respuesta.sendStatus(401);
-      }else{
-        respuesta.send(fila);
-      }
-    }
-  });
-}
+
+
+
 
 // module.exports.cookie = function(peticion, respuesta){
 //   baseDeDatos.get('SELECT * FROM datosUsuarios WHERE email=?',
@@ -102,15 +162,16 @@ module.exports.comprobarLogin = function(peticion, respuesta, siguiente){
       if(error != null){
         respuesta.sendStatus(500);
       }else if(fila === undefined){
-        respuesta.sendFile(__dirname + '/login.html');
+        respuesta.sendFile(__dirname + '/views/login.html');
       }else{
         siguiente();
       }
     });
   }else{
-    respuesta.sendFile(__dirname + '/login.html');
+    respuesta.sendFile(__dirname + '/views/login.html');
   }
 }
+
 
 // module.exports.funciones = {
 //   hola: function(){

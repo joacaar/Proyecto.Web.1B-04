@@ -1,7 +1,7 @@
 //
 //  Codigo JS de la pagina de perfil
 //
-
+// const utilidades = require('./utilidades.js');
 // Cuadros de alertas
 // cuadro de alerta de cambio correcto
 var cuadroVerde = document.getElementById("cuadroAlertaVerde");
@@ -22,23 +22,11 @@ var boxContraActual = document.getElementById("contraActual");
 var boxNewContra = document.getElementById("nuevaContra");
 var boxRepContra = document.getElementById("repetirContra");
 
-var miContra;
-var activa;
-
 function mostrarDatos(){
-
-// var listaCookie = document.cookie.split(";");
-// console.log(document.cookie);
-// var valor = leerCookie("id_usuario");
-// console.log(listaCookie);
-// console.log(valor);
 
   fetch("http://localhost:3000/perfil/datos?id_usuario=" + leerCookie("id_usuario")).then(function(respuesta){
     respuesta.json().then(function(datos){
       console.log(datos);
-      miContra = datos.contrasena;
-      activa = datos.activo;
-      console.log(activa);
       nombre.innerHTML = datos.nombre;
       apellidos.innerHTML = datos.apellidos;
       correo.innerHTML = datos.email;
@@ -50,19 +38,41 @@ function mostrarDatos(){
 function modificarContrasena(){
   var contraActual = document.getElementById("contraActual").value;
 
-  if(contraActual == miContra){
+  if(contraActual == leerCookie("contrasena")){
       var newPass = document.getElementById("nuevaContra").value;
       var repPass = document.getElementById("repetirContra").value;
 
+      losDatos = {
+        contrasenaActual: contraActual,
+        contrasenaNueva: newPass,
+        contrasenaRepetida: repPass
+      }
+
       if(newPass != "" && newPass == repPass){
 
-          cuadro.style.display = "none";
+          fetch("http://localhost:3000/perfil/modfpass",
+          {
+            method: "POST",
+            body: losDatos
+          }).then(function (respuesta) {
+            console.log(respuesta);
+            if(respuesta.ok){
+              cuadroVerde.style.display = "block";
+              document.getElementById("correcto").innerHTML = "La contraseña se modifico correctamente";
+            }else{
+              cuadro.style.display = "block";
+              aviso.innerHTML = "Error en el servidor, inténtelo mas tarde";
+            }
 
-          miContra = newPass;
-          activa = "true";
+            })
 
-          cuadroVerde.style.display = "block";
-          document.getElementById("correcto").innerHTML = "La contraseña se modifico correctamente";
+          // cuadro.style.display = "none";
+          //
+          // miContra = newPass;
+          // activa = "true";
+          //
+          // cuadroVerde.style.display = "block";
+          // document.getElementById("correcto").innerHTML = "La contraseña se modifico correctamente";
 
       }else{
           cuadro.style.display = "block";
@@ -84,7 +94,8 @@ function continuar(){
   }
 }
 
-function leerCookie(nombre) {
+//funcion para leer los valores almacenados en las cookies
+function leerCookie (nombre) {
          var lista = document.cookie.split(";");
          for (i in lista) {
                var busca = lista[i].search(nombre);
@@ -93,4 +104,4 @@ function leerCookie(nombre) {
          var igual = micookie.indexOf("=");
          var valor = micookie.substring(igual+1);
          return valor;
-         }
+}
