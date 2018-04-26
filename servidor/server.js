@@ -23,6 +23,9 @@ const cookiesParse = require('cookie-parser');
 servidor.use(cookiesParse());
 
 const body_parser = require('body-parser');
+// hacemos uso del middleware body-parser
+servidor.use(body_parser.urlencoded({extended:true}));
+servidor.use(body_parser.json());
 
 const url = require('url');
 
@@ -59,8 +62,7 @@ servidor.use(express.static(__dirname + '/views'));
 // servidor.engine('html', require('ejs').renderFile);
 // servidor.set('view engine', 'ejs');
 
-// hacemos uso del middleware body-parser
-servidor.use(body_parser.urlencoded({extended:true}));
+
 
 //-----------------------------------------------------------------------------
 //  RUTAS

@@ -42,18 +42,21 @@ function modificarContrasena(){
       var newPass = document.getElementById("nuevaContra").value;
       var repPass = document.getElementById("repetirContra").value;
 
-      losDatos = {
-        contrasenaActual: contraActual,
-        contrasenaNueva: newPass,
-        contrasenaRepetida: repPass
-      }
-
       if(newPass != "" && newPass == repPass){
+
+        losDatos = {
+          'contrasenaActual': contraActual,
+          'contrasenaNueva': newPass
+        }
+
+        console.log(losDatos);
 
           fetch("http://localhost:3000/perfil/modfpass",
           {
-            method: "POST",
-            body: losDatos
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'type':'json',
+            'method': "POST",
+            'body': losDatos
           }).then(function (respuesta) {
             console.log(respuesta);
             if(respuesta.ok){
@@ -93,13 +96,17 @@ function continuar(){
     aviso.innerHTML = "Debe modificar la contraseña para continuar";
   }
 }
+console.log(document.cookie);
+console.log(document.cookie.split(';'));
 
 //funcion para leer los valores almacenados en las cookies
 function leerCookie (nombre) {
          var lista = document.cookie.split(";");
          for (i in lista) {
                var busca = lista[i].search(nombre);
-               if (busca > -1) {micookie=lista[i]}
+               if (busca > -1) {
+                 micookie=lista[i]
+               }
              }
          var igual = micookie.indexOf("=");
          var valor = micookie.substring(igual+1);
