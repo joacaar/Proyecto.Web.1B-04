@@ -5,8 +5,12 @@
 // hacer consultas para que los usuarios puedan iniciar sesión y mostrar datos
 // en unagrafica.
 
-// TO-DO:
-//
+/* TO-DO:
+  - Implementar, utilizar y probar la peticion para devolver los datos de las medidad
+  - Implementar, utilizar y probar la peticion post de cambio de contraseña
+  - Implementar, utilizar y probar la funcion para activar la cuenta.
+  - Implementat, utilizar y probar la peticion de los vertices para el mapa
+*/
 
 // cd desktop/grado-tecnologias/aProject/Proyecto.Web.1B-04/Servidor
 
@@ -89,7 +93,7 @@ servidor.get('/sesion/acceso', procesar.login);
 
 // Perfil
 // servidor.get('/perfil/modificar', procesar.activar);
-servidor.get('/perfil',  function(peticion , respuesta){
+servidor.get('/perfil', function(peticion , respuesta){
     respuesta.sendFile(__dirname + '/views/perfil.html');
 });
 //peticion de los datos de usuarios
@@ -102,34 +106,19 @@ servidor.get('/campos', function(peticion, respuesta){
     respuesta.sendFile(__dirname + '/views/campo.html');
 });
 // peticion de los datos de los campos
-servidor.get('/campos/datos', procesar.vertices);
+servidor.get('/campos/datos', function(peticion, respuesta){
+  console.log("En desarrollo");
+});
 
 servidor.get('/grafica', function(peticion, respuesta){
   respuesta.sendFile(__dirname + '/views/graficas.html');
 });
 
+servidor.get('/grafica/medidas', procesar.getMedidas);
+
 // peticiones POST
 
-servidor.post('/perfil/modfpass', function (peticion, respuesta){
-
-  console.log(peticion.body);
-  // baseDeDatos.all("SELECT * FROM datosUsuario WHERE email=? & contrasena=?", [peticion.cookies.email, peticion.cookies.contrasena],
-  // function(err, fila){
-  //   if(err != null){
-  //     respuesta.sendStatus(500);
-  //   }else{
-  //     if(fila === undefined || fila.length == 0){
-  //       respuesta.sendStatus(401);
-  //     }else{
-  //       if(fila.contrasena == peticion.body.contrasenaActual){
-  //         respuesta.sendStatus(200);
-  //       }else{
-  //         respuesta.sendStatus(401);
-  //       }
-  //     }
-  //   }
-  // })
-})
+servidor.post('/perfil/modfpass', procesar.modificarPassword);
 
 //-----------------------------------------------------------------------------
 //  Código de escucha de servidor

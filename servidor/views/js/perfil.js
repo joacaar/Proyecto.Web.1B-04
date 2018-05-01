@@ -53,10 +53,11 @@ function modificarContrasena(){
 
           fetch("http://localhost:3000/perfil/modfpass",
           {
-            'Content-Type': 'application/x-www-form-urlencoded',
-            'type':'json',
-            'method': "POST",
-            'body': losDatos
+            headers: {'Content-Type': 'application/json'},
+            // 'Content-Type': 'application/json', //cambia por application/json y utilizar esta forma
+            method: "POST",
+            body: JSON.stringify(losDatos),
+            // 'cookies':
           }).then(function (respuesta) {
             console.log(respuesta);
             if(respuesta.ok){
@@ -105,7 +106,7 @@ function leerCookie (nombre) {
          for (i in lista) {
                var busca = lista[i].search(nombre);
                if (busca > -1) {
-                 micookie=lista[i]
+                 var micookie=lista[i];
                }
              }
          var igual = micookie.indexOf("=");
