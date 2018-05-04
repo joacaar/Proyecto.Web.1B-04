@@ -1,3 +1,8 @@
+
+html{
+      height: 100%;
+  position: relative;
+}
 header {
     background-color: #ffab00;
     /*border-bottom-left-radius: 1em;

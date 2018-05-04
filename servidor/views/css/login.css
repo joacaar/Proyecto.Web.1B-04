@@ -10,6 +10,11 @@ Colores usados:
     Dark:       #cbba83
 */
 
+#atras img{
+    height: 2rem;
+    width: 5rem;
+}
+
 body {
     margin: 0;
     font-family: sans-serif;
