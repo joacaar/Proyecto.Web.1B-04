@@ -131,8 +131,9 @@ module.exports.getMedidas = function(peticion, respuesta){
   var sensor = peticion.query.id_sensor;
   var medida = peticion.query.medida;
 
+  textoSQL = "SELECT " + medida + " FROM medidas WHERE id_sensor = ?;";
 
-    baseDeDatos.all("SELECT " + medida + ", tiempo FROM medidas WHERE id_sensor = ?;",
+    baseDeDatos.all(textoSQL,
     [sensor], function (err, fila){
       if(err != null){
         respuesta.sendStatus(500);
@@ -140,7 +141,6 @@ module.exports.getMedidas = function(peticion, respuesta){
         if(fila == undefined || fila.length == 0){
           respuesta.sendStatus(401);
         }else{
-          // console.log(fila);
           // console.log(fila.length);
           respuesta.send(fila);
         }//else
