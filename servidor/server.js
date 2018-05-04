@@ -116,6 +116,10 @@ servidor.get('/grafica', function(peticion, respuesta){
 
 servidor.get('/grafica/medidas', procesar.getMedidas);
 
+servidor.get('/mapa', function(peticion, respuesta){
+  respuesta.sendFile(__dirname + '/views/mapa.html');
+})
+
 // peticiones POST
 
 servidor.post('/perfil/modfpass', procesar.modificarPassword);
