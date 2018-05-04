@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie-edge">
+
+    <title>Mapa de sensores</title>
+
+    <link rel="stylesheet" type="text/css" href="css/header.css">
+    <link rel="stylesheet" type="text/css" href="css/mapa.css">
+    <link rel="stylesheet" type="text/css" href="css/footer.css">
+    <link rel="stylesheet" type="text/css" href="css/navbar.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+
+<body>
+    <!--Cabecera-->
+    <header>
+        <div class="cabezal">
+            <div class="logo"><a href="index.html"><img src="images/logo_gtinegro%20copia.svg" alt="Logo GTI" class="logo"></a></div>
+            <!--<button type="button" id="Login" class="botonEnlace" onclick="location.href='login.html'">Iniciar sesión</button>-->
+            <!--<a href="index.html" id="atras"><img src="images/" alt="Volver atrás"></a>-->
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                    <img src="images/menu.svg" alt="menú">
+                </button>
+        </div>
+
+        <!-- Menú -->
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                <ul class="navbar-nav mr-auto mt-2 mt-md-0">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="mapa.html">Mapa <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="campo.html">Campos</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div id="map">
+    </div>
+    
+<!--
+    <input type="submit" onclick="addZone([{lat:39, lng: -0.16},{...},{...}])">
+    <input type="submit" onclick="addMarker(39, -0.16, 'aaaaah')">
+-->
+
+    <script>
+        //Script para el mapeado
+        //mapa global
+        var map;
+        var zona;
+
+        function initMap() {
+            // var Nombre = { lat: X, lng: X}
+
+            var Gandia = {
+                lat: 38.9969675,
+                lng: -0.1629338
+            }
+
+            map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 16,
+                center: Gandia,
+                disableDefaultUI: true,
+                mapTypeId: google.maps.MapTypeId.SATELLITE
+            });
+
+            /*
+            Punto = new google.maps.Marker({
+                position: Gandia,
+                map: map,
+                title: "Pizzeria Volare",
+                draggable: false
+            })
+            */
+
+            //funcion al hacer click en el marcador
+            //            Volare.addListener('click', function() {
+            //                map.setZoom(32);
+            //                map.setCenter(Volare.getPosition());
+            //            })
+        }
+
+        //------------------------------------------//
+        //-----Crear marcador, util para poner marcadores nuevos-----//
+        function addMarker(lat, lng, nombreSensor) {
+            /*if (ObjetoNombre.outerHTML){
+                nombre = ObjetoNombre.outerHTML;
+            } else if(XMLSerializer) {
+                nombre = new XMLSerializer().serializeToString(ObjetoNombre);
+            }*/
+            //console.log(nombre);
+
+            var location = {
+                lat: lat,
+                lng: lng
+            }
+
+            marcador = new google.maps.Marker({
+                position: location,
+                map: map,
+                title: nombreSensor,
+                draggable: false
+            });
+
+            // string para introducir código HTML en InfoWindow
+            var contentString = '<div id="Contenido">' + '<img src="#" alt="Temperatura" id="Gota">' + '<div id="Temperatura"> Temperatura: </div>' + '<p id="Datos">Llamada a base de datos</p>' + '</div>' + '<div id="Contenido">' + '<img src="#" alt="Humedad" id="Gota">' + '<div id="Humedad"> Humedad: </div>' + '<p id="Datos">Llamada a base de datos</p>' + '</div>';
+
+            //Funcion para mostrar informacion
+            var ventanaInfo = new google.maps.InfoWindow({
+                content: contentString
+            });
+
+            marcador.addListener('click', function() {
+                ventanaInfo.open(map, marcador)
+            })
+        }
+
+        // Funcion para crear zonas
+        function addZone(listaVertices) {
+
+            zona = new google.maps.Polygon({
+                paths: listaVertices,
+                map: map,
+                fillColor: '#fff',
+                strokeColor: '#fff',
+            })
+        }
+
+        /*
+        //////////main()////////
+        var vertices = [{
+                lat: 39,
+                lng: -0.16
+            }, {
+                lat: 39.3,
+                lng: -0.17
+            }, {
+                lat: 39.7,
+                lng: -0.18
+            }, {
+                lat: 39,
+                lng: -0.18
+            }, {
+                lat: 39.4,
+                lng: -0.15
+            }
+        ];
+        */
+
+        /*
+        function editZone() {
+            var botonGuardar = document.getElementById('Guardar')
+
+            zona.setEditable(true);
+
+            botonGuardar.style.display = 'block';
+        }
+
+        function noEditZone() {
+            var botonGuardar = document.getElementById('Guardar')
+
+            zona.setEditable(false);
+
+            botonGuardar.style.display = 'none';
+        }
+        */
+
+        /*
+        function testMarcador() {
+            var lat = parseFloat(document.getElementById('LatMarcador').value);
+            var lng = parseFloat(document.getElementById('LngMarcador').value);
+
+            marcador = new google.maps.LatLng(lat, lng);
+            addMarker(marcador, "Sin Nombre De Momento")
+        }
+        */
+
+        /*
+        function moverMarcador() {
+            var lat = parseFloat(document.getElementById('LatMarcador').value);
+            var lng = parseFloat(document.getElementById('LngMarcador').value);
+
+            var latlngNuevo = new google.maps.LatLng(lat, lng);
+            Punto.setPosition(latlngNuevo);
+        }
+        */
+
+        // var NombrePunto = new.google.maps.Marker({ position: Nombre, map: map})
+
+        //var NombreZona = new google.maps.Polygon({
+        //     paths: [{
+        //         lat: 39,
+        //         lng: -0.3
+        //     },
+        //     {
+        //         lat: 39,
+        //         lng: -0.0
+        //     },
+        //     {
+        //         lat: 38.8,
+        //         lng: -0.0
+        //     },
+        //     {
+        //         lat: 38.8,
+        //         lng: -0.3
+        //     }],
+        //     map: map, //mapa en el que está
+        //     editable: true, //si se puede editar
+        //     fillColor: "#00ff00", //color de relleno
+        //     strokeColor: "#00ff00" //color de borde
+        //});
+
+        //var limites = new google.maps.LatLngBounds();
+        //zona.getPath().getArray().forEach(function(vertice) {
+        //    limites.extend(vertice);
+        //});
+        //map.fitBounds(limites);
+
+    </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCPONQfQzjp3cGzsMLPscR9651VjXkL8AY&callback=initMap"></script>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
