@@ -70,6 +70,24 @@ module.exports.modificarPassword = function(peticion, respuesta){
   //contraseña actual.
   //cuando se haya modificaco, modificar la contraseña en las cookies y
   //devolver un 200 OK
+
+  console.log(peticion.body);
+
+  var usuario = peticion.body.user;
+  var newPass = peticion.body.newpass;
+
+  console.log(usuario + ' ' + newPass);
+
+  baseDeDatos.all('UPDATE datosUsuario set contrasena=?, activo="true" where email=?;',
+  [newPass, usuario],
+  function(err){
+    if(err != null){
+      console.log(err);
+      respuesta.sendStatus(500);
+      return;
+    }
+    respuesta.sendStatus(200);
+  })
 }
 // ----------------------------------------------------------------------------
 // Funciones peticiones campos.html
@@ -183,16 +201,20 @@ module.exports.getMedidas = function(peticion, respuesta){
 // }
 
 module.exports.comprobarLogin = function(peticion, respuesta, siguiente){
+  console.log(peticion.cookies);
   if('email' in peticion.cookies && 'contrasena' in peticion.cookies){
-    baseDeDatos.get('SELECT * FROM usuarios WHERE email =? AND contrasena=?',
+    baseDeDatos.get('SELECT * FROM datosUsuario WHERE email =? AND contrasena=?',
     [peticion.cookies.email, peticion.cookies.contrasena],
     function(error, fila){
       if(error != null){
+        console.log("error ?= null");
         respuesta.sendStatus(500);
       }else if(fila === undefined){
+        console.log("fila = undefined");
         // location.href = "http://localhost:3000/sesion"
         respuesta.sendFile(newDirname + '/views/login.html');
       }else{
+        console.log("llamada a siguiente()");
         siguiente();
       }
     });

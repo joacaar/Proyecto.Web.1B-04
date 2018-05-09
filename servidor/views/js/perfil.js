@@ -22,20 +22,30 @@ var boxContraActual = document.getElementById("contraActual");
 var boxNewContra = document.getElementById("nuevaContra");
 var boxRepContra = document.getElementById("repetirContra");
 
+var personaActiva;
+
+console.log(document.cookie);
+
 function mostrarDatos(){
 
   fetch("http://localhost:3000/perfil/datos?id_usuario=" + leerCookie("id_usuario")).then(function(respuesta){
     respuesta.json().then(function(datos){
-      console.log(datos);
+      //console.log(datos);
       nombre.innerHTML = datos.nombre;
       apellidos.innerHTML = datos.apellidos;
       correo.innerHTML = datos.email;
       telefono.innerHTML = datos.telefono;
+
+      personaActiva = datos.activo;
+      console.log(personaActiva);
     });
   });
 }// mostrarDatos()
 
 function modificarContrasena(){
+  cuadro.style.display = 'none';
+  cuadroVerde.style.display = 'none';
+
   var contraActual = document.getElementById("contraActual").value;
 
   if(contraActual == leerCookie("contrasena")){
@@ -45,11 +55,11 @@ function modificarContrasena(){
       if(newPass != "" && newPass == repPass){
 
         losDatos = {
-          'contrasenaActual': contraActual,
-          'contrasenaNueva': newPass
+          'user': leerCookie('email'),
+          'newpass': newPass
         }
 
-        console.log(losDatos);
+        //console.log(losDatos);
 
           fetch("http://localhost:3000/perfil/modfpass",
           {
@@ -59,10 +69,14 @@ function modificarContrasena(){
             body: JSON.stringify(losDatos),
             // 'cookies':
           }).then(function (respuesta) {
-            console.log(respuesta);
+            //console.log(respuesta);
             if(respuesta.ok){
               cuadroVerde.style.display = "block";
               document.getElementById("correcto").innerHTML = "La contraseña se modifico correctamente";
+
+              console.log(newPass);
+              document.cookie = 'contrasena=' + newPass;
+              console.log(document.cookie);
             }else{
               cuadro.style.display = "block";
               aviso.innerHTML = "Error en el servidor, inténtelo mas tarde";
@@ -89,7 +103,8 @@ function modificarContrasena(){
 }
 
 function continuar(){
-  if(activa == "true"){
+
+  if(personaActiva == "true"){
      location.href="http://localhost:3000/campos"
   }
   else{
@@ -97,8 +112,8 @@ function continuar(){
     aviso.innerHTML = "Debe modificar la contraseña para continuar";
   }
 }
-console.log(document.cookie);
-console.log(document.cookie.split(';'));
+// console.log(document.cookie);
+// console.log(document.cookie.split(';'));
 
 //funcion para leer los valores almacenados en las cookies
 function leerCookie (nombre) {

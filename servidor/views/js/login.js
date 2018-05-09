@@ -47,7 +47,7 @@ function comprobar_login(){
             document.cookie = 'contrasena=' + datos.contrasena;//añadimos la contraseña a la cookie
             document.cookie = 'id_usuario=' + datos.id_usuario;//anyadimos el id del usuario a las cookies
 
-            if(datos.activo != true){// si el usuario no ha activado la cuenta todavia
+            if(datos.activo == 'false'){// si el usuario no ha activado la cuenta todavia
                 location.href = "http://localhost:3000/perfil"//va a la pagina de perfil
             }else{//por el contrario, si activo vale true, la cuenta esta activa y va directamente a campos
                 location.href = "http://localhost:3000/campos" // va a la pagina de campos

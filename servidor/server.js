@@ -110,15 +110,17 @@ servidor.get('/campos/datos', function(peticion, respuesta){
   console.log("En desarrollo");
 });
 
-servidor.get('/grafica', function(peticion, respuesta){
-  respuesta.sendFile(__dirname + '/views/graficas.html');
+servidor.get('/mapa', function(peticion, respuesta){
+  respuesta.sendFile(__dirname + '/views/mapa.html');
 });
+
+servidor.get('/grafica', [procesar.comprobarLogin, function(peticion, respuesta){
+  respuesta.sendFile(__dirname + '/views/graficas.html');
+}]);
 
 servidor.get('/grafica/medidas', procesar.getMedidas);
 
-servidor.get('/mapa', function(peticion, respuesta){
-  respuesta.sendFile(__dirname + '/views/mapa.html');
-})
+
 
 // peticiones POST
 
