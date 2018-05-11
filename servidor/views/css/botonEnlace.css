@@ -1,7 +1,7 @@
 .botonEnlace {
     display: block;
-    background-color: #ffab00;
-    border: 3px solid #c67c00;
+    background-color: #3cc4e6;
+    border: 3px solid #395D66;
     margin: 1rem auto;
     height: 4rem;
     width: 16rem;
@@ -10,12 +10,12 @@
 }
 
 .botonEnlace:hover {
-    background-color: #d89100;
-    border: 3px solid #a36600;
+    background-color: #2F99B3;
+    border: 3px solid #1B5766;
 }
 
 .botonEnlace:active {
-    background-color: #c67c00;
-    border: 3px solid #c67c00;
+    background-color: #395D66;
+    border: 3px solid #395D66;
     color: white;
 }

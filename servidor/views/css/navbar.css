@@ -3,7 +3,7 @@ button.navbar-toggler {
 }
 
 nav.navbar {
-    background-color: #ffffe5;
+    background-color: rgba(131, 214, 234, 0.72);
     padding: 0;
     margin: 0;
 }
@@ -17,11 +17,11 @@ li.nav-item {
 }
 
 li.nav-item:hover {
-    background-color: #ffecb3;
+    background-color: #395D66;
 }
 
 li.active {
-    background-color: #cbba83;
+    background-color: #2F99B3;
 }
 
 

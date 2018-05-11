@@ -1,7 +1,7 @@
         body {
             margin: 0;
             font-family: sans-serif;
-            background-color: #ffffe5;
+            background-color: white;
         }
 
         /*-------------------------------------------------*/
@@ -26,6 +26,11 @@
         header.cabezera img {
             margin-right: 1rem;
             max-width: 50px;
+            color: white;
+        }
+
+        header.cabezera h1{
+            color: #3cc4e6;
         }
 
         /*-------------------------------------------------*/
