@@ -49,6 +49,29 @@ datosMedidasPresion = {
 var todosLosDatos = {};
 
 //-----------------------------------------------------------------------------
+// Funcion para actualizar los valores de las graficas
+// ----------------------------------------------------------------------------
+function updateConfigAsNewObject(chart) {
+    chart.options = {
+        responsive: true,
+        title:{
+            display:true,
+            text: 'Chart.js'
+        },
+        scales: {
+            xAxes: [{
+                display: true
+            }],
+            yAxes: [{
+                display: true
+            }]
+        }
+    }
+    chart.update();
+}
+
+
+//-----------------------------------------------------------------------------
 // Funcion que hace la peticion al servidor para obtener los datos de las
 // medidas de los sensores.
 // ----------------------------------------------------------------------------
@@ -57,7 +80,7 @@ function pedirDatos (){
   //tipo string
   var medida = document.getElementById("selector").value;
   if(medida != ""){
-    fetch("http://localhost:3000/grafica/medidas?id_sensor=" + "363234"
+    fetch("/grafica/medidas?id_sensor=" + "363234"
     +"&medida=" + medida).then(function(respuesta){
       respuesta.json().then(function(datos){
         ultimosDatos(datos, function(listaDatos){

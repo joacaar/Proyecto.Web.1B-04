@@ -28,7 +28,7 @@ console.log(document.cookie);
 
 function mostrarDatos(){
 
-  fetch("http://localhost:3000/perfil/datos?id_usuario=" + leerCookie("id_usuario")).then(function(respuesta){
+  fetch("/perfil/datos?id_usuario=" + leerCookie("id_usuario")).then(function(respuesta){
     respuesta.json().then(function(datos){
       //console.log(datos);
       nombre.innerHTML = datos.nombre;
@@ -61,7 +61,7 @@ function modificarContrasena(){
 
         //console.log(losDatos);
 
-          fetch("http://localhost:3000/perfil/modfpass",
+          fetch("/perfil/modfpass",
           {
             headers: {'Content-Type': 'application/json'},
             // 'Content-Type': 'application/json', //cambia por application/json y utilizar esta forma
@@ -105,7 +105,7 @@ function modificarContrasena(){
 function continuar(){
 
   if(personaActiva == "true"){
-     location.href="http://localhost:3000/campos"
+     location.href="/campos"
   }
   else{
     cuadro.style.display = "block";
