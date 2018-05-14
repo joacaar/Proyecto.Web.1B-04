@@ -1,5 +1,5 @@
 footer {
-    background-color: #3cc4e6;
+    background-color: #010608;
     font-family: sans-serif;
       position: relative;
       bottom: 0;
@@ -8,6 +8,7 @@ footer {
 
 footer div.copy {
     text-align: center;
+    color: #395D66;
 }
 
 footer div.redesSociales {
@@ -20,10 +21,10 @@ footer div.redesSociales img {
 
 footer a {
     text-decoration: none;
-    color: #444;
+    color: #395D66;
 }
 
 footer a:hover {
     text-decoration: none;
-    color: #666;
+    color: #2F99B3;
 }
