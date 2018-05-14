@@ -19,6 +19,12 @@ body {
     margin: 0;
     font-family: sans-serif;
     background-color: #83D6EA;
+    background-size: cover;
+}
+
+.pagina_principal {
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 div.vl {
