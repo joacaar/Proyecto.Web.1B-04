@@ -30,38 +30,45 @@ div.central {
     background-position: center;
     margin: 0px;
     padding: 0px;
-    height: 100%;
-    width: 100%;
+    height: 100vh;
+    /* width: 100%; */
 }
 
-div.central div.imagenContrataYa {
+.central {
+    background: url(../images/campo2.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* div.central .inicio div.imagenContrataYa {
     margin: 0.5rem;
 }
 
-div.central div.imagenContrataYa img {
+div.central .inicio div.imagenContrataYa img {
     border-radius: 1rem;
     width: 100%;
     height: 13rem;
 }
+ */
 
-div.central h2 {
+div.central .inicio h2 {
     text-align: center;
     margin: 0 1.5rem;
 
 }
 
-div.central p {
+div.central .inicio p {
     text-align: center;
     margin: 1.5rem;
     font-weight: bold;
     color: #333333;
 }
 
-button.botonEnlace#Tarifas {
+/* button.botonEnlace#Tarifas {
     height: 3rem;
     width: 10rem;
     font-weight: bold;
-}
+} */
 
 button.botonEnlace#Login {
     height: 3rem;
@@ -70,18 +77,18 @@ button.botonEnlace#Login {
 
 /*Vista escritorio*/
 
-@media(min-width:550px) {
+/* @media(min-width:550px) {
     div.central div.imagenContrataYa img {
         height: 20rem;
     }
-}
+} */
 
 @media(min-width:991px) {
     section.pagina_principal {
-        background-image: url(../images/imagenContrataYa.jpg);
+        /* background-image: url(../images/campo_opcion1.png); */
         background-repeat: no-repeat;
         background-size: cover;
-        padding-bottom: 2rem;
+        /* padding-bottom: 2rem; */
     }
     div.central {
         height: 20rem;
@@ -93,20 +100,20 @@ button.botonEnlace#Login {
         flex-wrap: wrap;
     }
 
-    div.central h2 {
+    div.central .inicio h2 {
         flex: 1 1 0px;
     }
 
-    div.central p {
+    div.central .inico p {
         flex: 1 1 0px;
         color: #222;
     }
-    div.vl {
+    /* div.vl {
         flex: 0 1 0px;
         visibility: visible;
         border-right: 1px solid #333;
         height: 70%;
-    }
+    } */
     div.botones {
         display: flex;
         flex-direction: row;
@@ -116,19 +123,19 @@ button.botonEnlace#Login {
         flex: 1 1 100%;
         margin: auto;
     }
-    button.botonEnlace#Tarifas {
+    /* button.botonEnlace#Tarifas {
         height: 3.5rem;
         width: 12rem;
         font-weight: bold;
         margin: auto;
         margin-right: 3rem;
-    }
+    } */
     button.botonEnlace#Login {
         height: 3.5rem;
         width: 12rem;
         font-weight: bold;
         margin: auto;
-        margin-left: 3rem;
+        /* margin-left: 3rem; */
     }
 
     p.login {
@@ -137,18 +144,18 @@ button.botonEnlace#Login {
     }
 
     /*Esconder la imagen para ponerla de fondo*/
-    div.central div.imagenContrataYa {
+    /* div.central .inicio div.imagenContrataYa {
         margin: 0rem;
         visibility: hidden;
         height: 0rem;
         border: none;
     }
-    div.central div.imagenContrataYa img {
+    div.central .inicio div.imagenContrataYa img {
         visibility: hidden;
         height: 0rem;
         width: 0rem;
         border-radius: 0px;
-    }
+    } */
     footer {
         position: absolute;
         bottom: 0;
