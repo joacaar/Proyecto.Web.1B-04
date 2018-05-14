@@ -130,6 +130,14 @@ servidor.post('/perfil/modfpass', procesar.modificarPassword);
 //  Código de escucha de servidor
 //-----------------------------------------------------------------------------
 
-servidor.listen(3000, function(){
-  console.log(' --- Servidor Fucionando en http://localhost:3000 ---');
-});
+if (process.env.PORT !== undefined) {
+    servidor.listen(process.env.PORT, () => console.log(' --- Servidor Fucionando en http://joacaar.upv.edu.es en ' process.env.PORT ' ---'))
+} else {
+  servidor.listen(3000, function(){
+    console.log(' --- Servidor Fucionando en http://localhost:3000 ---');
+  });
+}
+
+// servidor.listen(3000, function(){
+//   console.log(' --- Servidor Fucionando en http://localhost:3000 ---');
+// });
