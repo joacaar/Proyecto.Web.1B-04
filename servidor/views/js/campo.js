@@ -13,7 +13,7 @@
 // }
 
 function continuar(){
-  location.href="http://localhost:3000/grafica";
+  location.href="/grafica";
 }
 
 function leerCookie(nombre) {

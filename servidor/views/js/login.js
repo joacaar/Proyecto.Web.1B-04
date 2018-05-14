@@ -34,7 +34,7 @@ function comprobar_login(){
   console.log(casillasCompletas);
   if(casillasCompletas){
     //hacemos la peticion al servidor con los datos
-    fetch("http://localhost:3000/sesion/acceso?user=" + usuario + "&pass=" + contrasena).then(function(respuesta){
+    fetch("/sesion/acceso?user=" + usuario + "&pass=" + contrasena).then(function(respuesta){
 
       // comparamos la respuesta para saber si el usuario existe o no
         if(respuesta.status == 200){//si todo va correcto, respuesta.ok seria
@@ -48,9 +48,9 @@ function comprobar_login(){
             document.cookie = 'id_usuario=' + datos.id_usuario;//anyadimos el id del usuario a las cookies
 
             if(datos.activo == 'false'){// si el usuario no ha activado la cuenta todavia
-                location.href = "http://localhost:3000/perfil"//va a la pagina de perfil
+                location.href = "/perfil"//va a la pagina de perfil
             }else{//por el contrario, si activo vale true, la cuenta esta activa y va directamente a campos
-                location.href = "http://localhost:3000/campos" // va a la pagina de campos
+                location.href = "/campos" // va a la pagina de campos
             }
           });
         }else if(respuesta.status == 401){//si el estado es 401, muestra un mensaje al usuario

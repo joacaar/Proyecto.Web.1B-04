@@ -131,7 +131,7 @@ servidor.post('/perfil/modfpass', procesar.modificarPassword);
 //-----------------------------------------------------------------------------
 
 if (process.env.PORT !== undefined) {
-    servidor.listen(process.env.PORT, () => console.log(' --- Servidor Fucionando en http://joacaar.upv.edu.es en ' process.env.PORT ' ---'))
+    servidor.listen(process.env.PORT, () => console.log(' --- Servidor Fucionando en http://joacaar.upv.edu.es en ' + process.env.PORT + ' ---'))
 } else {
   servidor.listen(3000, function(){
     console.log(' --- Servidor Fucionando en http://localhost:3000 ---');
