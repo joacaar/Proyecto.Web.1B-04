@@ -133,6 +133,7 @@ function mostrarPrimerosDatos(michart){
                 lineaGrafica = modificarDatosGrafica(datosMedida.humedad, losDatos);
                 lasOpciones = modificarParametrosGrafica(datosMedida.humedad);
                 datos.datasets = [lineaGrafica];
+                console.log(datos);
                 var chart = new Chart(ctx, {
                   type: 'line',
                   data: datos,
@@ -144,6 +145,7 @@ function mostrarPrimerosDatos(michart){
                 lineaGrafica = modificarDatosGrafica(datosMedida.temperatura, losDatos);
                 lasOpciones = modificarParametrosGrafica(datosMedida.temperatura);
                 datos.datasets = [lineaGrafica];
+                console.log(datos);
                 var chart = new Chart(ctx, {
                   type: 'line',
                   data: datos,
@@ -207,18 +209,19 @@ function pedirDatos (){
               lineaGrafica = modificarDatosGrafica(datosMedida.humedad, listaDatos);
               lasOpciones = modificarParametrosGrafica(datosMedida.humedad);
               datos.datasets = [lineaGrafica];
+              datos.labels = ['00: 00', '02:00', '04:00', '06: 00', '08:00', '10: 00', '12:00', '14:00', '16: 00', '18:00', '20:00', '22:00', '24:00'];
               console.log(datos.datasets);
               var chart = new Chart(ctx, {
                 type: 'line',
                 data: datos,
                 options:lasOpciones
               })
-              chart.update();
               break;
             case "temperatura":
               lineaGrafica = modificarDatosGrafica(datosMedida.temperatura, listaDatos);
               lasOpciones = modificarParametrosGrafica(datosMedida.temperatura);
               datos.datasets = [lineaGrafica];
+              datos.labels = ['00: 00', '02:00', '04:00', '06: 00', '08:00', '10: 00', '12:00', '14:00', '16: 00', '18:00', '20:00', '22:00', '24:00'];
               var chart = new Chart(ctx, {
                 type: 'line',
                 data: datos,
@@ -229,6 +232,7 @@ function pedirDatos (){
               lineaGrafica = modificarDatosGrafica(datosMedida.salinidad, listaDatos);
               lasOpciones = modificarParametrosGrafica(datosMedida.salinidad);
               datos.datasets = [lineaGrafica];
+              datos.labels = ['00: 00', '02:00', '04:00', '06: 00', '08:00', '10: 00', '12:00', '14:00', '16: 00', '18:00', '20:00', '22:00', '24:00'];
               var chart = new Chart(ctx, {
                 type: 'line',
                 data: datos,
@@ -239,6 +243,7 @@ function pedirDatos (){
               lineaGrafica = modificarDatosGrafica(datosMedida.iluminacion, listaDatos);
               lasOpciones = modificarParametrosGrafica(datosMedida.iluminacion);
               datos.datasets = [lineaGrafica];
+              datos.labels = ['00: 00', '02:00', '04:00', '06: 00', '08:00', '10: 00', '12:00', '14:00', '16: 00', '18:00', '20:00', '22:00', '24:00'];
               var chart = new Chart(ctx, {
                 type: 'line',
                 data: datos,
@@ -249,6 +254,7 @@ function pedirDatos (){
               lineaGrafica = modificarDatosGrafica(datosMedida.presion, listaDatos);
               lasOpciones = modificarParametrosGrafica(datosMedida.presion);
               datos.datasets = [lineaGrafica];
+              datos.labels = ['00: 00', '02:00', '04:00', '06: 00', '08:00', '10: 00', '12:00', '14:00', '16: 00', '18:00', '20:00', '22:00', '24:00'];
               var chart = new Chart(ctx, {
                 type: 'line',
                 data: datos,
