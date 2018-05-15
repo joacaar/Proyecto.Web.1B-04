@@ -1,15 +1,6 @@
 
 // Objetos de configuracion
-datosMedidasTemperatura = {
-  nombreColumnaBD: 'temperatura',
-  labelString: "Temperatura ºC",
-  min: -10,
-  max: 50,
-  stepSize: 10,
-  backgroundColor: '#FF0000',
-  borderColor: '#FF0000',
-}
-datosMedidasHumedad = {
+datosMedidahumedad= {
   nombreColumnaBD: 'humedad',
   labelString: "Humedad %",
   min: 0,
@@ -18,65 +9,191 @@ datosMedidasHumedad = {
   backgroundColor: '#0040FF',
   borderColor: '##0040FF'
 }
-datosMedidasSalinidad = {
-  nombreColumnaBD: 'salinidad',
-  labelString: "Salinidad %",
-  min: 0,
-  max: 100,
-  stepSize: 10,
-  backgroundColor: '#6E6E6E',
-  borderColor: '#6E6E6E'
-}
-datosMedidasIluminacion = {
-  nombreColumnaBD: 'iluminacion',
-  labelString: "Iluminación",
-  min: 6350,
-  max: 6450,
-  stepSize: 10,
-  backgroundColor: '#ffab00',
-  borderColor: '#ffab00'
-}
-datosMedidasPresion = {
-  nombreColumnaBD: 'presion',
-  labelString: "Presion hPa",
-  min: 990,
-  max: 1040,
-  stepSize: 5,
-  backgroundColor: '#ffab00',
-  borderColor: '#ffab00'
+
+datosMedida = {
+  temperatura: {
+    nombreColumnaBD: 'temperatura',
+    labelString: "Temperatura ºC",
+    min: -10,
+    max: 50,
+    stepSize: 10,
+    backgroundColor: '#FF0000',
+    borderColor: '#FF0000',
+  },
+  humedad: {
+    nombreColumnaBD: 'humedad',
+    labelString: "Humedad %",
+    min: 0,
+    max: 100,
+    stepSize: 10,
+    backgroundColor: '#0040FF',
+    borderColor: '##0040FF'
+  },
+  salinidad: {
+    nombreColumnaBD: 'salinidad',
+    labelString: "Salinidad %",
+    min: 0,
+    max: 100,
+    stepSize: 10,
+    backgroundColor: '#6E6E6E',
+    borderColor: '#6E6E6E'
+  },
+  iluminacion: {
+    nombreColumnaBD: 'iluminacion',
+    labelString: "Iluminación",
+    min: 6350,
+    max: 6450,
+    stepSize: 10,
+    backgroundColor: '#ffab00',
+    borderColor: '#ffab00'
+  },
+  presion: {
+    nombreColumnaBD: 'presion',
+    labelString: "Presion hPa",
+    min: 990,
+    max: 1040,
+    stepSize: 5,
+    backgroundColor: '#ffab00',
+    borderColor: '#ffab00'
+  }
 }
 
-var todosLosDatos = {};
 
 //-----------------------------------------------------------------------------
-// Funcion para actualizar los valores de las graficas
-// ----------------------------------------------------------------------------
-function updateConfigAsNewObject(chart) {
-    chart.options = {
-        responsive: true,
-        title:{
-            display:true,
-            text: 'Chart.js'
-        },
-        scales: {
-            xAxes: [{
+//  Creamos la grafica al principio sin valores
+//-----------------------------------------------------------------------------
+var opciones = {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+        xAxes: [{
+            display: true,
+            scaleLabel: {
+                display: true,
+                labelString: 'Horas'
+            }
+        }],
+        yAxes: [{
+            display: true,
+            scaleLabel: {
                 display: true
-            }],
-            yAxes: [{
-                display: true
-            }]
-        }
+            },
+            ticks: {
+                min: 0,
+                max: 100,
+                stepSize: 10
+            }
+        }]
     }
-    chart.update();
-}
+};
+
+var datos = {
+    labels: ['00: 00', '02:00', '04:00', '06: 00', '08:00', '10: 00', '12:00', '14:00', '16: 00', '18:00', '20:00', '22:00', '24:00'],
+    datasets: []
+};
+
+var lineaGrafica = {
+    label: 'Medida',//titolo de la leyenda de la grafica
+    backgroundColor: '#ffab00', //color de fondo de la linea
+    borderColor: '#ffab00',// color del borde de la linea
+    fill: false,// rellena desde la base de la grafica hasta la linea
+    data: []// datos a representar
+};
+
+datos.datasets = [lineaGrafica];
+
+var ctx = document.getElementById('grafica').getContext('2d');
+
+var chart = new Chart(ctx, {
+    type: 'line',
+    data: datos,
+    options: opciones
+});
+
+console.log(chart.options);
 
 
+
+//-----------------------------------------------------------------------------
+// Funcion para mostrar los primeros datos en la graficas
+//  (ejecutar al cargar la pagina graficas.html)
+// ----------------------------------------------------------------------------
+function mostrarPrimerosDatos(michart){
+    var medida = obtenerValorMedida();
+    var tipomedida = document.getElementById("selector");
+    console.log(tipomedida);
+    fetch("/grafica/medidas?id_sensor=" + "363234"
+    +"&medida=" + medida).then(
+      function(respuesta){
+        respuesta.json().then(
+          function(losDatos){
+
+            switch (medida) {
+              case "humedad":
+                lineaGrafica = modificarDatosGrafica(datosMedida.humedad, losDatos);
+                lasOpciones = modificarParametrosGrafica(datosMedida.humedad);
+                datos.datasets = [lineaGrafica];
+                var chart = new Chart(ctx, {
+                  type: 'line',
+                  data: datos,
+                  options:lasOpciones
+                })
+                tipomedida.selectedIndex=1;
+                break;
+              case "temperatura":
+                lineaGrafica = modificarDatosGrafica(datosMedida.temperatura, losDatos);
+                lasOpciones = modificarParametrosGrafica(datosMedida.temperatura);
+                datos.datasets = [lineaGrafica];
+                var chart = new Chart(ctx, {
+                  type: 'line',
+                  data: datos,
+                  options:lasOpciones
+                })
+                tipomedida.selectedIndex=2;
+                break;
+              case "salinidad":
+                lineaGrafica = modificarDatosGrafica(datosMedida.salinidad, losDatos);
+                lasOpciones = modificarParametrosGrafica(datosMedida.salinidad);
+                datos.datasets = [lineaGrafica];
+                var chart = new Chart(ctx, {
+                  type: 'line',
+                  data: datos,
+                  options:lasOpciones
+                })
+                tipomedida.selectedIndex=3;
+                break;
+              case "iluminacion":
+                lineaGrafica = modificarDatosGrafica(datosMedida.iluminacion, losDatos);
+                lasOpciones = modificarParametrosGrafica(datosMedida.iluminacion);
+                datos.datasets = [lineaGrafica];
+                var chart = new Chart(ctx, {
+                  type: 'line',
+                  data: datos,
+                  options:lasOpciones
+                })
+                tipomedida.selectedIndex=4;
+                break;
+              default:
+                lineaGrafica = modificarDatosGrafica(datosMedida.presion, losDatos);
+                lasOpciones = modificarParametrosGrafica(datosMedida.presion);
+                datos.datasets = [lineaGrafica];
+                var chart = new Chart(ctx, {
+                  type: 'line',
+                  data: datos,
+                  options:lasOpciones
+                })
+                tipomedida.selectedIndex=5;
+            }
+          })
+      })
+  }
 //-----------------------------------------------------------------------------
 // Funcion que hace la peticion al servidor para obtener los datos de las
 // medidas de los sensores.
 // ----------------------------------------------------------------------------
 
 function pedirDatos (){
+
   //tipo string
   var medida = document.getElementById("selector").value;
   if(medida != ""){
@@ -84,89 +201,59 @@ function pedirDatos (){
     +"&medida=" + medida).then(function(respuesta){
       respuesta.json().then(function(datos){
         ultimosDatos(datos, function(listaDatos){
-          // console.log(listaDatos);
-          if(medida == "humedad"){
-            var datoshumedad = [];
-            for(var i=0; i<= listaDatos.length-1; i++){
-              datoshumedad.push(listaDatos[i].humedad);
-            }
-            var opcionesHumedad = modificarParametrosGrafica(datosMedidasHumedad);
-            var lineaGrafica = {
-                label: 'Humedad',//titolo de la leyenda de la grafica
-                backgroundColor: '#ffab00', //color de fondo de la linea
-                borderColor: '#ffab00',// color del borde de la linea
-                fill: false,// rellena desde la base de la grafica hasta la linea
-                data: datoshumedad// datos a representar
-            };
-            var datos = {
-                labels: ['00: 00', '02:00', '04:00', '06: 00', '08:00', '10: 00', '12:00', '14:00', '16: 00', '18:00', '20:00', '22:00', '24:00'],
-                datasets: []
-            };
-            datos.datasets = [lineaGrafica];
-
-            var ctx = document.getElementById('grafica').getContext('2d');
-
-            var chart = new Chart(ctx, {
+          console.log(listaDatos);
+          switch (medida) {
+            case "humedad":
+              lineaGrafica = modificarDatosGrafica(datosMedida.humedad, listaDatos);
+              lasOpciones = modificarParametrosGrafica(datosMedida.humedad);
+              datos.datasets = [lineaGrafica];
+              console.log(datos.datasets);
+              var chart = new Chart(ctx, {
                 type: 'line',
                 data: datos,
-                options: opcionesHumedad
-            });
-          }
-
-          if(medida == "temperatura"){
-            var datostemperatura = [];
-            for(var i=0; i<= listaDatos.length-1; i++){
-              datostemperatura.push(listaDatos[i].temperatura);
-            }
-            var opcionesTemperatura = modificarParametrosGrafica(datosMedidasTemperatura);
-            var lineaGrafica = {
-                label: 'Temperatura',//titolo de la leyenda de la grafica
-                backgroundColor: '#ffab00', //color de fondo de la linea
-                borderColor: '#ffab00',// color del borde de la linea
-                fill: false,// rellena desde la base de la grafica hasta la linea
-                data: datostemperatura// datos a representar
-            };
-            var datos = {
-                labels: ['00: 00', '02:00', '04:00', '06: 00', '08:00', '10: 00', '12:00', '14:00', '16: 00', '18:00', '20:00', '22:00', '24:00'],
-                datasets: []
-            };
-            datos.datasets = [lineaGrafica];
-
-            var ctx = document.getElementById('grafica').getContext('2d');
-
-            var chart = new Chart(ctx, {
+                options:lasOpciones
+              })
+              chart.update();
+              break;
+            case "temperatura":
+              lineaGrafica = modificarDatosGrafica(datosMedida.temperatura, listaDatos);
+              lasOpciones = modificarParametrosGrafica(datosMedida.temperatura);
+              datos.datasets = [lineaGrafica];
+              var chart = new Chart(ctx, {
                 type: 'line',
                 data: datos,
-                options: opcionesTemperatura
-            });
-          }
-
-          if(medida == "salinidad"){
-            var datosSalinidad = [];
-            for(var i=0; i<= listaDatos.length-1; i++){
-              datosSalinidad.push(listaDatos[i].salinidad);
-            }
-            var opcionesSalinidad = modificarParametrosGrafica(datosMedidasSalinidad);
-            var lineaGrafica = {
-                label: 'Salinidad',//titolo de la leyenda de la grafica
-                backgroundColor: '#ffab00', //color de fondo de la linea
-                borderColor: '#ffab00',// color del borde de la linea
-                fill: false,// rellena desde la base de la grafica hasta la linea
-                data: datosSalinidad// datos a representar
-            };
-            var datos = {
-                labels: ['00: 00', '02:00', '04:00', '06: 00', '08:00', '10: 00', '12:00', '14:00', '16: 00', '18:00', '20:00', '22:00', '24:00'],
-                datasets: []
-            };
-            datos.datasets = [lineaGrafica];
-
-            var ctx = document.getElementById('grafica').getContext('2d');
-
-            var chart = new Chart(ctx, {
+                options:lasOpciones
+              })
+              break;
+            case "salinidad":
+              lineaGrafica = modificarDatosGrafica(datosMedida.salinidad, listaDatos);
+              lasOpciones = modificarParametrosGrafica(datosMedida.salinidad);
+              datos.datasets = [lineaGrafica];
+              var chart = new Chart(ctx, {
                 type: 'line',
                 data: datos,
-                options: opcionesSalinidad
-            });
+                options:lasOpciones
+              })
+              break;
+            case "iluminacion":
+              lineaGrafica = modificarDatosGrafica(datosMedida.iluminacion, listaDatos);
+              lasOpciones = modificarParametrosGrafica(datosMedida.iluminacion);
+              datos.datasets = [lineaGrafica];
+              var chart = new Chart(ctx, {
+                type: 'line',
+                data: datos,
+                options:lasOpciones
+              })
+              break;
+            default:
+              lineaGrafica = modificarDatosGrafica(datosMedida.presion, listaDatos);
+              lasOpciones = modificarParametrosGrafica(datosMedida.presion);
+              datos.datasets = [lineaGrafica];
+              var chart = new Chart(ctx, {
+                type: 'line',
+                data: datos,
+                options:lasOpciones
+              })
           }
         })
       })
@@ -210,7 +297,7 @@ function valoresMedidas (lista, medida){
 // ----------------------------------------------------------------------------
 
 function modificarParametrosGrafica(datosMedidas){
-  return opcionesGrafica = {
+   opciones = {
       responsive: true,
       maintainAspectRatio: false,
       scales: {
@@ -236,63 +323,49 @@ function modificarParametrosGrafica(datosMedidas){
       }
   };
 }
-function modificarDatosGrafica(datosMedidas, valores){
+function modificarDatosGrafica(datosMedidas, losDatos){
+  var lista=[];
+  for(var i = 0; i<=12; i++){
+    lista.push(Object.values(losDatos[i])[0]);
+  }
+  console.log(datosMedidas);
   return lineaGrafica = {
       label: datosMedidas.labelString,//titolo de la leyenda de la grafica
       backgroundColor: datosMedidas.backgroundColor, //color de fondo de la linea
       borderColor: datosMedidas.borderColor,// color del borde de la linea
       fill: false,// rellena desde la base de la grafica hasta la linea
-      data: []// datos a representar
+      data: lista// datos a representar
   };
 }
-var opciones = {
-    responsive: true,
-    maintainAspectRatio: false,
-    scales: {
-        xAxes: [{
-            display: true,
-            scaleLabel: {
-                display: true,
-                labelString: 'Horas'
-            }
-        }],
-        yAxes: [{
-            display: true,
-            scaleLabel: {
-                display: true,
-                labelString: 'Medida'
-            },
-            ticks: {
-                min: 0,
-                max: 100,
-                stepSize: 10
-            }
-        }]
+
+//-----------------------------------------------------------------------------
+// Funcion para obtener la eleccion del tipo de medida de la pagina de mapa
+// (todavia con campos)
+// ----------------------------------------------------------------------------
+function obtenerValorMedida(){
+  query = window.location.search;
+  valor = query.split("=");
+  return valor[1];
+}
+
+//-----------------------------------------------------------------------------
+// Funcion para actualizar los valores de las graficas
+// ----------------------------------------------------------------------------
+function updateConfigAsNewObject(chart) {
+    chart.options = {
+        responsive: true,
+        title:{
+            display:true,
+            text: 'Chart.js'
+        },
+        scales: {
+            xAxes: [{
+                display: true
+            }],
+            yAxes: [{
+                display: true
+            }]
+        }
     }
-};
-
-
-var datos = {
-    labels: ['00: 00', '02:00', '04:00', '06: 00', '08:00', '10: 00', '12:00', '14:00', '16: 00', '18:00', '20:00', '22:00', '24:00'],
-    datasets: []
-};
-
-var lineaGrafica = {
-    label: 'Medida',//titolo de la leyenda de la grafica
-    backgroundColor: '#ffab00', //color de fondo de la linea
-    borderColor: '#ffab00',// color del borde de la linea
-    fill: false,// rellena desde la base de la grafica hasta la linea
-    data: []// datos a representar
-};
-
-
-
-datos.datasets = [lineaGrafica];
-
-var ctx = document.getElementById('grafica').getContext('2d');
-
-var chart = new Chart(ctx, {
-    type: 'line',
-    data: datos,
-    options: opciones
-});
+    chart.update();
+}

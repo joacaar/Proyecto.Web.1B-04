@@ -159,7 +159,7 @@ module.exports.getMedidas = function(peticion, respuesta){
         if(fila == undefined || fila.length == 0){
           respuesta.sendStatus(401);
         }else{
-          // console.log(fila.length);
+          console.log(fila);
           respuesta.send(fila);
         }//else
       }//else

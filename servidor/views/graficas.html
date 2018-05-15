@@ -18,31 +18,44 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+    <style>
+        #grafica {
+          height: 300px;
+          width: auto;
+        }
+    </style>
 </head>
 
-<body>
+<body onload="mostrarPrimerosDatos(chart)">
     <div class="contenedor">
         <header class="">
-            <img src="images/logo_gtinegro.svg" alt="Logo Empresa GTI" style="max-width: 200px; max-height: 80px;">
+            <img src="images/logo_gtinegro.svg" alt="Logo Empresa GTI" style=" max-width: 200px; max-height: 80px;">
             <!--            <img src="images/menu.svg" alt="enlace menu">-->
         </header>
 
         <div class="contenidoCentral">
 
             <div class="seleccion"></div>
-            <h1>Seleccione el sensor</h1>
+            <h3>Seleccione el sensor</h3>
             <select id="selector" onchange="pedirDatos();">
                  <option value="" selected>Sensores</option>
                   <option value="humedad">Humedad</option>
                   <option value="temperatura">Temperatura</option>
                   <option value="salinidad">Salinidad</option>
-                  <option value="iluminacion">Luminosidad</option>
+                  <option value="iluminacion">Iluminación</option>
                   <option value="presion">Presión Atmosférica</option>
-                </select>
+            </select>
+            <!--<div class="botonesMedidas">
+              <button type="button" name="humedad">Humedad %</button>
+              <button type="button" name="temperatura">Temperatura ºC</button>
+              <button type="button" name="salinidad">Salinidad %</button>
+              <button type="button" name="iluminacion">Iluminación lux</button>
+              <button type="button" name="Presion">Presion hPa</button>
+            </div>-->
             <div class="grafica">
                 <h3>Ubicación: </h3>
                 <h3 id="concreto"></h3>
-                <canvas id="grafica" max-width="500" max-height="400"> </canvas>
+                <canvas id="grafica"> </canvas>
 
                 <script src="js/grafica.js"></script>
 

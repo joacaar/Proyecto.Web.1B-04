@@ -12,6 +12,12 @@
 //   })
 // }
 
+function mostrarSensor (){
+  var sensor = document.getElementById('listaSensores').value;
+  console.log(sensor);
+  location.href = "/grafica?sensor=" + sensor;
+  //fetch("/grafica?sensor=" + sensor);
+}
 function continuar(){
   location.href="/grafica";
 }

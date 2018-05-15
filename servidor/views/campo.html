@@ -24,9 +24,18 @@
     </div>
     <div class="campos">
         <ul>
-            <li><button type="button" onclick="continuar();">Campo Patatas</button></li>
+            <li><button type="button" onclick="mostrarSensor();">Campo Patatas</button></li>
             <li><button type="button" onclick="continuar();">Campo Tomates</button></li>
         </ul>
+    </div>
+    <div>
+      <select id="listaSensores">
+        <option value="temperatura">temperatura</option>
+        <option value="humedad">humedad</option>
+        <option value="salinidad">salinida</option>
+        <option value="iluminacion">iluminacion</option>
+        <option value="presion">Presión</option>
+      </select>
     </div>
     <!-- <section>
         <button type="button" id="aceptar_campo" class="botonEnlace" onclick="location.href='graficas.html'">Continuar</button>
