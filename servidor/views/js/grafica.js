@@ -53,8 +53,8 @@ datosMedida = {
     min: 990,
     max: 1040,
     stepSize: 5,
-    backgroundColor: '#ffab00',
-    borderColor: '#ffab00'
+    backgroundColor: '#04B404',
+    borderColor: '#04B404'
   }
 }
 
@@ -64,7 +64,7 @@ datosMedida = {
 //-----------------------------------------------------------------------------
 var opciones = {
     responsive: true,
-    maintainAspectRatio: false,
+    maintainAspectRatio: true,
     scales: {
         xAxes: [{
             display: true,
@@ -104,13 +104,15 @@ datos.datasets = [lineaGrafica];
 
 var ctx = document.getElementById('grafica').getContext('2d');
 
-var chart = new Chart(ctx, {
-    type: 'line',
-    data: datos,
-    options: opciones
-});
+// var chart = new Chart(ctx, {
+//     type: 'line',
+//     data: datos,
+//     options: opciones
+// });
 
-console.log(chart.options);
+// console.log(chart.options);
+
+
 
 
 
@@ -118,7 +120,7 @@ console.log(chart.options);
 // Funcion para mostrar los primeros datos en la graficas
 //  (ejecutar al cargar la pagina graficas.html)
 // ----------------------------------------------------------------------------
-function mostrarPrimerosDatos(michart){
+function mostrarPrimerosDatos(){
     var medida = obtenerValorMedida();
     var tipomedida = document.getElementById("selector");
     console.log(tipomedida);
@@ -139,7 +141,7 @@ function mostrarPrimerosDatos(michart){
                   data: datos,
                   options:lasOpciones
                 })
-                tipomedida.selectedIndex=1;
+                tipomedida.selectedIndex=0;
                 break;
               case "temperatura":
                 lineaGrafica = modificarDatosGrafica(datosMedida.temperatura, losDatos);
@@ -151,7 +153,7 @@ function mostrarPrimerosDatos(michart){
                   data: datos,
                   options:lasOpciones
                 })
-                tipomedida.selectedIndex=2;
+                tipomedida.selectedIndex=1;
                 break;
               case "salinidad":
                 lineaGrafica = modificarDatosGrafica(datosMedida.salinidad, losDatos);
@@ -162,7 +164,7 @@ function mostrarPrimerosDatos(michart){
                   data: datos,
                   options:lasOpciones
                 })
-                tipomedida.selectedIndex=3;
+                tipomedida.selectedIndex=2;
                 break;
               case "iluminacion":
                 lineaGrafica = modificarDatosGrafica(datosMedida.iluminacion, losDatos);
@@ -173,7 +175,7 @@ function mostrarPrimerosDatos(michart){
                   data: datos,
                   options:lasOpciones
                 })
-                tipomedida.selectedIndex=4;
+                tipomedida.selectedIndex=3;
                 break;
               default:
                 lineaGrafica = modificarDatosGrafica(datosMedida.presion, losDatos);
@@ -184,7 +186,7 @@ function mostrarPrimerosDatos(michart){
                   data: datos,
                   options:lasOpciones
                 })
-                tipomedida.selectedIndex=5;
+                tipomedida.selectedIndex=4;
             }
           })
       })
@@ -194,7 +196,7 @@ function mostrarPrimerosDatos(michart){
 // medidas de los sensores.
 // ----------------------------------------------------------------------------
 
-function pedirDatos (){
+function pedirDatos (michart){
 
   //tipo string
   var medida = document.getElementById("selector").value;
@@ -216,6 +218,7 @@ function pedirDatos (){
                 data: datos,
                 options:lasOpciones
               })
+              history.pushState(null, "", "grafica?sensor=humedad");
               break;
             case "temperatura":
               lineaGrafica = modificarDatosGrafica(datosMedida.temperatura, listaDatos);
@@ -227,6 +230,7 @@ function pedirDatos (){
                 data: datos,
                 options:lasOpciones
               })
+              history.pushState(null, "", "grafica?sensor=temperatura");
               break;
             case "salinidad":
               lineaGrafica = modificarDatosGrafica(datosMedida.salinidad, listaDatos);
@@ -238,6 +242,7 @@ function pedirDatos (){
                 data: datos,
                 options:lasOpciones
               })
+              history.pushState(null, "", "grafica?sensor=salinidad");
               break;
             case "iluminacion":
               lineaGrafica = modificarDatosGrafica(datosMedida.iluminacion, listaDatos);
@@ -249,6 +254,7 @@ function pedirDatos (){
                 data: datos,
                 options:lasOpciones
               })
+              history.pushState(null, "", "grafica?sensor=iluminacion");
               break;
             default:
               lineaGrafica = modificarDatosGrafica(datosMedida.presion, listaDatos);
@@ -260,6 +266,7 @@ function pedirDatos (){
                 data: datos,
                 options:lasOpciones
               })
+              history.pushState(null, "", "grafica?sensor=presion");
           }
         })
       })
