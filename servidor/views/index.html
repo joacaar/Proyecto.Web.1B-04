@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="css/navbar.css">
     <link rel="stylesheet" href="css/botonEnlace.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 </head>
 
 <body>
@@ -21,15 +22,15 @@
         <header>
             <div class="cabezal">
                 <div class="logo"><a href="index.html"><img src="images/logo_GTI_azul.png" alt="Logo GTI" class="logo"></a></div>
-                <!--<button type="button" id="Login" class="botonEnlace" onclick="location.href='login.html'">Iniciar sesión</button>-->
-                <!--<a href="index.html" id="atras"><img src="images/" alt="Volver atrás"></a>-->
-                <!-- <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                <!-- <button type="button" id="Login" class="botonEnlace" onclick="location.href='login.html'">Iniciar sesión</button>
+                <a href="index.html" id="atras"><img src="images/" alt="Volver atrás"></a>
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                     <img src="images/menuA.png" alt="menú">
-                </button>0 -->
+                </button> -->
             </div>
-
-            <!-- Menú
-            <nav class="navbar navbar-expand-lg navbar-light">
+            
+            <!-- Menú -->
+            <!-- <nav class="navbar navbar-expand-lg navbar-light">
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                     <ul class="navbar-nav mr-auto mt-2 mt-md-0">
                         <li class="nav-item active">
@@ -44,39 +45,34 @@
                     </ul>
                 </div>
             </nav> -->
-
+        
         </header>
         <!--Parte central-->
         <div class="central">
-            <!-- general hacer dos partes, una para inicio, otro informacion -->
-            <div class="inicio">
-                <div class="imagenContrataYa">
-                    <!-- <img src="images/campo_opcion1.png" alt="Imagen de archivo"> -->
-                </div>
                 <div class="texto">
                     <h2>Controla tu campo desde cualquier sitio</h2>
-                    <!-- <div class="vl"></div> -->
                     <p>Un servicio web que permite realizar un control diario de los productos de la tierra, para mejorar la producción.</p>
                     <!--Botones-->
                     <div class="botones">
-                        <!-- <div class="boton">
-                    <button type="button" id="Tarifas" class="botonEnlace" onclick=#>¡Contratalo Ya!</button>
-                </div>
-                <p class="login">o si ya tienes cuenta:</p> -->
                         <div class="boton">
                             <button type="button" id="Login" class="botonEnlace" onclick="enlaceLogin()">¡Entra ya!</button>
                         </div>
                     </div>
+                    
                 </div>
-            </div>
-            <div class="informacion">
-
-            </div>
+                <div class="bajar text-center">
+                   <a href="#informacion">
+                       <i class="fas fa-sort-down"></i>
+                   </a>
+                </div>
         </div>
+    </section>
+    <section class="informacion" id="informacion">
+        <h2>Prueba bajar pantalla</h2>
     </section>
     <!--Parte final-->
     <section class="finalDePagina">
-        <footer>
+        <!-- <footer>
             <div class="copy">
                 <label for="copyright">Copyright &copy; 2018 | GTI </label><br/>
                 <label for="derechos">Todos los derechos reservados | <a href="terminos.html">Terminos de uso</a></label>
@@ -86,7 +82,7 @@
                 <a href="http://www.facebook.es/"><img src="images/facebook2A.png" alt="Facebook"></a>
                 <a href="http://www.linkedin.com/"><img src="images/linkedinA.png" alt="Linkedin"></a>
             </div>
-        </footer>
+        </footer> -->
     </section>
 
     <script src="js/index.js"></script>

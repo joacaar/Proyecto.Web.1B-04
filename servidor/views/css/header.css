@@ -5,15 +5,13 @@ html{
 }
 header {
     background-color: #010608;
-    /*border-bottom-left-radius: 1em;
-    border-bottom-right-radius: 1em;*/
     margin: 0px;
     font-family: sans-serif;
     display: flex;
     flex-direction: row;
 }
 
-div.cabezal {
+.header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -34,44 +32,3 @@ div.logo img.logo {
         visibility: hidden;
     }
 }
-
-/*
-div.menu img.menu {
-    height: 2.5em;
-    width: 2.5em;
-}
-
-div.menu {
-    display: flex;
-    justify-content: flex-end;
-}
-
-nav#menu_principal {
-    display: flex;
-    justify-content: flex-end;
-}
-
-nav#menu_principal ul {
-    list-style-type: none;
-    border: 3px solid #c67c00;
-    padding: 0px;
-    margin: 0px;
-}
-
-nav#menu_principal ul li {
-    text-align: center;
-}
-
-nav#menu_principal ul li:hover {
-    background-color: #ffab00;
-}
-
-nav#menu_principal ul li:hover a {
-    color: #000;
-}
-
-nav#menu_principal ul a {
-    text-decoration: none;
-    color: white;
-}
-*/
