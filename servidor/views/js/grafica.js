@@ -63,6 +63,7 @@ datosMedida = {
 //  Creamos la grafica al principio sin valores
 //-----------------------------------------------------------------------------
 var opciones = {
+      events: ['click'],
     responsive: true,
     maintainAspectRatio: true,
     scales: {
@@ -84,7 +85,8 @@ var opciones = {
                 stepSize: 10
             }
         }]
-    }
+    },
+
 };
 
 var datos = {
@@ -123,7 +125,7 @@ var ctx = document.getElementById('grafica').getContext('2d');
 function mostrarPrimerosDatos(){
     var medida = obtenerValorMedida();
     var tipomedida = document.getElementById("selector");
-    console.log(tipomedida);
+    //console.log(tipomedida);
     fetch("/grafica/medidas?id_sensor=" + "363234"
     +"&medida=" + medida).then(
       function(respuesta){
@@ -132,59 +134,62 @@ function mostrarPrimerosDatos(){
 
             switch (medida) {
               case "humedad":
+                //michart.destroy();
                 lineaGrafica = modificarDatosGrafica(datosMedida.humedad, losDatos);
-                lasOpciones = modificarParametrosGrafica(datosMedida.humedad);
+                modificarParametrosGrafica(datosMedida.humedad);
                 datos.datasets = [lineaGrafica];
-                console.log(datos);
+                //console.log(datos);
                 var chart = new Chart(ctx, {
                   type: 'line',
                   data: datos,
-                  options:lasOpciones
+                  options:opciones
                 })
+                console.log(chart);
                 tipomedida.selectedIndex=0;
                 break;
               case "temperatura":
+                console.log(losDatos);
                 lineaGrafica = modificarDatosGrafica(datosMedida.temperatura, losDatos);
-                lasOpciones = modificarParametrosGrafica(datosMedida.temperatura);
+                modificarParametrosGrafica(datosMedida.temperatura);
                 datos.datasets = [lineaGrafica];
-                console.log(datos);
+                //console.log(datos);
                 var chart = new Chart(ctx, {
                   type: 'line',
                   data: datos,
-                  options:lasOpciones
+                  options:opciones
                 })
                 tipomedida.selectedIndex=1;
                 break;
               case "salinidad":
                 lineaGrafica = modificarDatosGrafica(datosMedida.salinidad, losDatos);
-                lasOpciones = modificarParametrosGrafica(datosMedida.salinidad);
+                modificarParametrosGrafica(datosMedida.salinidad);
                 datos.datasets = [lineaGrafica];
                 var chart = new Chart(ctx, {
                   type: 'line',
                   data: datos,
-                  options:lasOpciones
+                  options:opciones
                 })
                 tipomedida.selectedIndex=2;
                 break;
               case "iluminacion":
                 lineaGrafica = modificarDatosGrafica(datosMedida.iluminacion, losDatos);
-                lasOpciones = modificarParametrosGrafica(datosMedida.iluminacion);
+                modificarParametrosGrafica(datosMedida.iluminacion);
                 datos.datasets = [lineaGrafica];
                 var chart = new Chart(ctx, {
                   type: 'line',
                   data: datos,
-                  options:lasOpciones
+                  options:opciones
                 })
                 tipomedida.selectedIndex=3;
                 break;
               default:
                 lineaGrafica = modificarDatosGrafica(datosMedida.presion, losDatos);
-                lasOpciones = modificarParametrosGrafica(datosMedida.presion);
+                modificarParametrosGrafica(datosMedida.presion);
                 datos.datasets = [lineaGrafica];
                 var chart = new Chart(ctx, {
                   type: 'line',
                   data: datos,
-                  options:lasOpciones
+                  options:opciones
                 })
                 tipomedida.selectedIndex=4;
             }
@@ -196,7 +201,7 @@ function mostrarPrimerosDatos(){
 // medidas de los sensores.
 // ----------------------------------------------------------------------------
 
-function pedirDatos (michart){
+function pedirDatos (){
 
   //tipo string
   var medida = document.getElementById("selector").value;
@@ -208,63 +213,68 @@ function pedirDatos (michart){
           console.log(listaDatos);
           switch (medida) {
             case "humedad":
+              //michart.destroy();
               lineaGrafica = modificarDatosGrafica(datosMedida.humedad, listaDatos);
-              lasOpciones = modificarParametrosGrafica(datosMedida.humedad);
+              modificarParametrosGrafica(datosMedida.humedad);
               datos.datasets = [lineaGrafica];
               datos.labels = ['00: 00', '02:00', '04:00', '06: 00', '08:00', '10: 00', '12:00', '14:00', '16: 00', '18:00', '20:00', '22:00', '24:00'];
-              console.log(datos.datasets);
+              //console.log(datos.datasets);
               var chart = new Chart(ctx, {
                 type: 'line',
                 data: datos,
-                options:lasOpciones
+                options:opciones
               })
+              console.log(chart);
               history.pushState(null, "", "grafica?sensor=humedad");
               break;
             case "temperatura":
+              //console.log(datos);
               lineaGrafica = modificarDatosGrafica(datosMedida.temperatura, listaDatos);
-              lasOpciones = modificarParametrosGrafica(datosMedida.temperatura);
+              modificarParametrosGrafica(datosMedida.temperatura);
               datos.datasets = [lineaGrafica];
               datos.labels = ['00: 00', '02:00', '04:00', '06: 00', '08:00', '10: 00', '12:00', '14:00', '16: 00', '18:00', '20:00', '22:00', '24:00'];
               var chart = new Chart(ctx, {
                 type: 'line',
                 data: datos,
-                options:lasOpciones
+                options:opciones
               })
+              console.log(chart);
               history.pushState(null, "", "grafica?sensor=temperatura");
               break;
             case "salinidad":
               lineaGrafica = modificarDatosGrafica(datosMedida.salinidad, listaDatos);
-              lasOpciones = modificarParametrosGrafica(datosMedida.salinidad);
+              modificarParametrosGrafica(datosMedida.salinidad);
               datos.datasets = [lineaGrafica];
               datos.labels = ['00: 00', '02:00', '04:00', '06: 00', '08:00', '10: 00', '12:00', '14:00', '16: 00', '18:00', '20:00', '22:00', '24:00'];
               var chart = new Chart(ctx, {
                 type: 'line',
                 data: datos,
-                options:lasOpciones
+                options:opciones
               })
+              console.log(chart);
               history.pushState(null, "", "grafica?sensor=salinidad");
               break;
             case "iluminacion":
               lineaGrafica = modificarDatosGrafica(datosMedida.iluminacion, listaDatos);
-              lasOpciones = modificarParametrosGrafica(datosMedida.iluminacion);
+              modificarParametrosGrafica(datosMedida.iluminacion);
               datos.datasets = [lineaGrafica];
               datos.labels = ['00: 00', '02:00', '04:00', '06: 00', '08:00', '10: 00', '12:00', '14:00', '16: 00', '18:00', '20:00', '22:00', '24:00'];
               var chart = new Chart(ctx, {
                 type: 'line',
                 data: datos,
-                options:lasOpciones
+                options:opciones
               })
               history.pushState(null, "", "grafica?sensor=iluminacion");
               break;
             default:
               lineaGrafica = modificarDatosGrafica(datosMedida.presion, listaDatos);
-              lasOpciones = modificarParametrosGrafica(datosMedida.presion);
+              modificarParametrosGrafica(datosMedida.presion);
               datos.datasets = [lineaGrafica];
               datos.labels = ['00: 00', '02:00', '04:00', '06: 00', '08:00', '10: 00', '12:00', '14:00', '16: 00', '18:00', '20:00', '22:00', '24:00'];
               var chart = new Chart(ctx, {
                 type: 'line',
                 data: datos,
-                options:lasOpciones
+                options:opciones
               })
               history.pushState(null, "", "grafica?sensor=presion");
           }
@@ -311,6 +321,7 @@ function valoresMedidas (lista, medida){
 
 function modificarParametrosGrafica(datosMedidas){
    opciones = {
+     events: ["click"],
       responsive: true,
       maintainAspectRatio: false,
       scales: {
@@ -326,12 +337,12 @@ function modificarParametrosGrafica(datosMedidas){
               scaleLabel: {
                   display: true,
                   labelString: datosMedidas.labelString
-              },
+              }/*,
               ticks: {
                   min: datosMedidas.min,
                   max: datosMedidas.max,
                   stepSize: datosMedidas.stepSize
-              }
+              }*/
           }]
       }
   };
@@ -364,21 +375,21 @@ function obtenerValorMedida(){
 //-----------------------------------------------------------------------------
 // Funcion para actualizar los valores de las graficas
 // ----------------------------------------------------------------------------
-function updateConfigAsNewObject(chart) {
-    chart.options = {
-        responsive: true,
-        title:{
-            display:true,
-            text: 'Chart.js'
-        },
-        scales: {
-            xAxes: [{
-                display: true
-            }],
-            yAxes: [{
-                display: true
-            }]
-        }
-    }
-    chart.update();
-}
+// function updateConfigAsNewObject(chart) {
+//     chart.options = {
+//         responsive: true,
+//         title:{
+//             display:true,
+//             text: 'Chart.js'
+//         },
+//         scales: {
+//             xAxes: [{
+//                 display: true
+//             }],
+//             yAxes: [{
+//                 display: true
+//             }]
+//         }
+//     }
+//     chart.update();
+// }
