@@ -2,6 +2,7 @@
 //mapa global
 var map;
 var zona;
+var contadorSensores = 3; //cambiar por 0 cuando no tengamos ninguno de cero 
 
 function initMap() {
     // var Nombre = { lat: X, lng: X}
@@ -72,6 +73,7 @@ function initMap() {
 }
 
 //------------------------------------------//
+
 //-----Crear marcador, util para poner marcadores nuevos-----//
 function addMarker(lat, lng, nombreSensor) {
     /*if (ObjetoNombre.outerHTML){
@@ -104,6 +106,8 @@ function addMarker(lat, lng, nombreSensor) {
     marcador.addListener('click', function() {
         ventanaInfo.open(map, marcador)
     })
+    
+    addDropdownLink(lat, lng)
 }
 
 // Funcion para crear zonas
@@ -116,6 +120,41 @@ function addZone(listaVertices) {
         strokeColor: '#fff',
     })
 }
+
+//--------Funcion para centrar el mapa en unas coordenadas exactas, vease un sensor------------------//
+//-----------Utilizada por la funcion addDropdownLink-----------//
+        function centerMap(lat, lng) {
+            var newCenter = new google.maps.LatLng(lat, lng);
+            map.panTo(newCenter);
+        }
+//----------Permite añadir un link al dropdown que al pulsarlo sea centrado en las coordenadas de X punto----//
+        //FALTA POR HACER QUE SE PUEDAN BORRAR
+        function addDropdownLink(lat, lng) {
+            var link = document.createElement('a');
+            contadorSensores = contadorSensores + 1;
+            link.innerHTML = 'Sensor' + ' ' + contadorSensores; 
+            link.className = 'dropdown-item';
+            //link.href = '#!'; //sustituir por centrar mapa
+            //link.onclick = 'centerMap(lat, lng)';
+            link.addEventListener("click", () => centerMap(lat, lng))
+            document.getElementById("dropdown").appendChild(link);
+        }
+
+//--------funcion para centrar el mapa en una zona, falta la llamada a la base de datos------------------//
+/*        function centerMap(nombreZona) {
+ *           var textoSQL = '';
+ *
+ *         //x1 más baja
+ *         //y1 más baja
+ *         //x2 más alta
+ *         //y2 más alta
+ *         var center = {}
+ *          center.x = x1 + ((x2 - x1) / 2);
+ *           center.y = y1 + ((y2 - y1) / 2);
+ *
+ *           map.center(center);
+ *        }
+ */
 
 // var puntos = [
 //   { lat: 38.999,
