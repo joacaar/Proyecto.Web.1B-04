@@ -77,12 +77,14 @@ div.central .texto p {
     color: #000000;
 }
 
-.boton-index {
+/* .boton-index {
     color: #3a6168;
     border: solid #3a6168;
-    padding: 10px 20px;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 5px 10px;
     border-radius: 9px;
-}
+} */
 .central .bajar a {
     z-index: 4;
     display: inline-block;
