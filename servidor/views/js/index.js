@@ -1,3 +1,3 @@
-function enlaceLogin (){
-  location.href = '/sesion';
+function enlaceLogin(){
+  location.href = '/servidor/views/login.html';
 }

@@ -18,6 +18,8 @@ Colores usados:
 body {
     margin: 0;
     font-family: sans-serif;
+    height: 90%;
+    width: 100%;
 }
 
 .alert-danger {
