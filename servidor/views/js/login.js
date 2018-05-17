@@ -50,7 +50,7 @@ function comprobar_login(){
             if(datos.activo == 'false'){// si el usuario no ha activado la cuenta todavia
                 location.href = "/perfil"//va a la pagina de perfil
             }else{//por el contrario, si activo vale true, la cuenta esta activa y va directamente a campos
-                location.href = "/campos" // va a la pagina de campos
+                location.href = "/mapa" // va a la pagina de campos
             }
           });
         }else if(respuesta.status == 401){//si el estado es 401, muestra un mensaje al usuario

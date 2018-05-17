@@ -1,6 +1,59 @@
-#map {
-    width: 100%;
-    height: 30rem;
+body{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+header{
+    background: #333333;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+header .logo{
+    margin-left: 1rem;
+}
+header.logo a img{
+    max-width: 180px;
+}
+header .botonperfil{
+    margin-right: 1rem;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+header .botonperfil .btn{
+    color: #00c5e8;
+    border-color: #00c5e8;
+}
+header .botonperfil .btn:hover{
+    background: #00c5e8;
+    color: #333333;
+    border-color: #333333;
+}
+.container{
+
+    /*width: 90%;*/
+    /*margin: 1rem 1rem 1rem 1rem;*/
+
+    height: 100%;
+}
+.container .row .map{
+    width: 300px;
+    height: 500px;
+    margin-top: 1rem;
     background-color: grey;
     border: solid 2px #333;
+}
+footer {
+    text-align: center;
+    background-color: #333333;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    color: grey;
 }
