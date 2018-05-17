@@ -88,7 +88,7 @@ function addMarker(lat, lng, nombreSensor) {
         lng: lng
     }
 
-    marcador = new google.maps.Marker({
+    var marcador = new google.maps.Marker({
         position: location,
         map: map,
         title: nombreSensor,
