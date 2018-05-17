@@ -127,7 +127,7 @@ button.botonAceptarLogin {
     margin: 1rem auto;
     height: 2.5rem;
     width: 10rem;
-    border-radius: 3rem;
+    border-radius: 9px;
     font-weight: bolder;
 }
 

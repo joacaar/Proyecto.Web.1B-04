@@ -77,6 +77,12 @@ div.central .texto p {
     color: #000000;
 }
 
+.boton-index {
+    color: #3a6168;
+    border: solid #3a6168;
+    padding: 10px 20px;
+    border-radius: 9px;
+}
 .central .bajar a {
     z-index: 4;
     display: inline-block;
@@ -106,8 +112,10 @@ button.botonEnlace#Login {
     background-color: #f9bd9b;
     top: 0;
     width: 100%;
-    height: 88%;
+    height: 87%;
 }
+
+
 
 /*Vista escritorio*/
 
