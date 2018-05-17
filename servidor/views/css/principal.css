@@ -106,8 +106,25 @@ div.central .texto p {
 }
 
 button.botonEnlace#Login {
-    height: 3rem;
-    width: 10rem;
+    color: #172122;
+    border: solid #172122;
+    background-color: transparent;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 5px 10px;
+    border-radius: 9px;
+}
+
+.botonEnlace#Login:hover{
+    background-color: #172122;
+    border: 3px solid #172122;
+    color:white;
+}
+
+.botonEnlace#Login:active {
+    background-color: #3cc4e6;
+    border: 3px solid #172122;
+    color: #172122;
 }
 
 .informacion {

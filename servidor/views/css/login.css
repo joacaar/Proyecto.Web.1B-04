@@ -30,6 +30,7 @@ div.central {
     background-color: white;
     background-size: cover;
     background-position: center;
+    background-color: rgba(119, 192, 209, 0.67);
     margin: 3rem auto;
     padding: 0px;
     height: 20rem;

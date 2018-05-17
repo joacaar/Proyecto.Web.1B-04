@@ -1,6 +1,6 @@
 .botonEnlace {
-    
-    /* 
+
+
     display: block;
     background-color: #3cc4e6;
     border: 3px solid #395D66;
@@ -8,26 +8,23 @@
     height: 4rem;
     width: 16rem;
     border-radius: 3px;
-    font-weight: bold; */
-    color: #172122;
+    font-weight: bold;
+    /* color: #172122;
     border: solid #172122;
     background-color: transparent;
     text-decoration: none;
     text-transform: uppercase;
     padding: 5px 10px;
-    border-radius: 9px;
+    border-radius: 9px; */
 }
 
 .botonEnlace:hover {
-    /* background-color: #2F99B3;
-    border: 3px solid #1B5766; */
-    background-color: #172122;
-    border: 3px solid #172122;
-    color:white;
+    background-color: #2F99B3;
+    border: 3px solid #1B5766;
 }
 
 .botonEnlace:active {
     background-color: #3cc4e6;
-    border: 3px solid #172122;
-    color: #172122;
+    border: 3px solid #395D66;
+    color: white;
 }
