@@ -20,6 +20,11 @@ header {
     margin-bottom: 0px;
 }
 
+.botones{
+    display: flex;
+    text-align: right;
+}
+
 div.logo img.logo {
     height: 5rem;
     width: 15rem;
