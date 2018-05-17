@@ -1,4 +1,3 @@
-
 // Objetos de configuracion
 datosMedidahumedad= {
   nombreColumnaBD: 'humedad',
