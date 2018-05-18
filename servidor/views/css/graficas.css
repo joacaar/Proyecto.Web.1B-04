@@ -18,6 +18,29 @@ body {
     font-family: sans-serif;
 }
 
+.contenedor{
+    height: 100%;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+}
+
+header .boton{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+}
+
+header .boton button{
+    height: 40px;
+    background: #000;
+    color: #00c5e8;
+    border-color: #00c5e8;
+}
+
 div.seleccion {
     background-color: #ffffe5;
     padding-bottom: 1rem;
@@ -27,4 +50,17 @@ div.seleccion {
 
 canvas#grafica {
     padding: 1rem;
+}
+
+.contenedor footer{
+    background: black;
+    color: grey;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contenedor footer p{
+    margin-bottom: 0;
+    padding: 1rem 0;
 }

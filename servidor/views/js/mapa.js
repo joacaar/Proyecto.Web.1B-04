@@ -2,7 +2,7 @@
 //mapa global
 var map;
 var zona;
-var contadorSensores = 3; //cambiar por 0 cuando no tengamos ninguno de cero 
+var contadorSensores = 0; //cambiar por 0 cuando no tengamos ninguno de cero
 
 function initMap() {
     // var Nombre = { lat: X, lng: X}
@@ -96,7 +96,17 @@ function addMarker(lat, lng, nombreSensor) {
     });
 
     // string para introducir código HTML en InfoWindow
-    var contentString = '<div id="Contenido">' + '<img src="#" alt="Temperatura" id="Gota">' + '<div id="Temperatura"> Temperatura ºC: </div>' + '<p id="Datos">25</p>' + '</div>' + '<div id="Contenido">' + '<img src="#" alt="Humedad" id="Gota">' + '<div id="Humedad"> Humedad %: </div>' + '<p id="Datos">20</p>' + '<a href="/graficas.html">Ver Grafica</a>' + '</div>';
+    var contentString =
+    '<div id=ventanaInfo>'+
+      '<a href="/grafica?sensor=temperatura">' +
+        '<div id="temperatura"> Temperatura ºC: </div>' +
+        '<p id="Datos">21</p>' +
+      '</a>'+
+      '<a href="/grafica?sensor=humedad">' +
+        '<div id="humedad"> Humedad %: </div>' +
+        '<p id="Datos">52</p>' +
+      '</a>'+
+    '</div>';
 
     //Funcion para mostrar informacion
     var ventanaInfo = new google.maps.InfoWindow({
@@ -106,7 +116,7 @@ function addMarker(lat, lng, nombreSensor) {
     marcador.addListener('click', function() {
         ventanaInfo.open(map, marcador)
     })
-    
+
     addDropdownLink(lat, lng)
 }
 
@@ -132,7 +142,7 @@ function addZone(listaVertices) {
         function addDropdownLink(lat, lng) {
             var link = document.createElement('a');
             contadorSensores = contadorSensores + 1;
-            link.innerHTML = 'Sensor' + ' ' + contadorSensores; 
+            link.innerHTML = 'Sensor' + ' ' + contadorSensores;
             link.className = 'dropdown-item';
             //link.href = '#!'; //sustituir por centrar mapa
             //link.onclick = 'centerMap(lat, lng)';
@@ -140,6 +150,13 @@ function addZone(listaVertices) {
             document.getElementById("dropdown").appendChild(link);
         }
 
+//---------Funcion para pasar parametros a la pagina de grafica ---------------
+function mostrarSensor (){
+  var sensor = document.getElementById('Contenido1').value;
+  console.log(sensor);
+  //location.href = "/grafica?sensor=" + sensor;
+  //fetch("/grafica?sensor=" + sensor);
+}
 //--------funcion para centrar el mapa en una zona, falta la llamada a la base de datos------------------//
 /*        function centerMap(nombreZona) {
  *           var textoSQL = '';
