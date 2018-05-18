@@ -2,6 +2,9 @@ body {
     margin: 0;
     font-family: sans-serif;
     background-color: #ffffe5;
+    background-image: url(../images/campo2.png);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 /*-------------------------------------------------
@@ -32,6 +35,7 @@ header.cabezera img {
 
 /*-------------------------------------------------*/
 
+/*
 .contenidoCentral {
     display: flex;
     flex-direction: column;
@@ -40,6 +44,34 @@ header.cabezera img {
     padding: 0.5rem;
     margin-top: 10%;
     margin-bottom: auto;
+}
+*/
+
+.contenidoCentral {
+    /*Flex*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    /*borde y color*/
+    background-color: rgba(182, 191, 185, 0.46);
+    color: #000000;
+    font-family: 'Muli', sans-serif;
+    border: rgba(0, 0, 0, 0.5) solid 1px;
+    border-radius: .5rem;
+    /*margin y padding*/
+    padding: 0.5rem;
+    margin-top: 8rem;
+    margin-bottom: 8rem;
+    margin-left: auto;
+    margin-right: auto;
+    /*posicion*/
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
 
 /*-------------------------------------------------*/
@@ -63,5 +95,12 @@ footer {
 @media(min-width:991px) {
     a#atras {
         visibility: hidden;
+    }
+}
+
+@media(max-width:411px){
+    .contenidoCentral {
+        margin-top: 13rem;
+        margin-bottom: 13rem;
     }
 }
