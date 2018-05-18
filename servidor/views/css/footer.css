@@ -28,3 +28,7 @@ footer a:hover {
     text-decoration: none;
     color: #2F99B3;
 }
+
+footer label {
+    margin: 0;
+}
