@@ -1,8 +1,8 @@
-
-html{
-      height: 100%;
-  position: relative;
+html {
+    height: 100%;
+    position: relative;
 }
+
 header {
     background-color: #010608;
     margin: 0px;
@@ -20,7 +20,7 @@ header {
     margin-bottom: 0px;
 }
 
-.botones{
+.botones {
     display: flex;
     text-align: right;
 }
@@ -29,6 +29,11 @@ div.logo img.logo {
     height: 5rem;
     width: 15rem;
     margin-left: -1.6rem;
+}
+
+.cabezal .logo .volver {
+    height: 5rem;
+    width: 5rem;
 }
 
 
