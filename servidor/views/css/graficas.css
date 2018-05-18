@@ -22,19 +22,19 @@ body {
     height: 100%;
 }
 
-header{
+.contenedor header{
     display: flex;
     justify-content: space-between;
 }
 
-header .boton{
+.contenedor header .boton{
     display: flex;
     align-items: center;
     justify-content: center;
     margin-right: 1rem;
 }
 
-header .boton button{
+.contenedor header .boton .btn {
     height: 40px;
     background: #000;
     color: #00c5e8;
