@@ -1,3 +1,3 @@
 function enlaceLogin(){
-  location.href = '/sesion';
+  window.open ('/sesion');
 }

@@ -4,6 +4,12 @@ var map;
 var zona;
 var contadorSensores = 0; //cambiar por 0 cuando no tengamos ninguno de cero
 
+//Mostrar en el dropdown la lista de los nombres de los mapas
+// funcion para pedir los datos de las zonas del usuario.
+function getZonas (){
+
+}
+
 function initMap() {
     // var Nombre = { lat: X, lng: X}
 
@@ -126,7 +132,7 @@ function addZone(listaVertices) {
     zona = new google.maps.Polygon({
         paths: listaVertices,
         map: map,
-        fillColor: '#fff',
+        // fillColor: '#fff',
         strokeColor: '#fff',
     })
 }
