@@ -13,9 +13,10 @@
     <link rel="stylesheet" type="text/css" href="css/footer.css">
     <link rel="stylesheet" type="text/css" href="css/navbar.css">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <script type="text/javascript" src="js/new-mapa.js"></script>
 </head>
 
-<body>
+<body onload="getZonas()">
     <!--Cabecera-->
     <header>
         <div class="cabezal">
@@ -328,7 +329,8 @@
         //map.fitBounds(limites);
     </script>
 -->
-    <script src="js/mapa.js"></script>
+
+    <!--<script src="js/mapa.js"></script>-->
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCPONQfQzjp3cGzsMLPscR9651VjXkL8AY&callback=initMap"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/jquery-3.3.1.min.js"></script>

@@ -93,51 +93,95 @@ module.exports.modificarPassword = function(peticion, respuesta){
 // Funciones peticiones campos.html
 // ----------------------------------------------------------------------------
 
-// Devuelve un objeto con los datos de la zona donde hay otro objeto con
-// los vertices
-module.exports.campos = function (peticion, respuesta){
-  var idUsuario = parseInt(peticion.query.id_usuario);
-  // console.log(idUsuario);
-  // console.log(typeof(idUsuario));
-  baseDeDatos.all('SELECT * FROM datosZona WHERE id_usuario = ?',
-  [idUsuario],
-  function(err, fila){
-    if(err != null){
-      console.log("error 500 en campos");
-      respuesta.sendStatus(500);
-    }else{
-      if(fila === undefined){
-        console.log("error 401 en campos");
+// // Devuelve un objeto con los datos de la zona donde hay otro objeto con
+// // los vertices
+// module.exports.campos = function (peticion, respuesta){
+//   var idUsuario = parseInt(peticion.query.id_usuario);
+//   // console.log(idUsuario);
+//   // console.log(typeof(idUsuario));
+//   baseDeDatos.all('SELECT * FROM datosZona WHERE id_usuario = ?',
+//   [idUsuario],
+//   function(err, fila){
+//     if(err != null){
+//       console.log("error 500 en campos");
+//       respuesta.sendStatus(500);
+//     }else{
+//       if(fila === undefined){
+//         console.log("error 401 en campos");
+//         respuesta.sendStatus(401);
+//       }else{
+//         // respuesta.send(fila);
+//         console.log("segunda consulta, datosVertices");
+//         // console.log(fila[0].id_zona);
+//         idZona = fila[0].id_zona;
+//         baseDeDatos.all('SELECT * FROM datosVertices WHERE id_zona = ?',[idZona],
+//         function(error, fila2){
+//           if(error != null){
+//             console.log("error 500 en la segunda consulta a bd");
+//             respuesta.sendStatus(500);
+//           }else{
+//             if(fila2 === undefined){
+//               console.log("error 401 en la segunda consulta a bd");
+//               respuesta.sendStatus(401);
+//             }else{
+//               console.log("envio del objeto con los datos de los vertices");
+//               console.log("falta implementar el envio de los datos");
+//             }
+//           }
+//         });
+//       }
+//     }
+//   });
+// }
+
+// ----------------------------------------------------------------------------
+// Funciones peticiones mapa.html
+// ----------------------------------------------------------------------------
+  module.exports.getDatosZonas = function(peticion, respuesta){
+    var id_usuario = peticion.query.id_usuario;
+
+    var textoSQL1 = "SELECT * FROM datosZona WHERE id_usuario=" +id_usuario; + ";"
+    var textoSQLerr = "SELECT datosVertices.id_zona, lng, lat, orden FROM datosVertices, datosZona WHERE datosZona.id_usuario = 1 AND datosZona.id_zona = datosVertices.id_zona;"
+    var textoSQL2 = "SELECT  id_zona, lng, lat, orden FROM datosVertices WHERE id_usuario=" + id_usuario + ";"
+
+    baseDeDatos.all(textoSQL1, function (err, res){
+      if(err != null){
+        respuesta.sendStatus(500);
+        respuesta.end();
+      }
+      if(res == undefined || res.length == 0){
         respuesta.sendStatus(401);
-      }else{
-        // respuesta.send(fila);
-        console.log("segunda consulta, datosVertices");
-        // console.log(fila[0].id_zona);
-        idZona = fila[0].id_zona;
-        baseDeDatos.all('SELECT * FROM datosVertices WHERE id_zona = ?',[idZona],
-        function(error, fila2){
-          if(error != null){
-            console.log("error 500 en la segunda consulta a bd");
-            respuesta.sendStatus(500);
-          }else{
-            if(fila2 === undefined){
-              console.log("error 401 en la segunda consulta a bd");
-              respuesta.sendStatus(401);
-            }else{
-              console.log("envio del objeto con los datos de los vertices");
-              console.log("falta implementar el envio de los datos");
+        respuesta.end();
+      }
+      baseDeDatos.all(textoSQL2, function(err2, res2){
+        if(err2 != null){
+          respuesta.sendStatus(500);
+          respuesta.end();
+        }
+        if(res2 == undefined || res2.length == 0){
+          respuesta.sendStatus(401);
+          respuesta.end();
+        }
+        console.log(res);
+        console.log(res2);
+
+        for(var i = 0; i<=res.length-1; i++){
+          for (var j = 0;  j<= res2.length-1; j++) {
+            if(res2[j].id_zona==res[i].id_zona){
+              res[i].vertices={
+                lng:res2[j].lng,
+                lat:res2[j].lat
+              }
             }
           }
-        });
-      }
-    }
-  });
-}
+        }
 
-// ----------------------------------------------------------------------------
-// Funciones peticiones sonda.html
-// ----------------------------------------------------------------------------
-
+        console.log(res);
+        respuesta.send(res);
+        // respuesta.send(res2);
+      })//consulta2
+    })//consulta1
+  }
 // ----------------------------------------------------------------------------
 // Funciones peticiones grafica.html
 // ----------------------------------------------------------------------------
@@ -159,7 +203,7 @@ module.exports.getMedidas = function(peticion, respuesta){
         if(fila == undefined || fila.length == 0){
           respuesta.sendStatus(401);
         }else{
-          console.log(fila);
+          // console.log(fila);
           respuesta.send(fila);
         }//else
       }//else

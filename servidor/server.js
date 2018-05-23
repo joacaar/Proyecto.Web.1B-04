@@ -100,19 +100,21 @@ servidor.get('/perfil', function(peticion , respuesta){
 servidor.get('/perfil/datos', procesar.getDatosCliente);
 
 
-// Campo
-// Muestra la página
-servidor.get('/campos', function(peticion, respuesta){
-    respuesta.sendFile(__dirname + '/views/campo.html');
-});
-// peticion de los datos de los campos
-servidor.get('/campos/datos', function(peticion, respuesta){
-  console.log("En desarrollo");
-});
+// // Campo
+// // Muestra la página
+// servidor.get('/campos', function(peticion, respuesta){
+//     respuesta.sendFile(__dirname + '/views/campo.html');
+// });
+// // peticion de los datos de los campos
+// servidor.get('/campos/datos', function(peticion, respuesta){
+//   console.log("En desarrollo");
+// });
 
 servidor.get('/mapa', function(peticion, respuesta){
   respuesta.sendFile(__dirname + '/views/mapa.html');
 });
+
+servidor.get('/mapa/datosZonas', procesar.getDatosZonas);
 
 servidor.get('/grafica', [procesar.comprobarLogin, function(peticion, respuesta){
   respuesta.sendFile(__dirname + '/views/graficas.html');
