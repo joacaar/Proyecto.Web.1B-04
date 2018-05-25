@@ -19,14 +19,16 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
-    
+
     <style>
-    .contenidoCentral{
-      padding: 0 1rem;
-    }
-      #grafica{
-        height: 90%;
-      }
+        .contenidoCentral {
+            padding: 0 1rem;
+        }
+
+        #grafica {
+            height: 90%;
+        }
+
     </style>
 </head>
 
@@ -42,15 +44,19 @@
 
         <div class="contenidoCentral">
 
-            <div class="seleccion"></div>
-            <h3>Seleccione el sensor</h3>
-            <select id="selector" onchange="pedirDatos();">
+            <div class="seleccion">
+                <h3>Seleccione el sensor</h3>
+                <select id="selector" onchange="pedirDatos();">
                   <option value="humedad">Humedad</option>
                   <option value="temperatura">Temperatura</option>
                   <option value="salinidad">Salinidad</option>
                   <option value="iluminacion">Iluminación</option>
                   <option value="presion">Presión Atmosférica</option>
             </select>
+                <button id="downloadPDF">
+                    Exportar gráfica a PDF
+                </button>
+            </div>
             <!--<div class="botonesMedidas">
               <button type="button" name="humedad">Humedad %</button>
               <button type="button" name="temperatura">Temperatura ºC</button>
@@ -61,10 +67,6 @@
 
             <canvas id="grafica"></canvas>
 
-        <button id="downloadPDF">
-            Exportar gráfica a PDF
-        </button>
-        
         </div>
         <footer>
             <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
