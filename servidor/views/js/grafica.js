@@ -411,6 +411,27 @@ function obtenerValorMedida(){
   return valor[1];
 }
 
+
+//-----------------------------------------------------------------------------
+//Funcion para exportar gráficas
+//-----------------------------------------------------------------------------
+
+document.getElementById('downloadPDF').addEventListener("click", downloadPDF);
+
+//Descargar PDF de las gráficas. Posible mala calidad
+function downloadPDF() {
+  var grafica = document.querySelector('#grafica');
+	//Creamos la imagen
+	var ImagenGrafica = grafica.toDataURL("image/jpeg", 1.0);
+  
+	//genera un PDF a partir de la imagen
+	var doc = new jsPDF('landscape');
+	doc.setFontSize(20);
+	doc.text(15, 15, "Grafica");
+	doc.addImage(ImagenGrafica, 'JPEG', 10, 10, 280, 150 );
+	doc.save('Grafica.pdf');
+}
+
 //-----------------------------------------------------------------------------
 // Funcion para actualizar los valores de las graficas
 // ----------------------------------------------------------------------------
