@@ -141,8 +141,9 @@ module.exports.modificarPassword = function(peticion, respuesta){
     var id_usuario = peticion.query.id_usuario;
 
     var textoSQL1 = "SELECT * FROM datosZona WHERE id_usuario=" +id_usuario; + ";"
-    var textoSQLerr = "SELECT datosVertices.id_zona, lng, lat, orden FROM datosVertices, datosZona WHERE datosZona.id_usuario = 1 AND datosZona.id_zona = datosVertices.id_zona;"
+    //var textoSQLerr = "SELECT datosVertices.id_zona, lng, lat, orden FROM datosVertices, datosZona WHERE datosZona.id_usuario = 1 AND datosZona.id_zona = datosVertices.id_zona;"
     var textoSQL2 = "SELECT  id_zona, lng, lat, orden FROM datosVertices WHERE id_usuario=" + id_usuario + ";"
+    var textoSQL3 = "SELECT * FROM datosSensores;"
 
     baseDeDatos.all(textoSQL1, function (err, res){
       if(err != null){
@@ -162,23 +163,36 @@ module.exports.modificarPassword = function(peticion, respuesta){
           respuesta.sendStatus(401);
           respuesta.end();
         }
+
         console.log(res);
         console.log(res2);
 
         for(var i = 0; i<=res.length-1; i++){
+          var array = [];
           for (var j = 0;  j<= res2.length-1; j++) {
             if(res2[j].id_zona==res[i].id_zona){
-              res[i].vertices={
-                lng:res2[j].lng,
-                lat:res2[j].lat
-              }
+              array.push(res2[j]);
             }
           }
+          res[i].vertices = array;
         }
 
-        console.log(res);
-        respuesta.send(res);
-        // respuesta.send(res2);
+        baseDeDatos.all(textoSQL3, function(err3, res3){
+          if(err3 != null){
+            respuesta.sendStatus(500)
+            respuesta.end();
+          }
+          if(res3 == undefined || res3.length == 0){
+            respuesta.sendStatus(401);
+            respuesta.end();
+          }
+          todosLosDatos = {
+            datosDeZona: res,
+            datosDeSensores: res3
+          }
+          // console.log(todosLosDatos);
+          respuesta.send(todosLosDatos);
+        })
       })//consulta2
     })//consulta1
   }

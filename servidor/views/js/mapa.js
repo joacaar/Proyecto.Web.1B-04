@@ -76,7 +76,8 @@ function initMap() {
     //                map.setZoom(32);
     //                map.setCenter(Volare.getPosition());
     //            })
-}
+
+} //initMap()
 
 //------------------------------------------//
 
