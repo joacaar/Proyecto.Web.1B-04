@@ -26,14 +26,14 @@ header {
 }
 
 div.logo img.logo {
-    height: 5rem;
-    width: 15rem;
-    margin-left: -1.6rem;
+    height: 15%;
+    width: 15%;
+    margin-left: 1.6rem;
 }
 
 .cabezal .logo .volver {
-    height: 5rem;
-    width: 5rem;
+    height: 15%;
+    width: 15%;
 }
 
 
