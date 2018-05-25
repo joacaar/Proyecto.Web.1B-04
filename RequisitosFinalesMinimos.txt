@@ -1,0 +1,38 @@
+
+	Landing Page
+
+	 - En el header el logotipo esta demasiado a la derecha, aplicarle un margin o similar
+	 - En el footer hacer los iconos mas pequeños
+	 - El color del contenido del footer que sea mas desapercibido, la informacion que contienen no es demasiado importante
+	 - Abrir el login en una ventana nueva ( hecho )
+	 - Por ultimo, la pagina de thinkspeak utiliza clases de bootstrap, se pueden copiar ideas del codigo de la pagina.
+
+	Login
+
+	 - En el header lo mismo, separar el logo y eliminar la flecha (al abrirse en otra pestaña diferente no hace falta la flecha, aunque se 		puede dejar y .)
+	 - eliminar los iconos de las redes sociales, que solo aparezcan en la landig.
+	 - revisar el footer a los 350px, el texto queda mas distribuido
+	 - En version celular, revisar la separacion de los campos con los textos y el titulo
+	 - modificar la forma en que se muestran los avisos al cometer un error en los datos
+	 - EL texto/enlace de contraseña olvidada modificar el color para que se vea mejor
+
+	Mapa
+
+	 - En el menu deben aparecer, mapa (seleccionado), Perfil y cerrar sesion(redirige a la landing o login y elimina las cookies)
+	 - Que el mapa ocupe toda la pantalla.
+	 - En el mapa:
+		- Mostrar la lista de los campos y que al seleccionar uno se haga zoom hasta el
+		- Eliminar el fondo del campo
+		- Añadir la informacion de los sensores a la ventana de informacion
+		- Añadir id_campo y medida a la query para graficas y viceversa, para que muestre el mismo campo que antes de ir a graficas
+
+	 - Falta un proceso intuitivo en esta pagina, el usuario no sabe muy bien que hacer.
+	 - Controlar el acceso sin login
+
+	Graficas
+
+	 - Rediseñar la logica de la pagina
+	 - Añadir estilo bootstrap al dropdown
+	 - Girar la grafica o hacer que se vea mejor en responsive
+	 - Inicar mejor las unidades de la grafica
+	 - Diseñar el boton de volver al mapa en coerencia con la pagina
