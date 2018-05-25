@@ -6,13 +6,17 @@ var contadorSensores = 0; //cambiar por 0 cuando no tengamos ninguno de cero
 
 function getZonas(){
 
+  var url = window.location.search;
+
+  if(url == ''){
+
   // obtenemos los datos del usuario de las cookies
     var idUsuario = leerCookie('id_usuario');
 
   // hacemos la peticion de los datos de las zonas, los vertices y los sensores
     fetch("/mapa/datosZonas?id_usuario=" + idUsuario).then(function(respuesta){
       respuesta.json().then(function(datosRecibidos){
-
+        console.log(datosRecibidos);
         localStorage.setItem('datos', JSON.stringify(datosRecibidos));
         // var ejemplo = JSON.parse(localStorage.datos);
 
@@ -30,6 +34,15 @@ function getZonas(){
 
       })//then
     })//fetch
+  }//if()
+  else{
+    console.log("He recibido algo por query");
+    var datos = JSON.parse(localStorage.getItem('datos'));
+    initMap(datos);
+    //Faltaria una funcion similar a showZone pero que se le pase por parametro
+    // el id del sensor, el problema es que el id que se pasa por query no es
+    // el mismo que el de los sensores
+  }
 } // getZonas()
 
 function initMap (datos){
@@ -92,16 +105,32 @@ function addMarker(lat, lng, nombreSensor) {
         draggable: false
     });
 
+    var datos = JSON.parse(localStorage.getItem('datos'))
+
     // string para introducir código HTML en InfoWindow
     var contentString =
     '<div id=ventanaInfo>'+
-      '<a href="/grafica?sensor=temperatura">' +
+      '<h6 id="fechaCentana">'+ datos.ultimasMedidas.tiempo +'</h6>'+
+      '<a href="/grafica?sensor='+datos.ultimasMedidas.id_sensor+'&medida=temperatura" style="display">' +
         '<div id="temperatura"> Temperatura ºC: </div>' +
-        '<p id="Datos">21</p>' +
+        '<p id="Datos">'+datos.ultimasMedidas.temperatura+'</p>' +
+        '<i class="far fa-chart-bar"></i>'+
       '</a>'+
-      '<a href="/grafica?sensor=humedad">' +
+      '<a href="/grafica?sensor='+datos.ultimasMedidas.id_sensor+'&medida=humedad">' +
         '<div id="humedad"> Humedad %: </div>' +
-        '<p id="Datos">52</p>' +
+        '<p id="Datos">'+datos.ultimasMedidas.humedad+'</p>' +
+      '</a>'+
+      '<a href="/grafica?sensor='+datos.ultimasMedidas.id_sensor+'&medida=salinidad">' +
+        '<div id="salinidad"> Salinidad: </div>' +
+        '<p id="Datos">'+datos.ultimasMedidas.salinidad+'</p>' +
+      '</a>'+
+      '<a href="/grafica?sensor='+datos.ultimasMedidas.id_sensor+'&medida=iluminacion">' +
+        '<div id="iluminacion"> Iluminacion: </div>' +
+        '<p id="Datos">'+datos.ultimasMedidas.iluminacion+'</p>' +
+      '</a>'+
+      '<a href="/grafica?sensor='+datos.ultimasMedidas.id_sensor+'&medida=presion">' +
+        '<div id="presion"> Presion hPa: </div>' +
+        '<p id="Datos">'+datos.ultimasMedidas.presion+'</p>' +
       '</a>'+
     '</div>';
 

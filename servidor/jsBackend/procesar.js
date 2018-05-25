@@ -144,6 +144,7 @@ module.exports.modificarPassword = function(peticion, respuesta){
     //var textoSQLerr = "SELECT datosVertices.id_zona, lng, lat, orden FROM datosVertices, datosZona WHERE datosZona.id_usuario = 1 AND datosZona.id_zona = datosVertices.id_zona;"
     var textoSQL2 = "SELECT  id_zona, lng, lat, orden FROM datosVertices WHERE id_usuario=" + id_usuario + ";"
     var textoSQL3 = "SELECT * FROM datosSensores;"
+    var textoSQL4 = "SELECT * FROM medidas;"
 
     baseDeDatos.all(textoSQL1, function (err, res){
       if(err != null){
@@ -163,9 +164,6 @@ module.exports.modificarPassword = function(peticion, respuesta){
           respuesta.sendStatus(401);
           respuesta.end();
         }
-
-        console.log(res);
-        console.log(res2);
 
         for(var i = 0; i<=res.length-1; i++){
           var array = [];
@@ -190,8 +188,22 @@ module.exports.modificarPassword = function(peticion, respuesta){
             datosDeZona: res,
             datosDeSensores: res3
           }
+          baseDeDatos.all(textoSQL4, function (err4, res4){
+            if(err4 != null){
+              respuesta.sendStatus(500)
+              respuesta.end();
+            }
+            if(res4 == undefined || res4.length == 0){
+              respuesta.sendStatus(401);
+              respuesta.end();
+            }
+
+            todosLosDatos.ultimasMedidas = res4[res4.length-1];
+
+            respuesta.send(todosLosDatos);
+          })
           // console.log(todosLosDatos);
-          respuesta.send(todosLosDatos);
+
         })
       })//consulta2
     })//consulta1

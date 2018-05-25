@@ -408,7 +408,8 @@ function modificarDatosGrafica(datosMedidas, losDatos){
 function obtenerValorMedida(){
   query = window.location.search;
   valor = query.split("=");
-  return valor[1];
+  console.log(valor);
+  return valor[2];
 }
 
 
@@ -423,7 +424,7 @@ function downloadPDF() {
   var grafica = document.querySelector('#grafica');
 	//Creamos la imagen
 	var ImagenGrafica = grafica.toDataURL("image/jpeg", 1.0);
-  
+
 	//genera un PDF a partir de la imagen
 	var doc = new jsPDF('landscape');
 	doc.setFontSize(20);
@@ -432,6 +433,15 @@ function downloadPDF() {
 	doc.save('Grafica.pdf');
 }
 
+//-----------------------------------------------------------------------------
+// Funcion para devolver a mapa la url con la mac del sensor por query
+// ----------------------------------------------------------------------------
+function botonMapa(){
+  query = window.location.search;
+  valor = query.split("&");
+  console.log(valor);
+  location.href = '/mapa'+valor[0];
+}
 //-----------------------------------------------------------------------------
 // Funcion para actualizar los valores de las graficas
 // ----------------------------------------------------------------------------
