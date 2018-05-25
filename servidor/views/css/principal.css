@@ -35,7 +35,7 @@ body {
 } */
 
 .central {
-    background: url(../images/campo2.png);
+    background: url(../images/campo2.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     top: 0;
@@ -90,7 +90,7 @@ div.central .texto p {
 .central .bajar a {
     z-index: 4;
     display: inline-block;
-    color: #000000;
+    color: #3cc4e6;
     font-size: 4rem;
     animation: flecha-animada 2s ease-in-out infinite;
 }
@@ -112,11 +112,12 @@ div.central .texto p {
 button.botonEnlace#Login {
     color: #172122;
     border: solid #172122;
-    background-color: rgba(52, 137, 159, 0.65);
+    background-color: rgba(60, 196, 230, 0.7);
     text-decoration: none;
     text-transform: uppercase;
     padding: 5px 10px;
     border-radius: 9px;
+    font-weight: bold;
 }
 
 .botonEnlace#Login:hover {

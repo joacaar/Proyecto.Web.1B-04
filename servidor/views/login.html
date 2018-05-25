@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="css/navbar.css">
     <link rel="stylesheet" href="css/botonEnlace.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link href="form-validation.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <title>Inicio de Sesión</title>
 
 
@@ -21,7 +23,7 @@
     <header>
         <div class="cabezal">
             <div class="logo"><a href="index.html"><img src="images/logo_GTI_azul.png" alt="Logo GTI" class="logo"></a></div>
-            <a href="index.html"><img src="images/001-return-buttonA.png" alt="Volver atrás" id="atras" class="volver"></a>
+            <a href="index.html"><img src="images/001-return-buttonA.png" alt="Volver atrás" class="volver"></a>
         </div>
 
 
@@ -74,6 +76,17 @@
                     </a>
                 </div>
             </form>
+            <form action="#" id="login" class="login">
+                <div class="user_login">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                    </div>
+                    <input type="text" class="form-control" id="username" placeholder="Username" required>
+                    <div class="invalid-feedback" style="width: 100%;">
+                        Your username is required.
+                    </div>
+                </div>
+            </form>
 
 
             <!-- Botones -->
@@ -88,9 +101,9 @@
                 <label for="derechos">Todos los derechos reservados | <a href="terminos.html">Terminos de uso</a></label>
             </div>
             <div class="redesSociales">
-                <a href="http://www.twitter.es/"><img src="images/TwitterA.png" alt="Twitter"></a>
-                <a href="http://www.facebook.es/"><img src="images/facebook2A.png" alt="Facebook"></a>
-                <a href="http://www.linkedin.com/"><img src="images/linkedinA.png" alt="Linkedin"></a>
+                <a href="http://www.twitter.es/"><i class="fab fa-twitter-square"></i></a>
+                <a href="http://www.facebook.es/"><i class="fab fa-facebook-square"></i></a>
+                <a href="http://www.linkedin.com/"><i class="fab fa-linkedin"></i></a>
             </div>
         </footer>
     </section>
