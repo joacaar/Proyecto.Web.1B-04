@@ -17,6 +17,7 @@ function comprobar_casillas (){
   if(usuario == "" || contrasena == ""){
     cuadro.style.display = 'block';
     aviso.innerHTML = "Falta introducir datos";
+    console.log('dentro de aviso')
     return false
   }
   return true;
