@@ -27,21 +27,14 @@ function getZonas(){
         // console.log(datosRecibidos);
         initMap(datosRecibidos);
 
-        // si hay algo en la query mostramos la zona indicada
-        if(query !== undefined){
-          console.log("hay algo en la query, muestro esa zona");
-        }
-
       })//then
     })//fetch
   }//if()
   else{
-    console.log("He recibido algo por query");
     var datos = JSON.parse(localStorage.getItem('datos'));
     initMap(datos);
-    //Faltaria una funcion similar a showZone pero que se le pase por parametro
-    // el id del sensor, el problema es que el id que se pasa por query no es
-    // el mismo que el de los sensores
+    showZoneSelected(datos);
+    seleccionarOptionLista(datos);
   }
 } // getZonas()
 
@@ -77,7 +70,7 @@ function initMap (datos){
   // bucle para dibujar las posiciones de los datosSensores
   for (var i = 0; i <= datos.datosDeSensores.length-1; i++) {
     addMarker(datos.datosDeSensores[i].lat, datos.datosDeSensores[i].lng,
-              datos.datosDeSensores[i].nombre);
+              datos.datosDeSensores[i].nombre, datos.datosDeSensores[i].id_sensor);
   }
 
   añadirListaZonas(datos);
@@ -91,7 +84,7 @@ function initMap (datos){
 //-----------------------------------------------------------------------------
 // Funcion para añadir las marcas de los sensores
 //-----------------------------------------------------------------------------
-function addMarker(lat, lng, nombreSensor) {
+function addMarker(lat, lng, nombreSensor, idSensor) {
 
     var location = {
         lat: lat,
@@ -111,24 +104,24 @@ function addMarker(lat, lng, nombreSensor) {
     var contentString =
     '<div id=ventanaInfo>'+
       '<h6 id="fechaCentana">'+ datos.ultimasMedidas.tiempo +'</h6>'+
-      '<a href="/grafica?sensor='+datos.ultimasMedidas.id_sensor+'&medida=temperatura" style="display">' +
+      '<a href="/grafica?sensor='+idSensor+'&medida=temperatura">' +
         '<div id="temperatura"> Temperatura ºC: </div>' +
         '<p id="Datos">'+datos.ultimasMedidas.temperatura+'</p>' +
         '<i class="far fa-chart-bar"></i>'+
       '</a>'+
-      '<a href="/grafica?sensor='+datos.ultimasMedidas.id_sensor+'&medida=humedad">' +
+      '<a href="/grafica?sensor='+idSensor+'&medida=humedad">' +
         '<div id="humedad"> Humedad %: </div>' +
         '<p id="Datos">'+datos.ultimasMedidas.humedad+'</p>' +
       '</a>'+
-      '<a href="/grafica?sensor='+datos.ultimasMedidas.id_sensor+'&medida=salinidad">' +
+      '<a href="/grafica?sensor='+idSensor+'&medida=salinidad">' +
         '<div id="salinidad"> Salinidad: </div>' +
         '<p id="Datos">'+datos.ultimasMedidas.salinidad+'</p>' +
       '</a>'+
-      '<a href="/grafica?sensor='+datos.ultimasMedidas.id_sensor+'&medida=iluminacion">' +
+      '<a href="/grafica?sensor='+idSensor+'&medida=iluminacion">' +
         '<div id="iluminacion"> Iluminacion: </div>' +
         '<p id="Datos">'+datos.ultimasMedidas.iluminacion+'</p>' +
       '</a>'+
-      '<a href="/grafica?sensor='+datos.ultimasMedidas.id_sensor+'&medida=presion">' +
+      '<a href="/grafica?sensor='+idSensor+'&medida=presion">' +
         '<div id="presion"> Presion hPa: </div>' +
         '<p id="Datos">'+datos.ultimasMedidas.presion+'</p>' +
       '</a>'+
@@ -164,7 +157,6 @@ function addZone(listaVertices) {
             map.panTo(newCenter);
         }
 //----------Permite añadir un link al dropdown que al pulsarlo sea centrado en las coordenadas de X punto----//
-        //FALTA POR HACER QUE SE PUEDAN BORRAR
   function addDropdownLink(lat, lng) {
     var link = document.createElement('a');
     contadorSensores = contadorSensores + 1;
@@ -186,6 +178,22 @@ function añadirListaZonas (datos){
     option.text = datos.datosDeZona[i].nombre_zona;
     option.value = datos.datosDeZona[i].id_zona;
     x.add(option);
+  }
+}
+
+//-----------------------------------------------------------------------------
+// Funcion para seleccionar una opcion del dropdown
+//-----------------------------------------------------------------------------
+function seleccionarOptionLista(datos){
+  var query = window.location.search;
+  valor = query.split("=");
+  var selectorZona = document.getElementById('dropdownMenu1')
+  for (var i = 0; i < datos.datosDeSensores.length; i++) {
+    if(valor[1] == datos.datosDeSensores[i].id_sensor){
+      var id = datos.datosDeSensores[i].id_zona;
+      selectorZona.selectedIndex= id-1;
+      break;
+    }
   }
 }
 
@@ -213,6 +221,33 @@ map.panTo(ubicacion);
   // map.setCenter(ubicacion);
 
 }//showZone()
+
+//-----------------------------------------------------------------------------
+// Funcion para mostrar el sensor que habia seleccionado antes de ir a la
+//  pagina de grafica
+//-----------------------------------------------------------------------------
+
+function showZoneSelected (datos){
+  var query = window.location.search;
+  valor = query.split("=");
+  console.log(valor[1]);
+  console.log();
+  var position
+  for (var i = 0; i < datos.datosDeSensores.length; i++) {
+    if(valor[1] == datos.datosDeSensores[i].id_sensor){
+        position = {
+          lat: datos.datosDeSensores[i].lat,
+          lng: datos.datosDeSensores[i].lng
+        }
+      break;
+    }// if()
+  }// for()
+
+  console.log(position);
+
+
+  map.setCenter(position);
+}// showZoneSelected()
 
 //---------Funcion para pasar parametros a la pagina de grafica ---------------
 function mostrarSensor (){
