@@ -222,6 +222,10 @@ function mostrarPrimerosDatos(){
 
 function pedirDatos (){
 
+  var query = window.location.search;
+  var valor = query.split("&");
+  console.log(valor);
+
   //tipo string
   var medida = document.getElementById("selector").value;
   if(medida != ""){
@@ -248,7 +252,7 @@ function pedirDatos (){
                 }
               })
               console.log(chart);
-              history.pushState(null, "", "grafica?sensor=humedad");
+              history.pushState(null, "", "grafica"+valor[0]+"&medida=humedad");
               break;
             case "temperatura":
               //console.log(datos);
@@ -266,7 +270,7 @@ function pedirDatos (){
                 }
               })
               console.log(chart);
-              history.pushState(null, "", "grafica?sensor=temperatura");
+              history.pushState(null, "", "grafica"+valor[0]+"&medida=temperatura");
               break;
             case "salinidad":
               lineaGrafica = modificarDatosGrafica(datosMedida.salinidad, listaDatos);
@@ -283,7 +287,7 @@ function pedirDatos (){
                 }
               })
               console.log(chart);
-              history.pushState(null, "", "grafica?sensor=salinidad");
+              history.pushState(null, "", "grafica"+valor[0]+"&medida=salinidad");
               break;
             case "iluminacion":
               lineaGrafica = modificarDatosGrafica(datosMedida.iluminacion, listaDatos);
@@ -299,7 +303,7 @@ function pedirDatos (){
                   maintainAspectRatio: true
                 }
               })
-              history.pushState(null, "", "grafica?sensor=iluminacion");
+              history.pushState(null, "", "grafica"+valor[0]+"&medida=iluminacion");
               break;
             default:
               lineaGrafica = modificarDatosGrafica(datosMedida.presion, listaDatos);
@@ -315,7 +319,7 @@ function pedirDatos (){
                   maintainAspectRatio: true
                 }
               })
-              history.pushState(null, "", "grafica?sensor=presion");
+              history.pushState(null, "", "grafica"+valor[0]+"&medida=presion");
           }
         })
       })

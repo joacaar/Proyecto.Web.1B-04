@@ -218,6 +218,7 @@ function showZone (){
   }//for
 
 map.panTo(ubicacion);
+map.setZoom(17);
   // map.setCenter(ubicacion);
 
 }//showZone()
@@ -247,6 +248,7 @@ function showZoneSelected (datos){
 
 
   map.setCenter(position);
+  // map.setZoom(18);
 }// showZoneSelected()
 
 //---------Funcion para pasar parametros a la pagina de grafica ---------------
