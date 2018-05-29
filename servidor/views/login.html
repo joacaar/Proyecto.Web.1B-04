@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link href="form-validation.css" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link href="form-validation.css" rel="stylesheet">
     <title>Inicio de Sesión</title>
 
 
@@ -51,7 +52,7 @@
 
         <!-- Parte central-->
         <div class="central">
-            <h1>Inicio de Sesión</h1>
+            <h2>Inicio de Sesión</h2>
 
             <!--Alerta de inicio de sesión-->
             <div class="alert alert-danger" role="alert" id="cuadroAlerta">
@@ -60,7 +61,7 @@
 
 
             <!-- marcos de texto -->
-            <form action="#" id="login" class="login">
+            <!-- <form action="#" id="login" class="login">
                 <div class="user_login">
                     <p id="label_user">Usuario</p>
                     <input id="user" type="text" placeholder="Escriba su usuario">
@@ -75,22 +76,34 @@
                         <p id="label_olvidada"><em>¿Contraseña olvidada?</em></p>
                     </a>
                 </div>
-            </form>
+            </form> -->
             <form action="#" id="login" class="login">
-                <div class="user_login">
+                <div class="user_login input-group mb-3">
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fas fa-user"></i></span>
                     </div>
-                    <input type="text" class="form-control" id="username" placeholder="Username" required>
+                    <input id="label_user" type="text" class="form-control" id="user" placeholder="Username" required>
                     <div class="invalid-feedback" style="width: 100%;">
                         Your username is required.
                     </div>
                 </div>
+                <div class="input-group mb-3 user_login">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1"><i class="fas fa-key"></i></span>
+                    </div>
+                    <input type="password" class="form-control" id="password" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1">
+                </div>
+                <div class="olvidada-login">
+                    <a href="contrasena.html">
+                        <p id="label_olvidada"><em>¿Contraseña olvidada?</em></p>
+                    </a>
+                </div>
+                <button type="submit" class="botonEnlace" id="AceptarLogin" onclick="comprobar_login();"> Aceptar </button>
             </form>
 
 
             <!-- Botones -->
-            <button type="button" class="botonAceptarLogin" onclick="comprobar_login();"> Aceptar </button>
+            <!-- <button type="submit" class="botonAceptarLogin" onclick="comprobar_login();"> Aceptar </button> -->
         </div>
     </section>
     <!--Parte final-->

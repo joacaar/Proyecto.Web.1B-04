@@ -11,10 +11,13 @@ Colores usados:
 */
 
 .volver {
-    height: 15%;
-    width: 15%;
+    height: 3rem;
+    width: 3rem;
     padding-right: 0;
     margin-right: 0;
+    position: absolute;
+    right: 2rem;
+    top: 1rem;
 }
 
 body {
@@ -29,6 +32,8 @@ body {
 
 .alert-danger {
     text-align: center;
+    width: 200px;
+    height: 100px;
 }
 
 div.central {
@@ -50,7 +55,7 @@ div.central {
 
 div.central h1 {
     text-align: center;
-    margin-top: 1rem;
+    margin-top: 0px;
     margin-bottom: 0px;
 }
 
@@ -134,26 +139,29 @@ button.botonAceptarLogin:hover {
 }
 */
 
-button.botonAceptarLogin {
-    display: block;
-    background-color: #3cc4e6;
-    border: 3px solid #395D66;
-    margin: 1rem auto;
-    height: 2.5rem;
-    width: 10rem;
+.botonEnlace#AceptarLogin {
+    color: #172122;
+    border: solid #172122;
+    background-color: rgba(61, 181, 211, 0.76);
+    text-decoration: none;
+    /* text-transform: uppercase; */
+    font-weight: 500;
+    font-size: 2rem;
+    padding: 5px 10px;
     border-radius: 9px;
-    font-weight: bolder;
+    cursor: pointer;
 }
 
-button.botonAceptarLogin:hover {
-    background-color: #2F99B3;
-    border: 3px solid #1B5766;
+.botonEnlace#AceptarLogin:hover {
+    background-color: #172122;
+    border: 3px solid #172122;
+    color: rgba(61, 181, 211);
 }
 
-button.botonAceptarLogin:active {
-    background-color: #395D66;
-    border: 3px solid #395D66;
-    color: white;
+.botonEnlace#AceptarLogin:active {
+    background-color: #3cc4e6;
+    border: 3px solid #172122;
+    color: #172122
 }
 
 .finalDePagina {

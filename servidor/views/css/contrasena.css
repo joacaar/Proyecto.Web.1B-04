@@ -33,6 +33,16 @@ header.cabezera img {
     max-width: 50px;
 }
 
+.volver {
+    height: 3rem;
+    width: 3rem;
+    padding-right: 0;
+    margin-right: 0;
+    position: absolute;
+    right: 2rem;
+    top: 1rem;
+}
+
 /*-------------------------------------------------*/
 
 /*
@@ -76,13 +86,30 @@ header.cabezera img {
 
 /*-------------------------------------------------*/
 
-.botonContra {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-content: space-around;
-    margin: 0 auto;
-    margin-top: 2rem;
+.botonEnlace#enviarContra {
+    color: #172122;
+    border: solid #172122;
+    background-color: rgba(61, 181, 211, 0.76);
+    text-decoration: none;
+    /* text-transform: uppercase; */
+    font-weight: 300;
+    font-size: 2rem;
+    padding: 3px 5px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.botonEnlace#enviarContra:hover {
+    background-color: #172122;
+    border: 3px solid #172122;
+    color: rgba(61, 181, 211);
+}
+
+.botonEnlace#enviarContra:active {
+    background-color: #3cc4e6;
+    border: 3px solid #172122;
+    color: #172122
+}
 }
 
 footer {
