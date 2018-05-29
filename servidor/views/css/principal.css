@@ -89,7 +89,7 @@ div.central .texto p {
 
 .central .bajar a {
     z-index: 4;
-    display: inline-block;
+    /* display: inline-block; */
     color: #3cc4e6;
     font-size: 4rem;
     animation: flecha-animada 2s ease-in-out infinite;
@@ -107,7 +107,17 @@ div.central .texto p {
     }
 }
 
+.central .bajar {
+    display: flex;
+    flex-direction: column;
+}
 
+.central .bajar .moreinfo {
+    font-size: 1rem;
+    text-decoration: none;
+    color: #3cc4e6;
+    /* display: inline-block; */
+}
 
 button.botonEnlace#Login {
     color: #172122;
@@ -117,9 +127,10 @@ button.botonEnlace#Login {
     /* text-transform: uppercase; */
     font-weight: 900;
     font-size: 2rem;
-    
+
     padding: 5px 10px;
     border-radius: 9px;
+    cursor: pointer;
 }
 
 .botonEnlace#Login:hover {
@@ -143,6 +154,14 @@ button.botonEnlace#Login {
     flex-direction: column;
     width: 100%;
     height: 87%;
+}
+
+.finalDePagina {
+    background-color: #010608;
+    font-family: sans-serif;
+      position: relative;
+      bottom: 0;
+      width: 100%;
 }
 
 
@@ -195,43 +214,39 @@ button.botonEnlace#Login {
  */
 
 /*ANIMACIONES*/
-@keyframes rotating
-	{
-	from
-		{
-		transform: rotate(0deg);
-		-o-transform: rotate(0deg);
-		-ms-transform: rotate(0deg);
-		-moz-transform: rotate(0deg);
-		-webkit-transform: rotate(0deg);
-		}
-	to
-		{
-		transform: rotate(360deg);
-		-o-transform: rotate(360deg);
-		-ms-transform: rotate(360deg);
-		-moz-transform: rotate(360deg);
-		-webkit-transform: rotate(360deg);
-		}
-	}
-@-webkit-keyframes rotating
-	{
-	from
-		{
-		transform: rotate(0deg);
-		-webkit-transform: rotate(0deg);
-		}
-	to
-		{
-		transform: rotate(360deg);
-		-webkit-transform: rotate(360deg);
-		}
-	}
-.rotating
-	{
-	-webkit-animation: rotating 1s linear infinite;
-	-moz-animation: rotating 1s linear infinite;
-	-ms-animation: rotating 1s linear infinite;
-	-o-animation: rotating 1s linear infinite;
-	animation: rotating 1s linear infinite;
-	}
+
+@keyframes rotating {
+    from {
+        transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@-webkit-keyframes rotating {
+    from {
+        transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+.rotating {
+    -webkit-animation: rotating 1s linear infinite;
+    -moz-animation: rotating 1s linear infinite;
+    -ms-animation: rotating 1s linear infinite;
+    -o-animation: rotating 1s linear infinite;
+    animation: rotating 1s linear infinite;
+}
