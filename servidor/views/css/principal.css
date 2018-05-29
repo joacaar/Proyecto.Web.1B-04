@@ -89,11 +89,10 @@ div.central .texto p {
 
 .central .bajar a {
     z-index: 4;
-    /* display: inline-block; */
+    display: inline-block;
     color: #3cc4e6;
     font-size: 4rem;
     animation: flecha-animada 2s ease-in-out infinite;
-    text-decoration: none;
 }
 
 @keyframes flecha-animada {
@@ -108,17 +107,7 @@ div.central .texto p {
     }
 }
 
-.central .bajar {
-    display: flex;
-    flex-direction: column;
-}
 
-.central .bajar .moreinfo {
-    font-size: 1rem;
-    text-decoration: none;
-    color: #3cc4e6;
-    /* display: inline-block; */
-}
 
 button.botonEnlace#Login {
     color: #172122;
@@ -131,7 +120,6 @@ button.botonEnlace#Login {
 
     padding: 5px 10px;
     border-radius: 9px;
-    cursor: pointer;
 }
 
 .botonEnlace#Login:hover {
@@ -146,8 +134,21 @@ button.botonEnlace#Login {
     color: #172122;
 }
 
+/*PAGINA INFORMACION*/
+
 .informacion {
-    background-color: #f9bd9b;
+    background-color: #F9C6A9;
+
+    /*Gradiente extraño para el fondo en caso de que hubiera quedado bien*/
+    /*background: #ffd5bd;
+    background: -moz-radial-gradient(center, ellipse cover, #ffd5bd 0%, #ffd5bd 43%, #e0a689 100%);
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #ffd5bd), color-stop(43%, #ffd5bd), color-stop(100%, #e0a689));
+    background: -webkit-radial-gradient(center, ellipse cover, #ffd5bd 0%, #ffd5bd 43%, #e0a689 100%);
+    background: -o-radial-gradient(center, ellipse cover, #ffd5bd 0%, #ffd5bd 43%, #e0a689 100%);
+    background: -ms-radial-gradient(center, ellipse cover, #ffd5bd 0%, #ffd5bd 43%, #e0a689 100%);
+    background: radial-gradient(ellipse at center, #ffd5bd 0%, #ffd5bd 43%, #e0a689 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffd5bd', endColorstr='#e0a689', GradientType=1); */
+    
     top: 0;
     display: flex;
     justify-content: center;
@@ -157,15 +158,34 @@ button.botonEnlace#Login {
     height: 87%;
 }
 
-.finalDePagina {
-    background-color: #010608;
-    font-family: sans-serif;
-      position: relative;
-      bottom: 0;
-      width: 100%;
+div.container-fluid {
+    width: 100%;
+    padding-top: 3rem;
+    padding-left: 6em;
+    padding-right: 6rem;
+    height: auto;
 }
 
+div.informacion div.row {
+    margin: 0;
+    margin-bottom: 3rem;
 
+}
+
+div.informacion div.row div.texto p {
+    padding: 0 1rem;
+    margin: 0;
+}
+
+img.imagenDerecha {
+    height: 9rem;
+    width: auto;
+}
+
+img.imagenIzquierda {
+    height: 9rem;
+    width: auto;
+}
 
 /*Vista escritorio*/
 
