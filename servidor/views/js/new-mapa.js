@@ -104,7 +104,7 @@ function addMarker(lat, lng, nombreSensor, idSensor) {
     var contentString =
     '<div id=ventanaInfo>'+
       '<h6 id="fechaCentana">'+ datos.ultimasMedidas.tiempo +'</h6>'+
-      '<a href="/grafica?sensor='+idSensor+'&medida=temperatura">' +
+      '<a href="/grafica?sensor='+idSensor+'&medida=temperatura" class="enlace">' +
         '<div id="temperatura" class="ContenedorInfoWindow">' +
         '<p class="medida">Temperatura ºC:</p>'+
         '<p id="Datos" class="datos">'+datos.ultimasMedidas.temperatura+'</p>' +
@@ -144,6 +144,7 @@ function addMarker(lat, lng, nombreSensor, idSensor) {
     //Funcion para mostrar informacion
     var ventanaInfo = new google.maps.InfoWindow({
         content: contentString
+        
     });
 
     marcador.addListener('click', function() {
