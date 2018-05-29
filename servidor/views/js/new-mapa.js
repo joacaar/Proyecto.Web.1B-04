@@ -105,25 +105,39 @@ function addMarker(lat, lng, nombreSensor, idSensor) {
     '<div id=ventanaInfo>'+
       '<h6 id="fechaCentana">'+ datos.ultimasMedidas.tiempo +'</h6>'+
       '<a href="/grafica?sensor='+idSensor+'&medida=temperatura">' +
-        '<div id="temperatura"> Temperatura ºC: </div>' +
-        '<p id="Datos">'+datos.ultimasMedidas.temperatura+'</p>' +
-        '<i class="far fa-chart-bar"></i>'+
+        '<div id="temperatura" class="ContenedorInfoWindow">' +
+        '<p class="medida">Temperatura ºC:</p>'+
+        '<p id="Datos" class="datos">'+datos.ultimasMedidas.temperatura+'</p>' +
+        '<img src="images/chart-bar.svg" alt="Grafica">'+
+        '</div>'+
       '</a>'+
       '<a href="/grafica?sensor='+idSensor+'&medida=humedad">' +
-        '<div id="humedad"> Humedad %: </div>' +
-        '<p id="Datos">'+datos.ultimasMedidas.humedad+'</p>' +
+        '<div id="humedad" class="ContenedorInfoWindow">' +
+            '<p class="medida">Humedad %:</p>'+
+            '<p id="Datos" class="datos">'+datos.ultimasMedidas.humedad+'</p>' +
+            '<img src="images/chart-bar.svg" alt="Grafica">'+
+        '</div>'+
       '</a>'+
       '<a href="/grafica?sensor='+idSensor+'&medida=salinidad">' +
-        '<div id="salinidad"> Salinidad: </div>' +
-        '<p id="Datos">'+datos.ultimasMedidas.salinidad+'</p>' +
+        '<div id="salinidad" class="ContenedorInfoWindow">' +
+            '<p class="medida">Salinidad :</p>'+
+            '<p id="Datos" class="datos">'+datos.ultimasMedidas.salinidad+'</p>' +
+            '<img src="images/chart-bar.svg" alt="Grafica">'+
+        '</div>'+
       '</a>'+
       '<a href="/grafica?sensor='+idSensor+'&medida=iluminacion">' +
-        '<div id="iluminacion"> Iluminacion: </div>' +
-        '<p id="Datos">'+datos.ultimasMedidas.iluminacion+'</p>' +
+        '<div id="iluminacion" class="ContenedorInfoWindow">' +
+            '<p class="medida">Iluminacion lx: </p>'+
+            '<p id="Datos" class="datos">'+datos.ultimasMedidas.iluminacion+'</p>' +
+            '<img src="images/chart-bar.svg" alt="Grafica">'+
+        '</div>'+
       '</a>'+
       '<a href="/grafica?sensor='+idSensor+'&medida=presion">' +
-        '<div id="presion"> Presion hPa: </div>' +
-        '<p id="Datos">'+datos.ultimasMedidas.presion+'</p>' +
+        '<div id="presion" class="ContenedorInfoWindow">' +
+            '<p class="medida">Presion hPa: </p>'+
+            '<p id="Datos" class="datos">'+datos.ultimasMedidas.presion+'</p>' +
+            '<img src="images/chart-bar.svg" alt="Grafica">'+
+        '</div>'+
       '</a>'+
     '</div>';
 

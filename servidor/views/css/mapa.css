@@ -62,6 +62,44 @@ div.dropdown {
 button.botonDropdown {
     background-color: rgb(131, 214, 234);
 }
+
+#ventanaInfo a{
+    text-decoration: none;
+}
+
+.ContenedorInfoWindow{
+    display: flex;
+    /*justify-content: flex-start;*/
+    justify-content: space-between;
+    
+}
+
+.ContenedorInfoWindow:hover{
+    
+}
+
+.ContenedorInfoWindow .datos{
+    /*margin-left: 1rem;*/
+}
+.COntenedorInfoWindow img{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.ContenedorInfoWindow:hover{
+    color: #3cc6e4
+}
+
+.ContenedorInfoWindow p{
+    text-decoration: none;
+    color: black;
+}
+
+.ContenedorInfoWindow img{
+    width: 15px;
+    height: 15px;
+}
+
 footer {
     text-align: center;
     background-color: #333333;
