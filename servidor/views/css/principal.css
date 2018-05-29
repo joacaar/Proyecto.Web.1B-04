@@ -93,6 +93,7 @@ div.central .texto p {
     color: #3cc4e6;
     font-size: 4rem;
     animation: flecha-animada 2s ease-in-out infinite;
+    text-decoration: none;
 }
 
 @keyframes flecha-animada {
