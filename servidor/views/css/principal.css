@@ -147,14 +147,6 @@ button.botonEnlace#Login {
     color: #172122;
 }
 
-.finalDePagina {
-    background-color: #010608;
-    font-family: sans-serif;
-    position: relative;
-    bottom: 0;
-    width: 100%;
-}
-
 /*PAGINA INFORMACION*/
 
 .informacion {
@@ -181,9 +173,7 @@ button.botonEnlace#Login {
 
 div.container-fluid {
     width: 100%;
-    padding-top: 3rem;
-    padding-left: 6em;
-    padding-right: 6rem;
+    padding: 3rem 6rem;
     height: auto;
 }
 
@@ -194,7 +184,7 @@ div.informacion div.row {
 }
 
 div.informacion div.row div.texto p {
-    padding: 0 1rem;
+    padding: 0 0;
     margin: 0;
 }
 
@@ -206,6 +196,23 @@ img.imagenDerecha {
 img.imagenIzquierda {
     height: 9rem;
     width: auto;
+}
+
+.izquierda {
+    text-align: left!important;
+}
+
+.derecha {
+    text-align: right!important;
+}
+
+/*FINAL DE PAGINA*/
+
+.finalDePagina {
+    background-color: #010608;
+    font-family: sans-serif;
+    position: relative;
+    width: 100%;
 }
 
 /*Vista escritorio*/
