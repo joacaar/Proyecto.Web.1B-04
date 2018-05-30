@@ -1,35 +1,92 @@
-/*html {
+html {
     height: 100%;
     position: relative;
-}*/
+}
 
 header {
+/*    background: white;*/
     background-color: #010608;
     margin: 0px;
     font-family: sans-serif;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 5rem;
 }
 
-.cabezal {
+
+
+header .cabezal {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height: 5rem;
+/*
     margin-left: 0rem;
     margin-right: 0.5rem;
     margin-bottom: 0px;
+*/
 }
 
+header .cabezal a i{
+    font-size: 2rem;
+    color: #3cc4e6;
+    margin-right: 1rem;
+}
+
+header .logo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 10rem;
+    margin-left: 1rem;
+}
+header .logo a{
+    width: 4rem;
+}
+header .logo a img{
+    height: 4rem;
+}
+
+header .cabezal button{
+    width: 3rem;
+    height: 3rem;
+    border-radius: 100%;
+    background: #00c5e8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*
+header .cabezal .icoMenu{
+    width: 5rem;
+    height: 4rem;
+    color:white
+}
+header .cabezal .icoMenu .menuBar{
+    z-index: 100;
+    width: 3rem;
+    height: 3rem;
+    color: #00c5e8;
+}
+*/
+
+/*
 .botones {
     display: flex;
     text-align: right;
 }
+*/
 
+/*
 div.logo img.logo {
-    height: 15%;
-    width: 15%;
+    height: 4rem;
+    width: 10rem;
     margin-left: 1.6rem;
 }
+*/
 
 .cabezal .logo .volver {
     height: 15%;
