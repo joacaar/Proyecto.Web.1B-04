@@ -10,6 +10,20 @@ Colores usados:
     Dark:       #cbba83
 */
 
+header{
+    width: 100%;
+    height: 3rem;
+}
+
+header .cabezal .logo a img{
+    width: 100px;
+    height: 50px;
+}
+header .cabezal .fa{
+    font-size: 2rem;
+    color: #3cc4e6;
+}
+
 .volver {
     height: 3rem;
     width: 3rem;
@@ -27,30 +41,31 @@ body {
     width: 100%;
     background-image: url(../images/campo2.jpg);
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: auto;
 }
 
 .alert-danger {
     text-align: center;
     width: 200px;
-    height: 100px;
+    height: 50px;
 }
 
 div.central {
-    background-size: cover;
-    background-position: center;
+    /*background-size: cover;
+    background-position: center;*/
     background-color: rgba(182, 191, 185, 0.46);
     margin: 3rem auto;
     padding: 0px;
-    height: 20rem;
-    width: 17rem;
+    height: 25rem;
+    width: 20rem;
     display: block;
     border: solid 1px black;
     border-radius: 1rem;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
+
 }
 
 div.central h1 {
@@ -177,6 +192,7 @@ button.botonAceptarLogin:hover {
     div.central {
         width: 20rem;
         height: 100%;
+        padding: 1rem 1rem;
     }
 }
 
