@@ -4,24 +4,14 @@
 }*/
 
 header {
-    background: white;
-/*    background-color: #010608;*/
+    background-color: #010608;
     margin: 0px;
     font-family: sans-serif;
     display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    height: 4rem;
+    flex-direction: row;
 }
 
-header .cabezal .fa{
-    font-size: 2rem;
-    color: #3cc4e6;
-    
-}
-
-header .cabezal {
+.cabezal {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -30,37 +20,16 @@ header .cabezal {
     margin-bottom: 0px;
 }
 
-header .logo{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 4rem;
-}
-header .logo a{
-    width: 4rem;
-}
-header .logo a img{
-    height: 4rem;
-}
-
-header .cabezal {
-    
-}
-
-/*
 .botones {
     display: flex;
     text-align: right;
 }
-*/
 
-/*
 div.logo img.logo {
     height: 15%;
     width: 15%;
     margin-left: 1.6rem;
 }
-*/
 
 .cabezal .logo .volver {
     height: 15%;
