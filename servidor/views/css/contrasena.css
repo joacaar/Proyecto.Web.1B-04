@@ -19,7 +19,7 @@ body {
 
 -------------------------------------------------*/
 
-header.cabezera {
+/* header.cabezera {
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
@@ -41,7 +41,7 @@ header.cabezera img {
     position: absolute;
     right: 2rem;
     top: 1rem;
-}
+}*/
 
 /*-------------------------------------------------*/
 
@@ -59,33 +59,62 @@ header.cabezera img {
 
 .contenidoCentral {
     /*Flex*/
-    display: flex;
+    /* display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     align-content: center;
-    /*borde y color*/
+    borde y color
     background-color: rgba(182, 191, 185, 0.46);
     color: #000000;
     font-family: 'Muli', sans-serif;
     border: rgba(0, 0, 0, 0.5) solid 1px;
     border-radius: .5rem;
-    /*margin y padding*/
+    margin y padding
     padding: 0.5rem;
     margin-top: 8rem;
     margin-bottom: 8rem;
     margin-left: auto;
     margin-right: auto;
-    /*posicion*/
+    posicion
     position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
-    right: 0;
+    right: 0; */
+    background-color: rgba(182, 191, 185, 0.46);
+    margin: 3rem auto;
+    padding: 0px;
+    height: 25rem;
+    width: 50rem;
+    display: block;
+    border: solid 1px black;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Muli', sans-serif;
 }
 
 /*-------------------------------------------------*/
+/*----------------------------------------
+//           Celda correo
+//---------------------------------------- */
 
+.contenidoCentral .correo span {
+    margin-left: 5rem;
+    margin-top: 3rem;
+}
+
+.contenidoCentral .correo input {
+    margin-right: 5rem;
+    margin-top: 3rem;
+}
+
+/*----------------------------------------
+//           Boton enviar contraseña
+//---------------------------------------- */
 .botonEnlace#enviarContra {
     color: #172122;
     border: solid #172122;
@@ -97,6 +126,8 @@ header.cabezera img {
     padding: 3px 5px;
     border-radius: 8px;
     cursor: pointer;
+    margin-top: 3rem;
+    margin-bottom: -1rem;
 }
 
 .botonEnlace#enviarContra:hover {
@@ -110,6 +141,7 @@ header.cabezera img {
     border: 3px solid #172122;
     color: #172122
 }
+
 }
 
 footer {
@@ -125,7 +157,7 @@ footer {
     }
 }
 
-@media(max-width:411px){
+@media(max-width:411px) {
     .contenidoCentral {
         margin-top: 13rem;
         margin-bottom: 13rem;
