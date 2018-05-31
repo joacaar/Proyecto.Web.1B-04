@@ -22,6 +22,11 @@ body {
     height: 100%;
 }
 
+.contenedor header .cabezal{
+    width: 100%;
+}
+
+/*
 .contenedor header{
     display: flex;
     justify-content: space-between;
@@ -40,6 +45,7 @@ body {
     color: #00c5e8;
     border-color: #00c5e8;
 }
+*/
 
 div.seleccion {
     background-color: #ffffe5;
@@ -48,8 +54,10 @@ div.seleccion {
     padding-right: 1rem;
 }
 
-canvas#grafica {
+canvas {
     padding: 1rem;
+    height: 70%;
+    width: 90%;
 }
 
 .contenedor footer{
