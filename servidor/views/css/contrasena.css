@@ -83,10 +83,10 @@ header.cabezera img {
     left: 0;
     right: 0; */
     background-color: rgba(182, 191, 185, 0.46);
-    margin: 3rem auto;
+    margin: 4rem auto;
     padding: 0px;
-    height: 25rem;
-    width: 50rem;
+    min-height: 24rem;
+    max-width: 40rem;
     display: block;
     border: solid 1px black;
     border-radius: 1rem;
@@ -144,22 +144,19 @@ header.cabezera img {
 
 }
 
-footer {
-    position: absolute;
-    bottom: 0;
+.finalDePagina footer {
+    position: relative!important;
+    width: 100%;
+    /*bottom: 0;
     left: 0;
-    right: 0;
+    right: 0;*/
 }
 
-@media(min-width:991px) {
-    a#atras {
-        visibility: hidden;
-    }
-}
-
+/*
 @media(max-width:411px) {
     .contenidoCentral {
         margin-top: 13rem;
         margin-bottom: 13rem;
     }
 }
+*/
