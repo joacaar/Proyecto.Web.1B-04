@@ -17,144 +17,151 @@
 <body onload="mostrarDatos();">
     <div class="contenedor">
         <header class="cabezera">
-            <img src="images/usuarioA.png" alt="Icono Perfil">
-            <h1>Perfil</h1>
+            <div class="contenidoCabecera">
+                <img src="images/usuarioA.png" alt="Icono Perfil">
+                <h1>Perfil</h1>
+            </div>
         </header>
 
-        <section class="datosUsuario">
-            <div class="tituloh3">
-                <h3>Datos de usuario</h3>
+
+        <section class="central">
+            <section class="datosUsuario">
+                <div class="tituloh3">
+                    <h3>Datos de usuario</h3>
+                </div>
+                <img src="images/foto.svg" alt="Foto o Logo de la empresa" class="fotoPerfil">
+                <input type="file" name="Imagen Perfil">
+                <ul>
+                    <li>Nombre:
+                        <p id="nombre">Dato no disponible</p>
+                    </li>
+                    <li>Apellidos:
+                        <p id="apellidos">Dato no disponible</p>
+                    </li>
+                    <li>Correo:
+                        <p id="correo">Dato no disponible</p>
+                    </li>
+                    <li>Teléfono:
+                        <p id="telefono">Dato no disponible</p>
+                    </li>
+                </ul>
+            </section>
+
+            <section class="modfContra">
+                <h3>Modificar Contraseña</h3>
+                <form action="">
+                    <p>Contraseña actual</p>
+                    <input type="password" id="contraActual">
+                    <p>Nueva Contraseña</p>
+                    <input type="password" id="nuevaContra">
+                    <p>Repetir Contraseña</p>
+                    <input type="password" id="repetirContra">
+                </form>
+            </section>
+            <div class="alertas">
+                <!--Alerta de cambio de contraseña correcto-->
+                <div class="alert alert-success" role="alert" id="cuadroAlertaVerde">
+                    <p id="correcto"></p>
+                </div>
+
+                <!--Alerta de contraseña erronea-->
+                <div class="alert alert-danger" role="alert" id="cuadroAlerta">
+                    <p id="alerta"></p>
+                </div>
             </div>
-            <img src="images/foto.svg" alt="Foto o Logo de la empresa" class="fotoPerfil">
-            <input type="file" name="Imagen Perfil">
-            <ul>
-                <li>Nombre:
-                    <p id="nombre">Dato no disponible</p>
-                </li>
-                <li>Apellidos:
-                    <p id="apellidos">Dato no disponible</p>
-                </li>
-                <li>Correo:
-                    <p id="correo">Dato no disponible</p>
-                </li>
-                <li>Teléfono:
-                    <p id="telefono">Dato no disponible</p>
-                </li>
-            </ul>
         </section>
 
-        <section class="modfContra">
-            <h3>Modificar Contraseña</h3>
-            <form action="">
-                <p>Contraseña actual</p>
-                <input type="password" id="contraActual">
-                <p>Nueva Contraseña</p>
-                <input type="password" id="nuevaContra">
-                <p>Repetir Contraseña</p>
-                <input type="password" id="repetirContra">
-            </form>
-        </section>
-        <div class="alertas">
-            <!--Alerta de cambio de contraseña correcto-->
-            <div class="alert alert-success" role="alert" id="cuadroAlertaVerde">
-                <p id="correcto"></p>
-            </div>
-
-            <!--Alerta de contraseña erronea-->
-            <div class="alert alert-danger" role="alert" id="cuadroAlerta">
-                <p id="alerta"></p>
-            </div>
-        </div>
         <section class="botones">
             <button class="botonEnlace" type="button" onclick="modificarContrasena()">Guardar</button>
             <button class="botonEnlace" type="button" onclick="continuar()">Continuar</button>
         </section>
 
         <footer>
-            <div class="pie">
-                <p>© 2018 Interactive Technologies, Inc.</p>
+            <div class="copy">
+                <label for="copyright">Copyright &copy; 2018 | GTI </label><br/>
+                <label for="derechos">Todos los derechos reservados | <a href="terminos.html">Terminos de uso</a></label>
             </div>
         </footer>
     </div>
 
     <script>
-//        var datosUsuario = {
-//            correo: "amarti@.com",
-//            contrasena: 1234,
-//            nombre: "Adrian",
-//            apellidos: "Marti",
-//            telefono: 123456789,
-//            primerInicio: true,
-//        }
+        //        var datosUsuario = {
+        //            correo: "amarti@.com",
+        //            contrasena: 1234,
+        //            nombre: "Adrian",
+        //            apellidos: "Marti",
+        //            telefono: 123456789,
+        //            primerInicio: true,
+        //        }
         //------------Ponemos los datos en pantalla-------------------//
         // Nombre
-//        var nombre = document.getElementById("nombre")
-//        nombre.innerHTML = datosUsuario.nombre;
-//
-//        // apellido
-//        var apellido = document.getElementById("apellidos")
-//        apellido.innerHTML = datosUsuario.apellidos;
-//
-//        // correo
-//        var correo = document.getElementById("correo")
-//        correo.innerHTML = datosUsuario.correo;
-//
-//        // telefono
-//        var telefono = document.getElementById("telefono")
-//        telefono.innerHTML = datosUsuario.telefono;
-//
+        //        var nombre = document.getElementById("nombre")
+        //        nombre.innerHTML = datosUsuario.nombre;
+        //
+        //        // apellido
+        //        var apellido = document.getElementById("apellidos")
+        //        apellido.innerHTML = datosUsuario.apellidos;
+        //
+        //        // correo
+        //        var correo = document.getElementById("correo")
+        //        correo.innerHTML = datosUsuario.correo;
+        //
+        //        // telefono
+        //        var telefono = document.getElementById("telefono")
+        //        telefono.innerHTML = datosUsuario.telefono;
+        //
 
         //------------configuración del cambio de contraseña-------------------//
         // cuadro de alerta de cambio correcto
-//        var cuadroVerde = document.getElementById("cuadroAlertaVerde");
-//        cuadroVerde.style.display = 'none';
-//
-//        // cuadro de alerta de error de datos
-//        var cuadro = document.getElementById("cuadroAlerta");
-//        cuadro.style.display = 'none';
-//        var aviso = document.getElementById("alerta");
+        //        var cuadroVerde = document.getElementById("cuadroAlertaVerde");
+        //        cuadroVerde.style.display = 'none';
+        //
+        //        // cuadro de alerta de error de datos
+        //        var cuadro = document.getElementById("cuadroAlerta");
+        //        cuadro.style.display = 'none';
+        //        var aviso = document.getElementById("alerta");
 
-//        var cNewPass = document.getElementById("nuevaContra");
-//        var cRepPass = document.getElementById("repetirContra");
+        //        var cNewPass = document.getElementById("nuevaContra");
+        //        var cRepPass = document.getElementById("repetirContra");
 
         // funcion para cambiar la contraseña inicial
-//        function cambiarContra() {
-//            var contraActual = document.getElementById("contraActual").value;
-//
-//            if (contraActual == datosUsuario.contrasena) {
-//                var newPass = document.getElementById("nuevaContra").value;
-//                var repPass = document.getElementById("repetirContra").value;
-//
-//                if (newPass != "" && newPass == repPass) {
-//
-//                    cuadro.style.display = "none";
-//
-//                    datosUsuario.contrasena = newPass;
-//
-//                    if (datosUsuario.primerInicio == true) {
-//                        datosUsuario.primerInicio = false;
-//                    }
-//
-//                    cuadroVerde.style.display = "block";
-//                    document.getElementById("correcto").innerHTML = "La contraseña se modifico correctamente";
-//
-//                } else {
-//                    cuadro.style.display = "block";
-//                    aviso.innerHTML = "La nueva contraseña no coincide";
-//                }
-//            } else {
-//                cuadro.style.display = "block";
-//                aviso.innerHTML = "La contraseña actual no es correcta";
-//            }
-//        }
-//
-//        function continuar() {
-//            if (datosUsuario.primerInicio == false) {
-//                location.href = "campo.html";
-//            } else {
-//
-//            }
-//        }
+        //        function cambiarContra() {
+        //            var contraActual = document.getElementById("contraActual").value;
+        //
+        //            if (contraActual == datosUsuario.contrasena) {
+        //                var newPass = document.getElementById("nuevaContra").value;
+        //                var repPass = document.getElementById("repetirContra").value;
+        //
+        //                if (newPass != "" && newPass == repPass) {
+        //
+        //                    cuadro.style.display = "none";
+        //
+        //                    datosUsuario.contrasena = newPass;
+        //
+        //                    if (datosUsuario.primerInicio == true) {
+        //                        datosUsuario.primerInicio = false;
+        //                    }
+        //
+        //                    cuadroVerde.style.display = "block";
+        //                    document.getElementById("correcto").innerHTML = "La contraseña se modifico correctamente";
+        //
+        //                } else {
+        //                    cuadro.style.display = "block";
+        //                    aviso.innerHTML = "La nueva contraseña no coincide";
+        //                }
+        //            } else {
+        //                cuadro.style.display = "block";
+        //                aviso.innerHTML = "La contraseña actual no es correcta";
+        //            }
+        //        }
+        //
+        //        function continuar() {
+        //            if (datosUsuario.primerInicio == false) {
+        //                location.href = "campo.html";
+        //            } else {
+        //
+        //            }
+        //        }
 
     </script>
     <script src="js/perfil.js"></script>
