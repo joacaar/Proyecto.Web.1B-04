@@ -78,12 +78,12 @@
                 </div>
                 <button type="submit" class="btn btn-primary btn-lg btn-block botonAceptarLogin" id="AceptarLogin" onclick="comprobar_login();"> Aceptar </button>
             </form> -->
-            <form action="#" id="login" class="login">
+            <form id="login" class="login">
                 <div class="user_login input-group mb-3">
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fas fa-user"></i></span>
                     </div>
-                    <input id="label_user" type="text" class="form-control" id="user" placeholder="Username" required>
+                    <input type="text"  class="form-control" id="user" placeholder="Username" required>
                     <div class="invalid-feedback" style="width: 100%;">
                         Your username is required.
                     </div>
@@ -92,15 +92,19 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="basic-addon1"><i class="fas fa-key"></i></span>
                     </div>
-                    <input type="password" class="form-control" id="password" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1">
+                    <input type="password" class="form-control" id="password" placeholder="Password"
+                      aria-label="Password" aria-describedby="basic-addon1">
                 </div>
                 <div class="olvidada-login">
                     <a href="contrasena.html">
                         <p id="label_olvidada"><em>¿Contraseña olvidada?</em></p>
                     </a>
                 </div>
-                <button class="btn btn-primary btn-lg btn-block botonEnlace" id="AceptarLogin" onclick="comprobar_login();" type="submit">Aceptar</button>
+                <button class="btn btn-primary btn-lg btn-block botonEnlace" id="AceptarLogin"
+                  onclick="comprobar_login()" type="submit">Aceptar</button>
             </form>
+
+            <button type="button" name="button" onclick="comprobar_login()">Prueba</button>
 
 
             <!-- Botones -->

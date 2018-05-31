@@ -31,6 +31,8 @@ function comprobar_login(){
   //obtenemos los valores de las casillas
   var usuario = document.getElementById("user").value;
   var contrasena = document.getElementById("password").value;
+  console.log(usuario);
+  console.log(contrasena);
   var casillasCompletas = comprobar_casillas();
   console.log(casillasCompletas);
   if(casillasCompletas){
