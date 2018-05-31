@@ -1,74 +1,59 @@
-/*
-Colores usados:
-    Primario:   #ffab00
-    Light:      #ffdd4b
-    Dark:       #c67c00
-    Muy Darks:  
-
-    Secudario:  #ffecb3  
-    Light:      #ffffe5
-    Dark:       #cbba83
-
-    Letra párrafos: #333
-    Letra párrafos sobre imagen: #222;
-*/
-
-body {
-    margin: 0;
-    font-family: sans-serif;
-}
-
-.contenedor{
+body{
     height: 100%;
 }
 
-.contenedor header .cabezal{
+header .cabezal{
     width: 100%;
 }
-
-/*
-.contenedor header{
-    display: flex;
-    justify-content: space-between;
+.contenedor{
+    width: 100%;
+    height: 84%;
+    padding: 1rem 1rem;
+}
+.contenedor .selector{
+    margin: 0 0;
+    padding: 1rem 1rem;
 }
 
-.contenedor header .boton{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 1rem;
-}
-
-.contenedor header .boton .btn {
-    height: 40px;
-    background: #000;
-    color: #00c5e8;
-    border-color: #00c5e8;
-}
-*/
-
-div.seleccion {
-    background-color: #ffffe5;
-    padding-bottom: 1rem;
-    padding-left: 2rem;
-    padding-right: 1rem;
-}
-
-canvas {
-    padding: 1rem;
+.contenedor .grafica{
     height: 70%;
-    width: 90%;
+/*    display: inline-block;*/
 }
 
-.contenedor footer{
-    background: black;
-    color: grey;
+.contenedor .grafica #grafica{
+
+}
+
+.contenedor .botonExportar{
+    display: block;
+    margin: 1rem auto;
+}
+
+.contenedor .mensaje{
+    height: 90%;
+    background: grey;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.contenedor footer p{
-    margin-bottom: 0;
-    padding: 1rem 0;
+.pie{
+    background: #010608;
+    height: 2rem;
+    text-align: center;
+    color: grey;
+}
+
+@media (max-width: 450px){
+    .contenedor .grafica{
+        display: none;
+    }
+    .contenedor .botonExportar{
+        display: none;
+    }
+}
+@media (min-width: 450px){
+    .contenedor .mensaje{
+        display: none;
+    }
 }

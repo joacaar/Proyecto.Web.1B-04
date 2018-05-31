@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie-edge">
+
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="css/header.css">
+<!--        <link rel="stylesheet" type="text/css" href="css/footer.css">-->
+        <link rel="stylesheet" href="css/graficas.css">
+
+        <title>Gráficas</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.js"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/locale/es.js"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.js"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+    </head>
+
+    <body onload="mostrarPrimerosDatos()">
+        <div class="contenedor">
+            <header>
+               <div class="cabezal">
+                <div class="logo">
+                    <a href="index.html" class="logo">
+                        <img src="images/logo_GTI_azul.png" alt="logo GTI">
+                    </a>
+                </div>
+                <div class="boton">
+                    <button type="button" onclick="botonMapa()" class="btn btn-primary">MAPA</button>
+                </div>
+                <!--            <img src="images/menu.svg" alt="enlace menu">-->
+                </div>
+            </header>
+
+            <div class="contenidoCentral">
+                <div class="row seleccion">
+                   <div class="titulito">
+                    <h4 class="col-6">Medida: </h4>
+                    </div>
+                    <select id="selector" onchange="pedirDatos();" class="col-6">
+                      <option value="humedad">Humedad</option>
+                      <option value="temperatura">Temperatura</option>
+                      <option value="salinidad">Salinidad</option>
+                      <option value="iluminacion">Iluminación</option>
+                      <option value="presion">Presión Atmosférica</option>
+                    </select>
+                </div>
+                <!--<div class="botonesMedidas">
+                  <button type="button" name="humedad">Humedad %</button>
+                  <button type="button" name="temperatura">Temperatura ºC</button>
+                  <button type="button" name="salinidad">Salinidad %</button>
+                  <button type="button" name="iluminacion">Iluminación lux</button>
+                  <button type="button" name="Presion">Presion hPa</button>
+                </div>-->
+
+                <canvas id="grafica"></canvas>
+                <div class="mensaje">
+                    
+                </div>
+                <button id="downloadPDF">
+                    Exportar gráfica a PDF
+                </button>
+            </div>
+            
+            <footer>
+                <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+            </footer>
+        </div>
+        <script src="js/grafica.js"></script>
+        <script src="js/jspdf.min.js"></script>
+    </body>
+</html>

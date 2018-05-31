@@ -69,6 +69,10 @@ button.botonDropdown {
     background-color: rgb(131, 214, 234);
 }
 
+#ventanaInfo{
+    z-index: 100;
+}
+
 #ventanaInfo a{
     text-decoration: none;
 }

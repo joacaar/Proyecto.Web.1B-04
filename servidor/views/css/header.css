@@ -61,8 +61,14 @@ header .cabezal button{
     align-items: center;
 }
 
-header .cabezal .boton{
-    margin: 0 0;
+header .cabezal .boton button{
+    color: #010608;
+}
+
+header .cabezal .boton button:hover{
+    color: #00c5e8;
+    background: #010608;
+    border: .12rem solid #00c5e8;
 }
 
 /*

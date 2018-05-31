@@ -1,0 +1,87 @@
+/*
+Colores usados:
+    Primario:   #ffab00
+    Light:      #ffdd4b
+    Dark:       #c67c00
+    Muy Darks:  
+
+    Secudario:  #ffecb3  
+    Light:      #ffffe5
+    Dark:       #cbba83
+
+    Letra párrafos: #333
+    Letra párrafos sobre imagen: #222;
+*/
+
+body {
+    margin: 0 0;
+    font-family: sans-serif;
+}
+
+.contenedor{
+
+}
+
+.contenedor header .cabezal{
+    width: 100%;
+}
+
+/*
+.contenedor header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.contenedor header .boton{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+}
+
+.contenedor header .boton .btn {
+    height: 40px;
+    background: #000;
+    color: #00c5e8;
+    border-color: #00c5e8;
+}
+*/
+
+.contenedor .contenidoCentral{
+    height: 84%;
+}
+
+div.seleccion {
+    margin: 1rem 0;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+canvas {
+    padding: 1rem;
+    height: 70%;
+    width: 90%;
+}
+
+.contenidoCentral .mensaje{
+/*
+    height: 12rem;
+    width: 18rem;
+*/
+    height: 
+    background: grey;
+    
+}
+.contenedor footer{
+    background: black;
+    color: grey;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contenedor footer p{
+    margin-bottom: 0;
+    padding: 1rem 0;
+}
