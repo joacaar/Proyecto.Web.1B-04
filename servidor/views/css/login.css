@@ -38,12 +38,12 @@ header .cabezal .fa{
 
 body {
     margin: 0;
-    font-family: sans-serif;
+    font-family: 'Muli', sans-serif;
     height: 100%;
     width: 100%;
-    background-image: url(../images/campo2.jpg);
+    background-image: url(../images/campo2Red.jpg);
     background-repeat: no-repeat;
-    background-size: auto;
+    background-size: cover;
 }
 
 .alert-danger {
@@ -67,6 +67,7 @@ div.central {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    font-family: 'Muli', sans-serif;
 
 }
 

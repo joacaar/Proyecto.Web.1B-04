@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="css/botonEnlace.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
     <style>
         footer.finalDePagina {
             position: absolute;
@@ -26,37 +27,27 @@
 
 <body>
     <div class="contenedor">
-        <header class="">
-            <img src="images/logo_GTI_azul.png" alt="Logo Empresa GTI" style="max-width: 200px; max-height: 80px;">
-            <a href="login.html"><img src="images/001-return-buttonA.png" alt="Volver atrás" class="volver"></a>
-            <!--<nav class="navbar navbar-expand-lg navbar-light">
-                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-                    <ul class="navbar-nav mr-auto mt-2 mt-md-0">
-                        <li class="nav-item">
-                            <a class="nav-link" href="index.html">Inicio</a>
-                        </li>
-                        <li class="nav-item active">
-                            <a class="nav-link" href="login.html">Inicio Sesión<span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="tarifas.html">Tarifas</a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>-->
-
-        </header>
+        <header>
+        <div class="cabezal">
+            <div class="logo"><a href="index.html"><img src="images/logo_GTI_azul.png" alt="Logo GTI"></a></div>
+            <!--<a href="index.html"><img src="images/001-return-buttonA.png" alt="Volver atrás" class="volver"></a>-->
+            <a href="login.html"><i class="fa fa-arrow-circle-left" id></i></a>
+            </div>
+    </header>
 
 
         <div class="contenidoCentral">
             <h3 class="text-center">Escriba su dirección de correo electrónico <br/>y se le asignará una nueva contraseña</h3>
-            <p id="label_correo">
+            <!-- <p id="label_correo">
                 Correo electrónico:
             </p>
-            <input id="correo" type="text" placeholder="Escriba su correo">
+            <input id="correo" type="text" placeholder="Escriba su correo"> -->
+            <div class="correo input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-at"></i></span>
+                </div>
+                <input type="text" class="form-control correo" id="correo" placeholder="Correo electrónico" required>
+            </div>
             <button class="botonEnlace" id="enviarContra" type="button" onclick="#">Enviar</button>
         </div>
 
