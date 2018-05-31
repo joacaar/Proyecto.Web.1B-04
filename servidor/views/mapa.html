@@ -21,7 +21,7 @@
 
 <body onload="getZonas()">
     <!--Cabecera-->
-    <header>
+    <header role="banner wrapper">
         <div class="cabezal">
             <div class="logo">
                 <a href="index.html" class="logo">
@@ -103,6 +103,13 @@
     <script src="js/popper.min.js"></script>
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("boton-menu").on("click", function() {
+                $("nav ul").toggleClass("showing");
+            });
+        });
+    </script>
 
 </body>
 
