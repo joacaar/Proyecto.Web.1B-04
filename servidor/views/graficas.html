@@ -12,7 +12,7 @@
 
 
         <title>Gráficas</title>
-        
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/locale/es.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.js"></script>
@@ -42,22 +42,23 @@
               <option value="presion">Presión Atmosférica</option>
             </select>
         </div>
-        <div class="grafica">
-            <canvas id="grafica"></canvas>
-        </div>
         <div class="botonExportar">
             <button id="downloadPDF">
                 Exportar gráfica a PDF
             </button>
         </div>
+        <div class="grafica">
+            <canvas id="grafica"></canvas>
+        </div>
+
         <div class="mensaje">
             <p>Gire la pantalla para ver la grafica</p>
         </div>
-        
+
     </div>
-    <div class="pie">
+    <!-- <div class="pie">
         <p>Copyright &copy; 2018 | GTI </p>
-    </div>
+    </div> -->
         <script src="js/grafica.js"></script>
         <script src="js/jspdf.min.js"></script>
 </body>
