@@ -26,7 +26,7 @@
         <div class="cabezal">
             <div class="logo"><a href="index.html"><img src="images/logo_GTI_azul.png" alt="Logo GTI"></a></div>
             <!--<a href="index.html"><img src="images/001-return-buttonA.png" alt="Volver atrás" class="volver"></a>-->
-            <a onclick="window.close()"><i class="fa fa-arrow-circle-left" id></i></a>
+            <a href="index.html"><i class="fa fa-arrow-circle-left" id></i></a>
         </div>
 
 
@@ -84,7 +84,7 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fas fa-user"></i></span>
                     </div>
-                    <input type="text"  class="form-control" id="user" placeholder="Username" required>
+                    <input type="text" class="form-control" id="user" placeholder="Username" required>
                     <div class="invalid-feedback" style="width: 100%;">
                         Your username is required.
                     </div>
@@ -93,19 +93,17 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="basic-addon1"><i class="fas fa-key"></i></span>
                     </div>
-                    <input type="password" class="form-control" id="password" placeholder="Password"
-                      aria-label="Password" aria-describedby="basic-addon1">
+                    <input type="password" class="form-control" id="password" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1">
                 </div>
                 <div class="olvidada-login">
                     <a href="contrasena.html">
                         <p id="label_olvidada"><em>¿Contraseña olvidada?</em></p>
                     </a>
                 </div>
-                <button class="btn btn-primary btn-lg btn-block botonEnlace" id="AceptarLogin"
-                  onclick="comprobar_login()" type="button">Aceptar</button>
+                <button class="btn btn-primary btn-lg btn-block botonEnlace" id="AceptarLogin" onclick="comprobar_login()" type="submit">Aceptar</button>
             </form>
 
-<!--            <button type="button" name="button" onclick="comprobar_login()">Prueba</button>-->
+            <button type="button" name="button" onclick="comprobar_login()">Prueba</button>
 
 
             <!-- Botones -->
@@ -119,11 +117,11 @@
                 <label for="copyright">Copyright &copy; 2018 | GTI </label><br/>
                 <label for="derechos">Todos los derechos reservados | <a href="terminos.html">Terminos de uso</a></label>
             </div>
-            <div class="redesSociales">
+            <!--<div class="redesSociales">
                 <a href="http://www.twitter.es/"><i class="fab fa-twitter-square"></i></a>
                 <a href="http://www.facebook.es/"><i class="fab fa-facebook-square"></i></a>
                 <a href="http://www.linkedin.com/"><i class="fab fa-linkedin"></i></a>
-            </div>
+            </div>-->
         </footer>
     </section>
     <script src="js/login.js"></script>
