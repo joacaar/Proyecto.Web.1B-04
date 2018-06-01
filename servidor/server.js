@@ -128,6 +128,8 @@ servidor.get('/grafica/medidas', procesar.getMedidas);
 
 servidor.post('/perfil/modfpass', procesar.modificarPassword);
 
+servidor.get('/cerrarSesion', procesar.borrarCookies);
+
 //-----------------------------------------------------------------------------
 //  Código de escucha de servidor
 //-----------------------------------------------------------------------------

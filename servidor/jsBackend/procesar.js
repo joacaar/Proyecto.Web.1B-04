@@ -295,6 +295,12 @@ module.exports.comprobarLogin = function(peticion, respuesta, siguiente){
   }
 }
 
+module.exports.borrarCookies = function(peticion, respuesta){
+  console.log('Las cookies son: '+ peticion.cookies);
+  // console.log(respuesta.cookies);
+  respuesta.sendStatus(200);
+}
+
 // module.exports.medidas = function(peticion, respuesta){
 //   baseDeDatos.all('SELECT * FROM medidas WHERE ')
 // }

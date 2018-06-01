@@ -105,7 +105,7 @@ function modificarContrasena(){
 function continuar(){
 
   if(personaActiva == "true"){
-     location.href="/campos"
+     location.href="/mapa"
   }
   else{
     cuadro.style.display = "block";

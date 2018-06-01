@@ -164,6 +164,11 @@ function mostrarSensor (){
   //location.href = "/grafica?sensor=" + sensor;
   //fetch("/grafica?sensor=" + sensor);
 }
+function cerrarSesion (){
+  console.log(document.cookie);
+}
+
+cerrarSesion();
 //--------funcion para centrar el mapa en una zona, falta la llamada a la base de datos------------------//
 /*        function centerMap(nombreZona) {
  *           var textoSQL = '';

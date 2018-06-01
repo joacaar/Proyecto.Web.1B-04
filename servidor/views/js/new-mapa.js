@@ -144,7 +144,7 @@ function addMarker(lat, lng, nombreSensor, idSensor) {
     //Funcion para mostrar informacion
     var ventanaInfo = new google.maps.InfoWindow({
         content: contentString
-        
+
     });
 
     marcador.addListener('click', function() {
@@ -283,6 +283,15 @@ function obtenerValorMedida(){
   return valor[1];
 }
 
+//-----------------------------------------------------------------------------
+// Funcion para obtener la eleccion del tipo de medida de la pagina de mapa
+// ----------------------------------------------------------------------------
+function cerrarSesion(){
+  fetch('/cerrarSesion').then(function(respuesta){
+    location.href='/sesion';
+
+  })
+}
 //-----------------------------------------------------------------------------
 // Funcion para obtener los valores almacenados en las cookies
 // ----------------------------------------------------------------------------
