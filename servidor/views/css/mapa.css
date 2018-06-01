@@ -126,6 +126,15 @@ footer {
     color: grey;
 }
 
+.container {
+    margin: 0;
+    padding: 0;
+}
+
+.container .cabezal .boton-menu {
+    margin-left: auto;
+    margin-right: 2rem;
+}
 
 #menu-principal {
     flex: 1 1 100%;
