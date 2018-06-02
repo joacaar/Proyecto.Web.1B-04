@@ -110,9 +110,9 @@ servidor.get('/perfil/datos', procesar.getDatosCliente);
 //   console.log("En desarrollo");
 // });
 
-servidor.get('/mapa', function(peticion, respuesta){
+servidor.get('/mapa', [procesar.comprobarLogin, function(peticion, respuesta){
   respuesta.sendFile(__dirname + '/views/mapa.html');
-});
+}]);
 
 servidor.get('/mapa/datosZonas', procesar.getDatosZonas);
 
