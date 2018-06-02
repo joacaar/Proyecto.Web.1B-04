@@ -66,8 +66,4 @@ function comprobar_login(){
         }
     });
   }
-
-  function cerrarVentana(){
-    window.close();
-  }
 }
