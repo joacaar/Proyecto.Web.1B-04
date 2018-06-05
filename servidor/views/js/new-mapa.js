@@ -147,8 +147,14 @@ function addMarker(lat, lng, nombreSensor, idSensor) {
 
     });
 
+    var locationCenterVInfo ={
+      lat: lat+0.0015,
+      lng: lng
+    }
+
     marcador.addListener('click', function() {
         ventanaInfo.open(map, marcador)
+        map.panTo(locationCenterVInfo);
     })
 
     addDropdownLink(lat, lng)
