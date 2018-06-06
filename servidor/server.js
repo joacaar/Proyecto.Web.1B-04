@@ -35,6 +35,8 @@ const url = require('url');
 
 const path = require('path');
 
+var nodemailer = require('nodemailer');
+
 const procesar = require("./jsBackend/procesar.js");
 
 //En la variable express se obtiene una función con todas las funciones,
@@ -66,7 +68,17 @@ servidor.use(express.static(__dirname + '/views'));
 // servidor.engine('html', require('ejs').renderFile);
 // servidor.set('view engine', 'ejs');
 
+//-----------------------------------------------------------------------------
+//  Configuración correo
+//-----------------------------------------------------------------------------
 
+  var transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+        user: 'enteligentes.soporte@gmail.com',
+        pass: 'Enteligentes1234?'
+    }
+  });
 
 //-----------------------------------------------------------------------------
 //  RUTAS
@@ -122,13 +134,14 @@ servidor.get('/grafica', [procesar.comprobarLogin, function(peticion, respuesta)
 
 servidor.get('/grafica/medidas', procesar.getMedidas);
 
+servidor.get('/cerrarSesion', procesar.borrarCookies);
 
 
 // peticiones POST
 
 servidor.post('/perfil/modfpass', procesar.modificarPassword);
 
-servidor.get('/cerrarSesion', procesar.borrarCookies);
+servidor.post('/recuperar/password', procesar.recuperarContrasena);
 
 //-----------------------------------------------------------------------------
 //  Código de escucha de servidor

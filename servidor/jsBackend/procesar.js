@@ -317,3 +317,29 @@ module.exports.borrarCookies = function(peticion, respuesta){
 // module.exports.directorio = function(){
 //   console.log(__dirname);
 // }
+
+
+// ----------------------------------------------------------------------------
+// Funcion envio correos
+// ----------------------------------------------------------------------------
+
+  module.exports.recuperarContrasena = function(peticion, respuesta){
+    console.log("--------------------------------------------------");
+    console.log(peticion.headers.passrecover);
+    var correo = peticion.headers.passrecover;
+    var textoSQL = 'UPDATE datosUsuario SET contrasena="pass1234" WHERE email="' + correo +'";'
+    baseDeDatos.run(textoSQL, function(err){
+      if(err != null){
+        console.log("error ?= null");
+        respuesta.sendStatus(500);
+      }else if(this.changes == 0){
+        console.log(this.changes);
+        console.log('respuesta 404, No se ha encontrado el usuario');
+        respuesta.sendStatus(404);
+      }else{
+        console.log("respuesta 200 OK");
+        respuesta.sendStatus(200);
+      }
+    })
+
+  }
