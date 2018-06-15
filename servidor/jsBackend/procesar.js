@@ -1,6 +1,7 @@
 // Definimos en __dirname la direccion del directorio de views
 // __dirname = 'C:/Users/Joan Calabuig Artes/desktop/Grado-Tecnologias/aProject/servidor/views'
 var path = require('path');
+var nodemailer = require('nodemailer');
 newDirname = path.join(__dirname, '../');
 
 // ----------------------------------------------------------------------------
@@ -327,6 +328,7 @@ module.exports.borrarCookies = function(peticion, respuesta){
     console.log("--------------------------------------------------");
     console.log(peticion.headers.passrecover);
     var correo = peticion.headers.passrecover;
+
     var textoSQL = 'UPDATE datosUsuario SET contrasena="pass1234" WHERE email="' + correo +'";'
     baseDeDatos.run(textoSQL, function(err){
       if(err != null){
@@ -337,8 +339,43 @@ module.exports.borrarCookies = function(peticion, respuesta){
         console.log('respuesta 404, No se ha encontrado el usuario');
         respuesta.sendStatus(404);
       }else{
-        console.log("respuesta 200 OK");
-        respuesta.sendStatus(200);
+          // create reusable transporter object using the default SMTP transport
+          let transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+                   user: 'enteligentes.soporte@gmail.com',
+                   pass: 'Enteligentes1234?'
+               }
+           });
+
+          // setup email data with unicode symbols
+          let mailOptions = {
+              from: '"Enteligentes.GTI 👻" <enteligentes.soporte@gmail.com>', // sender address
+              to: correo, // list of receivers
+              subject: 'Recuperación contraseña', // Subject line
+              //html: '<h3>Enteligentes.GTI</h3>', // html body
+              text: 'Hola, le informamos que la contraseña de la cuenta '+
+                    correo + ' ha sido modificada. La actual contraseña es: pass1234' // plain text body
+
+          };
+
+          // send mail with defined transport object
+          transporter.sendMail(mailOptions, (error, info) => {
+              if (error) {
+                  respuesta.sendStatus(500);
+                  respuesta.write(err);
+                  respuesta.end();
+              }
+              console.log('Message sent: %s', info.messageId);
+              // Preview only available when sending through an Ethereal account
+              console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
+
+              console.log("respuesta 200 OK");
+              respuesta.sendStatus(200);
+
+              // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
+              // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
+          });
       }
     })
 

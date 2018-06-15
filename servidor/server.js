@@ -35,7 +35,7 @@ const url = require('url');
 
 const path = require('path');
 
-var nodemailer = require('nodemailer');
+// var nodemailer = require('nodemailer');
 
 const procesar = require("./jsBackend/procesar.js");
 
@@ -72,13 +72,13 @@ servidor.use(express.static(__dirname + '/views'));
 //  Configuración correo
 //-----------------------------------------------------------------------------
 
-  var transporter = nodemailer.createTransport({
-  service: 'gmail',
-  auth: {
-        user: 'enteligentes.soporte@gmail.com',
-        pass: 'Enteligentes1234?'
-    }
-  });
+  // var transporter = nodemailer.createTransport({
+  // service: 'gmail',
+  // auth: {
+  //       user: 'enteligentes.soporte@gmail.com',
+  //       pass: 'Enteligentes1234?'
+  //   }
+  // });
 
 //-----------------------------------------------------------------------------
 //  RUTAS
