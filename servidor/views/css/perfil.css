@@ -52,6 +52,11 @@
             font-family: 'Muli', sans-serif;
         }
 
+        .fotoPerfil {
+            width: 8rem;
+            height: auto;
+        }
+
         /*-------------------------------------------------*/
 
         .datosUsuario {
