@@ -117,6 +117,7 @@ div.central .texto p {
     font-size: 1rem;
     text-decoration: none;
     color: #3cc4e6;
+    margin: 24px 24px 0px 24px;
     /* display: inline-block; */
 }
 
@@ -141,10 +142,12 @@ button.botonEnlace#Login {
     text-decoration: none;
     /* text-transform: uppercase; */
     font-weight: 900;
-    font-size: 2rem;
+    font-size: 1.75rem;
     cursor: pointer;
     padding: 5px 10px;
     border-radius: 9px;
+    width: 13rem;
+    height: 3.5rem;
 }
 
 .botonEnlace#Login:hover {
