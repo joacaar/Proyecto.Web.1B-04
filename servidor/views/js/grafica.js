@@ -425,15 +425,21 @@ document.getElementById('downloadPDF').addEventListener("click", downloadPDF);
 
 //Descargar PDF de las gráficas. Posible mala calidad
 function downloadPDF() {
+
+  var datos = JSON.parse(localStorage.getItem('datos'));
+  console.log(datos);
+  var fecha = datos.ultimasMedidas.tiempo.split(' ');
+
   var grafica = document.querySelector('#grafica');
 	//Creamos la imagen
-	var ImagenGrafica = grafica.toDataURL("image/jpeg", 1.0);
+	var ImagenGrafica = grafica.toDataURL("image/png", 1.0);
 
 	//genera un PDF a partir de la imagen
-	var doc = new jsPDF('landscape');
+	var doc = new jsPDF('landscape', 'mm', 'a4');
 	doc.setFontSize(20);
-	doc.text(15, 15, "Grafica");
-	doc.addImage(ImagenGrafica, 'JPEG', 10, 10, 280, 150 );
+	doc.text('Fecha: ' + fecha[0], 15, 15);
+	doc.addImage(ImagenGrafica, 'PNG', 15, 25, 280, 150 );
+  doc.setFillColor(255,255,255);
 	doc.save('Grafica.pdf');
 }
 
