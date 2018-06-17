@@ -17,8 +17,10 @@ function passRecover (){
           console.log(respuesta);
           if (respuesta.status == 200) {
             console.log("Todo Correcto, codigo = 200");
+            location.href = '/sesion';
           }else{
             console.log("Algo falla, codigo /= 200");
+
           }
         })
 }

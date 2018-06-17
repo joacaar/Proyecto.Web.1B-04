@@ -100,10 +100,14 @@ function addMarker(lat, lng, nombreSensor, idSensor) {
 
     var datos = JSON.parse(localStorage.getItem('datos'))
 
+    var tiempo = datos.ultimasMedidas.tiempo.split(' ');
+
+    console.log(tiempo);
+
     // string para introducir código HTML en InfoWindow
     var contentString =
     '<div id=ventanaInfo>'+
-      '<h6 id="fechaCentana">'+ datos.ultimasMedidas.tiempo +'</h6>'+
+      '<h6 id="fechaCentana"> Hora: '+ tiempo[1] +'</h6>'+
       '<a href="/grafica?sensor='+idSensor+'&medida=temperatura" class="enlace">' +
         '<div id="temperatura" class="ContenedorInfoWindow">' +
         '<p class="medida">Temperatura ºC:</p>'+

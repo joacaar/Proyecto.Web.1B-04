@@ -58,7 +58,7 @@ function comprobar_login(){
           });
         }else if(respuesta.status == 401){//si el estado es 401, muestra un mensaje al usuario
           cuadro.style.display = 'block';
-          aviso.innerHTML = "Los datos introducidos no son correctos";
+          aviso.innerHTML = "Error en los datos";
         }else{// si no es ninguno de los dos estados anteriores debera ser el 500 debido a un error con la base de datos.
           //tambien puede tratarse de un error de red.
           cuadro.style.display = 'block';
