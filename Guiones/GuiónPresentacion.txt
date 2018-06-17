@@ -1,0 +1,40 @@
+index.html
+
+-Ofrece informacion del producto (vista rápida del apartado información)
+-Ir a login (entrar en login)
+
+
+login.html
+
+-detecta si te equivocas (Poner datos correctos y añadir un numero de mas para borrar rápidamente)
+-Puedes saber tu contraseña gracias a contraseña olvidada (entrar en un momento)
+-Detecta que usuario entra y si es su primera vez (logeo normal y corriente(a poder ser que lleve a perfil))
+
+
+contrasena.html
+
+-poner el correo y demostrar que te llega el correo (recomiendo copiar y pegar el correo y tener la pestaña ya abierta para más velocidad)
+-volver a login
+
+
+perfil.html
+
+-Muestra tus datos
+-(Opcional)Se puede seleccionar archivo para imagen (pulsar y cancelar o pulsar sobre la imagen ya puesta y dar efecto de recarga)
+-Necesario cambiar la contraseña la primera vez(cambiarla lo más rápido posible para evitar silencios incómodos)
+
+
+mapa.html
+
+-se puede seleccionar campo a voluntad (seleccionar arboles leña)
+-enseñar que cada punto tiene su globo con medidas (pulsar un par no 15 y en el último ir a ver gráficas)
+
+
+grafica.html
+
+-demostrar que solo se puede ver de medio lado
+-enseñar las diferentes medidas pasandolas por encima
+-decir que se puede descargar la gráfica (pulsar en exportar gráfica y mostrar la gráfica descargada)
+
+
+fin presentación
