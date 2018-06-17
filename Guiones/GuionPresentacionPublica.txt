@@ -1,0 +1,23 @@
+Buenos dias, os vamos a presentar un producto revolucionario en la agricultura, se trata de una sonda que dispone de unos sensores os cuales mediante una aplicacion web te permitira tener informacion de tuc campos.
+
+La parte de hardware consta como se ha dicho anteriormente de unos sensores programador para obtener informacion de parametros importantes como la humedad del terreno, la temperatura de la zona etc... tambien inluye geolocalizacion para poder encontrar la sonda facilmente ubicada en un campo.
+
+Por ultimo, este hardware envia la informacion a un servidor, y para acceder a esta informacion se detalla en la segunda parte que habla de la palicacion web.
+
+A continuacion hablaremos de la parte de la aplicacion que pasa desapercibida para el cliente, se trata de todos los procesos logicos que procesan la informacion recibida que se almacena en una base de datos y posteriormente se muestra al usuario final.
+
+El flujo de la informacion empieza cuando se recibe por protocolos web al servidor el cual almacena en la base de datos. 
+La informacion una vez almacenada esperara a que el susuario final pida esos datos y el servidor se encarga de proporcionarselos.
+Aparte de la informacion de los sensores tambien se encarga de la gestion de las cuentas de usuario, cada usuario deberera ser comprobado para poder visualizar solamente sus zonas y permitir una cierta privacidad en su cuenta.
+
+Con esto llegamos a la parte que el usuario podra ver e interactuar, la parte de front end de una aplicacion web.
+
+En esta parte de la practica se debe tener en cuenta la interactividad que el usuario hara con la aplicacion, debe ser importante que sea intuitivo y facil de usar sin prescindir de un diseño coherente.
+
+Tambien se encarga de mostrar al usuario toda la informacion que desea observar y por tanto debe ser de forma agradable por eso se opto por diseñar un mapa donde se mostraran las zonas de campos del usuario añadiendo la posicion de las sondas, ademas pulsando en los iconos de posicion de las sondas se ve un resumen de la informacion de los sensores de eesas sondas, que para mas detalle pulsando en una de esas medidas se puede obtener las medidas de las ultimas 24 horas en forma de grafica incluyendo la opcion de descargar la grafica en pdf.
+
+La ultima parte importante de la aplicacion es la importancia de simular una aplicacion en una pagina web, se trata de mantener una coherencia en la navegacion por las diferentes paginas, por ejemplo al volver al mapa despues de ver una grafica se debe mostrar el mismo campo que se visualizaba antes de ver la grafica.
+
+Con esto concluimos la presentacion, esperamos que les haya gustado nuestro proyecto y responderemos a cualquier pregunta que tengan.
+
+Gracias.
