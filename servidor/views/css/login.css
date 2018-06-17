@@ -68,7 +68,7 @@ div.central {
     align-items: center;
     justify-content: center;
     font-family: 'Muli', sans-serif;
-
+    box-shadow: 5px 10px rgba(0, 0, 0, 0.5);
 }
 
 div.central h1 {

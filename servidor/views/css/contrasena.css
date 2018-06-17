@@ -83,7 +83,7 @@ header.cabezera img {
     left: 0;
     right: 0; */
     background-color: rgba(182, 191, 185, 0.46);
-    margin: 4rem 1rem;
+    margin: 4rem auto;
     padding: 0px;
     min-height: 24rem;
     max-width: 40rem;
@@ -95,9 +95,11 @@ header.cabezera img {
     align-items: center;
     justify-content: center;
     font-family: 'Muli', sans-serif;
+    box-shadow: 5px 10px rgba(0, 0, 0, 0.5);
 }
 
 /*-------------------------------------------------*/
+
 /*----------------------------------------
 //           Celda correo
 //---------------------------------------- */
@@ -115,6 +117,7 @@ header.cabezera img {
 /*----------------------------------------
 //           Boton enviar contraseña
 //---------------------------------------- */
+
 .botonEnlace#enviarContra {
     color: #172122;
     border: solid #172122;
@@ -145,7 +148,7 @@ header.cabezera img {
 }
 
 .finalDePagina footer {
-    position: relative!important;
+    position: relative !important;
     width: 100%;
     /*bottom: 0;
     left: 0;

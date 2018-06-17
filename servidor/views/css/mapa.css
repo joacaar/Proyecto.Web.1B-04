@@ -41,7 +41,7 @@ body {
 
 #map {
     width: 100%;
-    height: 87.3%;
+    height: 84%;
     background-color: grey;
     border: solid 2px #333;
 }
@@ -136,7 +136,7 @@ footer {
 }
 
 .cabezal .boton-menu {
-    margin-left: auto;
+    margin-left: 0;
     margin-right: 2rem;
     background-color: black;
     border: #00c5e8 solid 1px;
