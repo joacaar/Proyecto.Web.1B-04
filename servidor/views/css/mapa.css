@@ -33,11 +33,12 @@ header .botonperfil .btn:hover{
 }
 */
 
-body{
+body {
     margin: 0;
     padding: 0;
     height: 100%;
 }
+
 #map {
     width: 100%;
     height: 84%;
@@ -45,42 +46,45 @@ body{
     border: solid 2px #333;
 }
 
-.container{
+.container {
 
     /*width: 90%;*/
     /*margin: 1rem 1rem 1rem 1rem;*/
-
     height: 100%;
 }
-.container .row .map{
+
+.container .row .map {
     width: 300px;
     height: 500px;
     margin-top: 1rem;
     background-color: grey;
     border: solid 2px #333;
 }
+
 div.dropdown {
     z-index: 90;
     position: absolute;
     margin-left: 1rem;
     margin-top: 0.5rem;
 }
+
 button.botonDropdown {
     background-color: rgb(131, 214, 234);
 }
 
-#ventanaInfo{
+#ventanaInfo {
     z-index: 100;
 }
 
-#ventanaInfo a{
+#ventanaInfo a {
     text-decoration: none;
 }
-#ventanaInfo a.enlace{
+
+#ventanaInfo a.enlace {
     color: #3cc4e6;
 }
 
-.ContenedorInfoWindow{
+.ContenedorInfoWindow {
     display: flex;
     /*justify-content: flex-start;*/
     justify-content: space-between;
@@ -91,27 +95,27 @@ button.botonDropdown {
     border: solid 1px black;
     border-radius: 0.2rem;
     background: #6c757d;
-    
+
 }
 
-.ContenedorInfoWindow img{
+.ContenedorInfoWindow img {
     display: flex;
     justify-content: flex-end;
 }
 
-.ContenedorInfoWindow:hover{
+.ContenedorInfoWindow:hover {
     background: #4f575f;
-    
+
 }
 
-.ContenedorInfoWindow p{
+.ContenedorInfoWindow p {
     text-decoration: none;
     color: #ede9e9;
     margin: 0 0;
     padding: 0 0.2rem;
 }
 
-.ContenedorInfoWindow img{
+.ContenedorInfoWindow img {
     width: 15px;
     height: 15px;
 }
@@ -126,14 +130,26 @@ footer {
     color: grey;
 }
 
-.container {
+.container {
     margin: 0;
     padding: 0;
 }
 
-.container .cabezal .boton-menu {
+.cabezal .boton-menu {
     margin-left: auto;
     margin-right: 2rem;
+    background-color: black;
+    border: #00c5e8 solid 1px;
+
+}
+
+.cabezal .boton-menu:active {
+    background-color: #333333;
+}
+
+header .cabezal a i {
+    margin-right: 0rem;
+    margin: 0.25rem 0.5rem;
 }
 
 #menu-principal {
@@ -166,4 +182,3 @@ footer {
 #menu-principal ul li.active a {
     color: $principal;
 }
-
